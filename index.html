@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KeyPresser - 自动化按键工具</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Microsoft YaHei', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f5f5f5;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .logo-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 15px;
+        }
+        
+        .logo {
+            width: 60px;
+            height: 60px;
+            margin-right: 15px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        header h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        @media (max-width: 768px) {
+            .logo {
+                width: 45px;
+                height: 45px;
+                margin-right: 10px;
+            }
+        }
+        
+        header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+        
+        .download-section {
+            text-align: center;
+            margin: 40px 0;
+        }
+        
+        .download-btn {
+            display: inline-block;
+            background: #4CAF50;
+            color: white;
+            padding: 15px 30px;
+            font-size: 1.2em;
+            text-decoration: none;
+            border-radius: 50px;
+            margin: 10px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .download-btn:hover {
+            background: #45a049;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+        
+        .download-btn.secondary {
+            background: #2196F3;
+        }
+        
+        .download-btn.secondary:hover {
+            background: #1976D2;
+        }
+        
+        .features {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin: 40px 0;
+        }
+        
+        .feature-card {
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            margin: 15px 0;
+            flex: 1;
+            min-width: 300px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .feature-card h3 {
+            color: #667eea;
+            margin-bottom: 15px;
+            font-size: 1.5em;
+        }
+        
+        .screenshot {
+            text-align: center;
+            margin: 40px 0;
+        }
+        
+        .screenshot img {
+            max-width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .usage {
+            background: white;
+            border-radius: 10px;
+            padding: 40px;
+            margin: 40px 0;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .usage h2 {
+            color: #667eea;
+            margin-bottom: 20px;
+        }
+        
+        .usage-step {
+            margin: 20px 0;
+            padding-left: 30px;
+            position: relative;
+        }
+        
+        .usage-step::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 5px;
+            width: 20px;
+            height: 20px;
+            background: #667eea;
+            border-radius: 50%;
+        }
+        
+        .usage-step h3 {
+            color: #555;
+            margin-bottom: 10px;
+        }
+        
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 60px;
+        }
+        
+        .feedback {
+            text-align: center;
+            margin: 40px 0;
+        }
+        
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2em;
+            }
+            
+            .download-btn {
+                display: block;
+                margin: 10px auto;
+            }
+            
+            .feature-card {
+                min-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo-container">
+                <img src="keypresser_logo.png" alt="KeyPresser Logo" class="logo">
+                <h1>KeyPresser</h1>
+            </div>
+            <p>专业的自动化按键工具，支持后台运行，解放你的双手</p>
+        </div>
+    </header>
+    
+    <div class="container">
+        <div class="download-section">
+            <h2>立即下载</h2>
+            <a href="https://gitcode.com/wang161019/KeyPresser" class="download-btn" target="_blank">
+                前往 GitCode 下载
+            </a>
+            <a href="https://pan.baidu.com/s/1TK0YWSvB8WE-wJpf7TmKoA?pwd=ej7b" class="download-btn secondary" target="_blank">
+                百度网盘下载（提取码: ej7b）
+            </a>
+
+        </div>
+        
+        <div class="screenshot">
+            <h2>软件界面</h2>
+            <p>简洁直观的操作界面，让自动化操作变得简单</p>
+            <img src="keypresser.png" alt="KeyPresser软件界面" style="max-width: 100%; height: auto; border-radius: 10px; margin-top: 20px; box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);">
+        </div>
+        
+        <div class="features">
+            <div class="feature-card">
+                <h3>后台运行</h3>
+                <p>无需保持被控窗口在前台，支持后台自动按键操作，让你可以同时进行其他工作。</p>
+            </div>
+            
+            <div class="feature-card">
+                <h3>多种触发模式</h3>
+                <p>支持独立触发和顺序触发两种模式，可以根据需要灵活配置按键序列。</p>
+            </div>
+            
+            <div class="feature-card">
+                <h3>多种键盘仿真</h3>
+                <p>提供正常模式、Windows模式和DX模式三种键盘仿真方式，适应不同场景需求。</p>
+            </div>
+            
+            <div class="feature-card">
+                <h3>鼠标助手</h3>
+                <p>内置鼠标自动化功能，支持图像识别定位点击，让操作更加精准。</p>
+            </div>
+            
+            <div class="feature-card">
+                <h3>随机时间间隔</h3>
+                <p>支持设置按键时间间隔范围，生成随机间隔，使操作更加自然。</p>
+            </div>
+            
+            <div class="feature-card">
+                <h3>设置导入导出</h3>
+                <p>支持保存和加载操作配置，方便在不同场景快速切换。</p>
+            </div>
+        </div>
+        
+        <div class="tutorial-section" style="text-align: center; margin: 40px 0;">
+            <a href="https://ocn1lplwg6gi.feishu.cn/wiki/Ual4wc4SxiKIodkuSSUcpLBTnsc?from=from_copylink" class="download-btn secondary" target="_blank">
+                查看完整教程
+            </a>
+        </div>
+        
+        <div class="usage">
+            <h2>快速使用指南</h2>
+            
+            <div class="usage-step">
+                <h3>选择目标窗口</h3>
+                <p>点击"选择窗口"按钮后，根据提示点击目标窗口（例如游戏窗口）。可以点击"凸显所选窗口"来确认选择是否正确。</p>
+            </div>
+            
+            <div class="usage-step">
+                <h3>选择触发模式</h3>
+                <p>根据需要选择"独立触发"或"顺序触发"模式。独立触发模式下，勾选的按键独立计算时间间隔；顺序触发模式下，按键按顺序依次触发。</p>
+            </div>
+            
+            <div class="usage-step">
+                <h3>配置键盘仿真模式</h3>
+                <p>选择合适的键盘仿真模式：正常模式、Windows模式或DX模式。如果Windows后台模式不生效，可以尝试DX模式。</p>
+            </div>
+            
+            <div class="usage-step">
+                <h3>设置按键和时间间隔</h3>
+                <p>勾选需要自动点击的按键，选择具体的按键类型，并设置时间间隔。当最小值和最大值不同时，将在范围内生成随机间隔。</p>
+            </div>
+            
+            <div class="usage-step">
+                <h3>开始自动操作</h3>
+                <p>点击"开始"按钮或按下快捷键，即可开始自动按键。点击"停止"按钮或再次按下快捷键可停止操作。</p>
+            </div>
+        </div>
+        
+        <div class="feedback">
+            <h2>问题反馈与建议</h2>
+            <p>如有任何问题或建议，请访问：</p>
+            <a href="https://gitcode.com/wang161019/KeyPresser/discussions/1" target="_blank" class="download-btn secondary">
+                前往讨论区
+            </a>
+        </div>
+    </div>
+    
+    <footer>
+        <div class="container">
+            <p>KeyPresser - 专业自动化按键工具</p>
+            <p>&copy; 2025 KeyPresser Team</p>
+        </div>
+    </footer>
+</body>
+</html>
