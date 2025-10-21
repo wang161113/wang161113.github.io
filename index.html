@@ -180,16 +180,74 @@
         }
         
         .feature-item {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            font-size: 0.95em;
-            color: #666;
-            background: #f8f9ff;
-            padding: 8px 16px;
-            border-radius: 20px;
-            border: 1px solid rgba(102, 126, 234, 0.2);
-        }
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.95em;
+    color: #666;
+    background: linear-gradient(145deg, #f8f9ff 0%, #eef2ff 100%);
+    padding: 8px 16px;
+    border-radius: 20px;
+    border: 1px solid rgba(102, 126, 234, 0.2);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 
+        0 4px 12px rgba(102, 126, 234, 0.1),
+        0 1px 3px rgba(0, 0, 0, 0.05);
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+.feature-item::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, transparent, rgba(102, 126, 234, 0.1), transparent);
+    transform: rotate(45deg);
+    transition: all 0.6s ease;
+    opacity: 0;
+}
+
+.feature-item:hover {
+    transform: 
+        translateY(-6px) 
+        scale(1.05) 
+        rotateX(3deg) 
+        rotateY(1deg);
+    background: linear-gradient(145deg, #ffffff 0%, #f0f4ff 100%);
+    box-shadow: 
+        0 12px 30px rgba(102, 126, 234, 0.2),
+        0 4px 15px rgba(0, 0, 0, 0.1),
+        0 0 0 2px rgba(102, 126, 234, 0.1);
+    border-color: rgba(102, 126, 234, 0.4);
+    color: #667eea;
+}
+
+.feature-item:hover::before {
+    opacity: 1;
+    transform: rotate(45deg) translate(50%, 50%);
+}
+
+.feature-item:active {
+    transform: 
+        translateY(-3px) 
+        scale(0.98) 
+        rotateX(1deg);
+    transition: all 0.2s ease;
+}
+
+.feature-item:hover .feature-icon {
+    transform: scale(1.2) rotate(5deg);
+    filter: drop-shadow(0 2px 4px rgba(102, 126, 234, 0.3));
+}
+
+.feature-icon {
+    font-size: 1.1em;
+    transition: all 0.3s ease;
+}
         
         .feedback-btn {
             display: inline-block;
