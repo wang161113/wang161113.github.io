@@ -235,17 +235,22 @@
         }
         
         .feature-card {
-            background: white;
-            border-radius: 15px;
+            background: linear-gradient(145deg, #ffffff 0%, #f8f9fa 100%);
+            border-radius: 20px;
             padding: 35px;
             flex: 1 1 calc(33.333% - 10px);
             min-width: 300px;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
+            box-shadow: 
+                0 10px 30px rgba(0, 0, 0, 0.08),
+                0 1px 3px rgba(0, 0, 0, 0.05);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             box-sizing: border-box;
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(102, 126, 234, 0.1);
             position: relative;
             overflow: hidden;
+            cursor: pointer;
+            transform-style: preserve-3d;
+            perspective: 1000px;
         }
         
         .feature-card::before {
@@ -255,17 +260,53 @@
             left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-            transition: left 0.5s ease;
+            background: linear-gradient(90deg, transparent, rgba(102, 126, 234, 0.1), transparent);
+            transition: left 0.6s ease;
+            z-index: 1;
+        }
+        
+        .feature-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.05) 0%, rgba(118, 75, 162, 0.05) 100%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            z-index: 1;
         }
         
         .feature-card:hover::before {
             left: 100%;
         }
         
+        .feature-card:hover::after {
+            opacity: 1;
+        }
+        
         .feature-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+            transform: 
+                translateY(-12px) 
+                rotateX(5deg) 
+                rotateY(2deg) 
+                scale(1.02);
+            box-shadow: 
+                0 25px 50px rgba(102, 126, 234, 0.15),
+                0 15px 35px rgba(0, 0, 0, 0.1),
+                0 0 0 1px rgba(102, 126, 234, 0.1);
+            background: linear-gradient(145deg, #ffffff 0%, #f0f4ff 100%);
+            border-color: rgba(102, 126, 234, 0.3);
+        }
+        
+        .feature-card:active {
+            transform: 
+                translateY(-8px) 
+                rotateX(2deg) 
+                rotateY(1deg) 
+                scale(0.98);
+            transition: all 0.2s ease;
         }
         
         .feature-card h3 {
@@ -319,6 +360,42 @@
             align-items: center;
             justify-content: center;
             color: white;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            transform: scale(1);
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+        }
+        
+        .feature-card:hover h3::before {
+            transform: scale(1.1) rotate(10deg);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.5);
+            background: linear-gradient(135deg, #5a6fd8 0%, #6a4190 100%);
+        }
+        
+        .feature-card h3 {
+            color: #667eea;
+            margin-bottom: 15px;
+            font-size: 1.5em;
+            position: relative;
+            padding-left: 40px;
+            transition: all 0.3s ease;
+            transform: translateX(0);
+        }
+        
+        .feature-card:hover h3 {
+            transform: translateX(5px);
+            color: #5a6fd8;
+        }
+        
+        .feature-card p {
+            color: #666;
+            line-height: 1.6;
+            transition: all 0.3s ease;
+            transform: translateY(0);
+        }
+        
+        .feature-card:hover p {
+            transform: translateY(-2px);
+            color: #555;
         }
         
         .screenshot {
@@ -737,32 +814,116 @@
         
         .stat-item {
             text-align: center;
-            background: white;
-            border-radius: 15px;
-            padding: 30px;
+            background: linear-gradient(145deg, #ffffff 0%, #f8f9fa 100%);
+            border-radius: 20px;
+            padding: 35px;
             flex: 1;
             min-width: 200px;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease;
+            box-shadow: 
+                0 10px 30px rgba(0, 0, 0, 0.08),
+                0 1px 3px rgba(0, 0, 0, 0.05);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 1px solid rgba(102, 126, 234, 0.1);
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            transform-style: preserve-3d;
+            perspective: 1000px;
+        }
+        
+        .stat-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(102, 126, 234, 0.1), transparent);
+            transition: left 0.6s ease;
+            z-index: 1;
+        }
+        
+        .stat-item::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.05) 0%, rgba(118, 75, 162, 0.05) 100%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            z-index: 1;
+        }
+        
+        .stat-item:hover::before {
+            left: 100%;
+        }
+        
+        .stat-item:hover::after {
+            opacity: 1;
         }
         
         .stat-item:hover {
-            transform: translateY(-5px);
+            transform: 
+                translateY(-12px) 
+                rotateX(5deg) 
+                rotateY(2deg) 
+                scale(1.02);
+            box-shadow: 
+                0 25px 50px rgba(102, 126, 234, 0.15),
+                0 15px 35px rgba(0, 0, 0, 0.1),
+                0 0 0 1px rgba(102, 126, 234, 0.1);
+            background: linear-gradient(145deg, #ffffff 0%, #f0f4ff 100%);
+            border-color: rgba(102, 126, 234, 0.3);
+        }
+        
+        .stat-item:active {
+            transform: 
+                translateY(-8px) 
+                rotateX(2deg) 
+                rotateY(1deg) 
+                scale(0.98);
+            transition: all 0.2s ease;
         }
         
         .stat-number {
-            font-size: 3em;
+            font-size: 3.5em;
             font-weight: bold;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
             margin-bottom: 10px;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            transform: scale(1);
+            display: inline-block;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .stat-item:hover .stat-number {
+            transform: scale(1.1);
+            background: linear-gradient(135deg, #5a6fd8 0%, #6a4190 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 0 20px rgba(102, 126, 234, 0.3);
         }
         
         .stat-label {
             color: #666;
             font-size: 1.1em;
+            transition: all 0.3s ease;
+            transform: translateY(0);
+            position: relative;
+            z-index: 2;
+        }
+        
+        .stat-item:hover .stat-label {
+            transform: translateY(-3px);
+            color: #333;
+            font-weight: 500;
         }
         
         /* 滚动动画 */
