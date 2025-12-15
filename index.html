@@ -1219,6 +1219,7 @@ body::after {
         <div class="screenshot fade-in">
             <h2>软件界面</h2>
             <p>简洁直观的操作界面，让自动化操作变得简单</p>
+            <p style="font-size: 1.3em; font-weight: bold; color: #667eea; background: rgba(102, 126, 234, 0.1); padding: 12px 20px; border-radius: 10px; display: inline-block; box-shadow: 0 4px 12px rgba(102, 126, 234, 0.15); margin: 10px 0;">🚀 KeyPresser硬件版来袭，绕过软件输入拦截</p>
             <img src="keypresser.png" alt="KeyPresser软件界面" style="max-width: 100%; height: auto; border-radius: 10px; margin-top: 20px; box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);">
         </div>
         
@@ -1346,10 +1347,35 @@ body::after {
                 <!-- 更新版本项 -->
                 <div class="update-item" style="border-bottom: 1px solid #f0f0f0; padding: 30px 0; transition: transform 0.3s ease;">
                     <div class="update-header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
-                        <h3 style="font-size: 1.5em; color: #667eea; margin: 0;">KeyPresser 5.2.0</h3>
+                        <h3 style="font-size: 1.5em; color: #667eea; margin: 0;">KeyPresser 5.3.0</h3>
                         <span class="update-badge" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 5px 15px; border-radius: 20px; font-size: 0.9em;">最新版本</span>
                     </div>
                     <div class="update-details" style="color: #666; line-height: 1.8; padding-left: 20px; border-left: 3px solid #667eea;">
+                        <p style="margin: 10px 0;">• KeyPresser硬件版来袭，绕过软件输入拦截</p>
+                        <p style="margin: 10px 0;">• KeyPresser硬件版使用Arduino Leonardo作为物理按键模拟器，并通过KeyPresser界面远程控制它发送按键消息</p>
+                        <h4 style="margin: 20px 0 10px 0; color: #333;">Arduino Leonardo原理</h4>
+                        <p style="margin: 10px 0;">该方案的核心原理是通过串口通信在keypresser软件和Arduino之间建立连接：</p>
+                        <ul style="margin: 10px 0 10px 20px; padding-left: 20px;">
+                            <li style="margin: 5px 0;">keypresser软件发送特定格式的指令到Arduino</li>
+                            <li style="margin: 5px 0;">Arduino接收并解析这些指令</li>
+                            <li style="margin: 5px 0;">根据指令内容模拟相应的键盘按键操作</li>
+                        </ul>
+                        <h4 style="margin: 20px 0 10px 0; color: #333;">优势特点</h4>
+                        <ul style="margin: 10px 0 10px 20px; padding-left: 20px;">
+                            <li style="margin: 5px 0;">绕过软件拦截：利用Arduino的物理输入模拟能力，绕过游戏的软件输入拦截</li>
+                            <li style="margin: 5px 0;">灵活控制：通过keypresser可以方便地发送各种复杂的按键序列（后续会拓展组合键）</li>
+                            <li style="margin: 5px 0;">易于扩展：后续可以根据需要扩展支持鼠标操作、批量指令等功能</li>
+                        </ul>
+                        <p style="margin: 10px 0;">KeyPresser硬件版详细使用教程请查看<a href="https://ocn1lplwg6gi.feishu.cn/wiki/Ual4wc4SxiKIodkuSSUcpLBTnsc?from=from_copylink" target="_blank" style="color: #667eea; text-decoration: none; border-bottom: 1px solid #667eea; padding-bottom: 2px; transition: all 0.3s ease;">帮助文档</a></p>
+                    </div>
+                </div>
+
+                <div class="update-item" style="border-bottom: 1px solid #f0f0f0; padding: 30px 0; transition: transform 0.3s ease;">
+                    <div class="update-header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+                        <h3 style="font-size: 1.5em; color: #667eea; margin: 0;">KeyPresser 5.2.0</h3>
+                        <span class="update-badge" style="background: #e0e0e0; color: #666; padding: 5px 15px; border-radius: 20px; font-size: 0.9em;">历史版本</span>
+                    </div>
+                    <div class="update-details" style="color: #666; line-height: 1.8; padding-left: 20px; border-left: 3px solid #ddd;">
                         <p style="margin: 10px 0;">• 添加KeyPresser识图版：支持识别到指定图片后自动点击按键</p>
                     </div>
                 </div>
@@ -1359,7 +1385,7 @@ body::after {
                         <h3 style="font-size: 1.5em; color: #667eea; margin: 0;">KeyPresser 5.1.0</h3>
                         <span class="update-badge" style="background: #e0e0e0; color: #666; padding: 5px 15px; border-radius: 20px; font-size: 0.9em;">历史版本</span>
                     </div>
-                    <div class="update-details" style="color: #666; line-height: 1.8; padding-left: 20px; border-left: 3px solid #667eea;">
+                    <div class="update-details" style="color: #666; line-height: 1.8; padding-left: 20px; border-left: 3px solid  #ddd;">
                         <p style="margin: 10px 0;">• 集成鼠标键盘录制功能</p>
                     </div>
                 </div>
