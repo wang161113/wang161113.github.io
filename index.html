@@ -7,6 +7,59 @@
         <link rel="icon" href="keypresser.ico" type="image/x-icon">
         <link rel="shortcut icon" href="keypresser.ico" type="image/x-icon">
         <style>
+		/* 图片放大查看功能 */
+		.image-modal {
+			display: none;
+			position: fixed;
+			z-index: 10000;
+			left: 0;
+			top: 0;
+			width: 100%;
+			height: 100%;
+			overflow: auto;
+			background-color: rgba(0, 0, 0, 0.9);
+			animation: fadeIn 0.3s ease;
+		}
+
+		.image-modal-content {
+			margin: auto;
+			display: block;
+			max-width: 90%;
+			max-height: 90%;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			animation: zoomIn 0.3s ease;
+		}
+
+		@keyframes fadeIn {
+			from {opacity: 0;}
+			to {opacity: 1;}
+		}
+
+		@keyframes zoomIn {
+			from {transform: translate(-50%, -50%) scale(0.5);}
+			to {transform: translate(-50%, -50%) scale(1);}
+		}
+
+		.close-modal {
+			position: absolute;
+			top: 20px;
+			right: 35px;
+			color: #fff;
+			font-size: 40px;
+			font-weight: bold;
+			transition: 0.3s;
+			cursor: pointer;
+			z-index: 10001;
+		}
+
+		.close-modal:hover, .close-modal:focus {
+			color: #bbb;
+			text-decoration: none;
+			cursor: pointer;
+		}
         * {
             margin: 0;
             padding: 0;
@@ -1220,7 +1273,7 @@ body::after {
             <h2>软件界面</h2>
             <p>简洁直观的操作界面，让自动化操作变得简单</p>
             <p style="font-size: 1.3em; font-weight: bold; color: #667eea; background: rgba(102, 126, 234, 0.1); padding: 12px 20px; border-radius: 10px; display: inline-block; box-shadow: 0 4px 12px rgba(102, 126, 234, 0.15); margin: 10px 0;">🚀 KeyPresser硬件版来袭，终极大杀器，绕过软件输入拦截</p>
-            <img src="keypresser.png" alt="KeyPresser软件界面" style="max-width: 100%; height: auto; border-radius: 10px; margin-top: 20px; box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);">
+            <img src="keypresser.png" alt="KeyPresser软件界面" onclick="openImageModal(this.src)" style="max-width: 100%; height: auto; border-radius: 10px; margin-top: 20px; box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); cursor: pointer;">
         </div>
         
         <div class="features" id="features">
@@ -1468,7 +1521,99 @@ body::after {
         </div>
     </footer>
 
+    <!-- 图片放大查看模态框 -->
+    <div id="imageModal" class="modal">
+        <span class="close">&times;</span>
+        <img class="modal-content" id="modalImage">
+        <div id="caption"></div>
+    </div>
+
+    <style>
+        /* 模态框样式 */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            padding-top: 60px;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgb(0,0,0);
+            background-color: rgba(0,0,0,0.9);
+        }
+
+        /* 模态框内容 */
+        .modal-content {
+            margin: auto;
+            display: block;
+            max-width: 90%;
+            max-height: 90%;
+            animation-name: zoom;
+            animation-duration: 0.6s;
+        }
+
+        @keyframes zoom {
+            from {transform:scale(0)}
+            to {transform:scale(1)}
+        }
+
+        /* 关闭按钮 */
+        .close {
+            position: absolute;
+            top: 20px;
+            right: 35px;
+            color: #f1f1f1;
+            font-size: 40px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: #bbb;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        /* 图片描述 */
+        #caption {
+            margin: auto;
+            display: block;
+            width: 80%;
+            max-width: 700px;
+            text-align: center;
+            color: #ccc;
+            padding: 10px 0;
+            height: 150px;
+        }
+    </style>
+
     <script>
+        // 图片放大查看功能
+        var modal = document.getElementById("imageModal");
+        var modalImg = document.getElementById("modalImage");
+        var captionText = document.getElementById("caption");
+        var span = document.getElementsByClassName("close")[0];
+
+        function openModal(img) {
+            modal.style.display = "block";
+            modalImg.src = img.src;
+            captionText.innerHTML = img.alt;
+        }
+
+        // 点击关闭按钮或模态框外部关闭模态框
+        span.onclick = function() {
+            modal.style.display = "none";
+        }
+
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+
         // 滚动动画效果
         document.addEventListener('DOMContentLoaded', function() {
             const observerOptions = {
@@ -1580,8 +1725,61 @@ body::after {
             });
         });
 
-        // 创建浮动粒子效果
-        function createParticles() {
+        // 图片放大查看功能
+			function openImageModal(imgSrc) {
+				// 创建模态框元素
+				let modal = document.createElement('div');
+				modal.className = 'image-modal';
+				modal.id = 'imageModal';
+				modal.onclick = closeImageModal;
+				
+				// 创建关闭按钮
+				let closeBtn = document.createElement('span');
+				closeBtn.className = 'close-modal';
+				closeBtn.innerHTML = '&times;';
+				closeBtn.onclick = closeImageModal;
+				
+				// 创建放大图片
+				let modalImg = document.createElement('img');
+				modalImg.className = 'image-modal-content';
+				modalImg.src = imgSrc;
+				modalImg.onclick = function(e) {
+					e.stopPropagation(); // 防止点击图片关闭模态框
+				};
+				
+				// 添加元素到页面
+				modal.appendChild(closeBtn);
+				modal.appendChild(modalImg);
+				document.body.appendChild(modal);
+				
+				// 显示模态框
+				modal.style.display = 'block';
+				
+				// 禁止页面滚动
+				document.body.style.overflow = 'hidden';
+			}
+			
+			function closeImageModal() {
+				let modal = document.getElementById('imageModal');
+				if (modal) {
+					modal.style.display = 'none';
+					setTimeout(() => {
+						modal.remove();
+					}, 300); // 等待动画结束后移除元素
+				}
+				// 恢复页面滚动
+				document.body.style.overflow = 'auto';
+			}
+			
+			// 按ESC键关闭模态框
+			document.addEventListener('keydown', function(e) {
+				if (e.key === 'Escape') {
+					closeImageModal();
+				}
+			});
+			
+			// 创建浮动粒子效果
+		function createParticles() {
             const particleCount = 25;
             const colors = [
                 'rgba(102, 126, 234, 0.6)',
