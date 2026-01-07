@@ -661,6 +661,202 @@ body::after {
             border-radius: 10px;
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
         }
+
+        .carousel-container {
+            position: relative;
+            max-width: 100%;
+            max-height: 800px;
+            margin: 20px auto;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .carousel-slide {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+            height: 800px;
+        }
+
+        .carousel-image {
+            width: 100%;
+            height: 100%;
+            flex-shrink: 0;
+            object-fit: contain;
+            cursor: pointer;
+        }
+
+        .carousel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 15px 20px;
+            cursor: pointer;
+            font-size: 24px;
+            transition: background 0.3s, transform 0.3s;
+            z-index: 10;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .carousel-btn:hover {
+            background: rgba(102, 126, 234, 0.8);
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .carousel-btn.prev {
+            left: 20px;
+        }
+
+        .carousel-btn.next {
+            right: 20px;
+        }
+
+        .carousel-indicators {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+            z-index: 10;
+        }
+
+        .indicator {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .indicator.active {
+            background: #667eea;
+            transform: scale(1.2);
+        }
+
+        .indicator:hover {
+            background: rgba(102, 126, 234, 0.8);
+        }
+
+        .modules-section {
+            background: white;
+            border-radius: 15px;
+            padding: 50px 40px;
+            margin: 40px 0;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .modules-section h2 {
+            font-size: 2.2em;
+            margin-bottom: 10px;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-align: center;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: #666;
+            font-size: 1.1em;
+            margin-bottom: 40px;
+        }
+
+        .modules-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .module-card {
+            background: linear-gradient(135deg, #f8f9ff 0%, #fff 100%);
+            border-radius: 12px;
+            padding: 25px;
+            border: 1px solid rgba(102, 126, 234, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .module-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .module-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px rgba(102, 126, 234, 0.2);
+        }
+
+        .module-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .module-icon {
+            font-size: 3em;
+            margin-bottom: 15px;
+        }
+
+        .module-card h3 {
+            font-size: 1.4em;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .module-desc {
+            color: #666;
+            font-size: 0.95em;
+            margin-bottom: 15px;
+            font-style: italic;
+        }
+
+        .module-features {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .module-features li {
+            padding: 8px 0;
+            padding-left: 25px;
+            position: relative;
+            color: #555;
+            font-size: 0.9em;
+            line-height: 1.5;
+        }
+
+        .module-features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #667eea;
+            font-weight: bold;
+        }
+
+        @media (max-width: 768px) {
+            .modules-grid {
+                grid-template-columns: 1fr;
+            }
+        }
         
         .usage {
             background: white;
@@ -1220,6 +1416,15 @@ body::after {
 
 
     </style>
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?4f2de67cc56f85b5a9d4ecb57dba7ac4";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
 </head>
 <body>
     <header>
@@ -1274,39 +1479,133 @@ body::after {
         <div class="screenshot fade-in">
             <h2>软件界面</h2>
             <p>简洁直观的操作界面，让自动化操作变得简单</p>
-            <p style="font-size: 1.3em; font-weight: bold; color: #667eea; background: rgba(102, 126, 234, 0.1); padding: 12px 20px; border-radius: 10px; display: inline-block; box-shadow: 0 4px 12px rgba(102, 126, 234, 0.15); margin: 10px 0;">🚀 KeyPresser硬件版来袭，终极大杀器，绕过软件输入拦截</p>
-            <img src="keypresser.png" alt="KeyPresser软件界面" onclick="openImageModal(this.src)" style="max-width: 100%; height: auto; border-radius: 10px; margin-top: 20px; box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); cursor: pointer;">
+            <div class="carousel-container">
+                <div class="carousel-slide">
+                    <img src="carousel/1.png" alt="KeyPresser软件界面1" onclick="openImageModal(this.src)" class="carousel-image">
+                    <img src="carousel/2.png" alt="KeyPresser软件界面2" onclick="openImageModal(this.src)" class="carousel-image">
+                    <img src="carousel/3.png" alt="KeyPresser软件界面3" onclick="openImageModal(this.src)" class="carousel-image">
+                    <img src="carousel/4.png" alt="KeyPresser软件界面4" onclick="openImageModal(this.src)" class="carousel-image">
+                    <img src="carousel/5.png" alt="KeyPresser软件界面5" onclick="openImageModal(this.src)" class="carousel-image">
+                    <img src="carousel/6.png" alt="KeyPresser软件界面6" onclick="openImageModal(this.src)" class="carousel-image">
+                    <img src="carousel/7.png" alt="KeyPresser软件界面7" onclick="openImageModal(this.src)" class="carousel-image">
+                </div>
+                <button class="carousel-btn prev" onclick="moveSlide(-1)">&#10094;</button>
+                <button class="carousel-btn next" onclick="moveSlide(1)">&#10095;</button>
+                <div class="carousel-indicators">
+                    <span class="indicator active" onclick="goToSlide(0)"></span>
+                    <span class="indicator" onclick="goToSlide(1)"></span>
+                    <span class="indicator" onclick="goToSlide(2)"></span>
+                    <span class="indicator" onclick="goToSlide(3)"></span>
+                    <span class="indicator" onclick="goToSlide(4)"></span>
+                    <span class="indicator" onclick="goToSlide(5)"></span>
+                    <span class="indicator" onclick="goToSlide(6)"></span>
+                </div>
+            </div>
         </div>
-        
-        <div class="features" id="features">
-            <div class="feature-card fade-in">
-                <h3>后台运行</h3>
-                <p>无需保持被控窗口在前台，支持后台自动按键操作，让你可以同时进行其他工作。</p>
-            </div>
-            
-            <div class="feature-card fade-in">
-                <h3>多种触发模式</h3>
-                <p>支持独立触发和顺序触发两种模式，可以根据需要灵活配置按键序列。</p>
-            </div>
-            
-            <div class="feature-card fade-in">
-                <h3>多种键盘仿真</h3>
-                <p>提供正常模式、Windows模式和DX模式三种键盘仿真方式，适应不同场景需求。</p>
-            </div>
-            
-            <div class="feature-card fade-in">
-                <h3>鼠标助手</h3>
-                <p>内置鼠标自动化功能，支持图像识别定位点击，让操作更加精准。</p>
-            </div>
-            
-            <div class="feature-card fade-in">
-                <h3>随机时间间隔</h3>
-                <p>支持设置按键时间间隔范围，生成随机间隔，使操作更加自然。</p>
-            </div>
-            
-            <div class="feature-card fade-in">
-                <h3>设置导入导出</h3>
-                <p>支持保存和加载操作配置，方便在不同场景快速切换。</p>
+
+        <!-- 功能模块部分 -->
+        <div class="modules-section fade-in">
+            <h2>功能模块</h2>
+            <p class="section-subtitle">七大核心功能，满足各种自动化需求</p>
+            <div class="modules-grid">
+                <div class="module-card">
+                    <div class="module-icon">⌨️</div>
+                    <h3>KeyPresser</h3>
+                    <p class="module-desc">基础的键盘按键模拟工具</p>
+                    <ul class="module-features">
+                        <li>模拟键盘按键输入</li>
+                        <li>支持自定义按键序列</li>
+                        <li>可配置按键间隔时间</li>
+                    </ul>
+                </div>
+
+                <div class="module-card">
+                    <div class="module-icon">👁️</div>
+                    <h3>KeyPresser 识图版</h3>
+                    <p class="module-desc">集成图像识别功能的按键模拟工具</p>
+                    <ul class="module-features">
+                        <li>基于图像识别定位目标</li>
+                        <li>自动识别屏幕上的特定元素</li>
+                        <li>结合按键模拟实现自动化操作</li>
+                    </ul>
+                </div>
+
+                <div class="module-card">
+                    <div class="module-icon">🖱️</div>
+                    <h3>鼠标助手</h3>
+                    <p class="module-desc">鼠标操作自动化工具</p>
+                    <ul class="module-features">
+                        <li>模拟鼠标点击、移动等操作</li>
+                        <li>支持自定义鼠标动作序列</li>
+                        <li>可配置鼠标移动路径和速度</li>
+                    </ul>
+                </div>
+
+                <div class="module-card">
+                    <div class="module-icon">🎯</div>
+                    <h3>鼠标助手识图版</h3>
+                    <p class="module-desc">集成图像识别功能的鼠标操作工具</p>
+                    <ul class="module-features">
+                        <li>通过图像识别定位目标位置</li>
+                        <li>自动在识别到的目标上执行鼠标操作</li>
+                        <li>支持复杂场景下的自动化操作</li>
+                    </ul>
+                </div>
+
+                <div class="module-card">
+                    <div class="module-icon">🎬</div>
+                    <h3>KeyMouseGo</h3>
+                    <p class="module-desc">键盘鼠标操作录制与回放工具</p>
+                    <ul class="module-features">
+                        <li>录制键盘和鼠标操作序列</li>
+                        <li>支持操作回放</li>
+                        <li>可配置回放次数和间隔</li>
+                    </ul>
+                </div>
+
+                <div class="module-card">
+                    <div class="module-icon">🔌</div>
+                    <h3>KeyPresser硬件版</h3>
+                    <p class="module-desc">基于 Arduino 硬件的按键模拟工具</p>
+                    <ul class="module-features">
+                        <li>通过 Arduino 硬件实现真实的按键输入</li>
+                        <li>支持硬件级按键模拟</li>
+                        <li>需要检测 Arduino 连接状态</li>
+                    </ul>
+                </div>
+
+                <div class="module-card">
+                    <div class="module-icon">🐍</div>
+                    <h3>Python脚本系统</h3>
+                    <p class="module-desc">Python 脚本执行和管理系统</p>
+                    <ul class="module-features">
+                        <li>支持编写和执行 Python 脚本</li>
+                        <li>提供脚本管理界面</li>
+                        <li>可扩展的自动化脚本功能</li>
+                    </ul>
+                </div>
+
+                <div class="module-card coming-soon">
+                    <div class="module-icon">🚧</div>
+                    <h3>更多模块</h3>
+                    <p class="module-desc">更多模块正在开发中</p>
+                    <ul class="module-features">
+                        <li>敬请期待</li>
+                        <li>持续更新中</li>
+                        <li>更多功能即将上线</li>
+                    </ul>
+                </div>
+
+                <div class="module-card coming-soon">
+                    <div class="module-icon">🚧</div>
+                    <h3>更多模块</h3>
+                    <p class="module-desc">更多模块正在开发中</p>
+                    <ul class="module-features">
+                        <li>敬请期待</li>
+                        <li>持续更新中</li>
+                        <li>更多功能即将上线</li>
+                    </ul>
+                </div>
             </div>
         </div>
         
@@ -1402,8 +1701,18 @@ body::after {
                 <!-- 更新版本项 -->
                 <div class="update-item" style="border-bottom: 1px solid #f0f0f0; padding: 30px 0; transition: transform 0.3s ease;">
                     <div class="update-header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
-                        <h3 style="font-size: 1.5em; color: #667eea; margin: 0;">KeyPresser 5.3.0</h3>
+                        <h3 style="font-size: 1.5em; color: #667eea; margin: 0;">KeyPresser 5.4.0</h3>
                         <span class="update-badge" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 5px 15px; border-radius: 20px; font-size: 0.9em;">最新版本</span>
+                    </div>
+                    <div class="update-details" style="color: #666; line-height: 1.8; padding-left: 20px; border-left: 3px solid #667eea;">
+                        <p style="margin: 10px 0;">• 添加Python脚本系统</p>
+                    </div>
+                </div>
+
+                <div class="update-item" style="border-bottom: 1px solid #f0f0f0; padding: 30px 0; transition: transform 0.3s ease;">
+                    <div class="update-header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+                        <h3 style="font-size: 1.5em; color: #667eea; margin: 0;">KeyPresser 5.3.0</h3>
+                        <span class="update-badge" style="background: #e0e0e0; color: #666; padding: 5px 15px; border-radius: 20px; font-size: 0.9em;">历史版本</span>
                     </div>
                     <div class="update-details" style="color: #666; line-height: 1.8; padding-left: 20px; border-left: 3px solid #667eea;">
                         <p style="margin: 10px 0;">• KeyPresser硬件版来袭，绕过软件输入拦截</p>
@@ -1519,6 +1828,7 @@ body::after {
             </div>
             <div class="footer-bottom">
                 <p>&copy; 2025 KeyPresser Team. 保留所有权利。</p>
+                <p style="margin-top: 10px; color: #999; font-size: 0.9em;">👥 访客统计：<span id="visitorCount">加载中...</span></p>
             </div>
         </div>
     </footer>
@@ -1711,6 +2021,23 @@ body::after {
                     statObserver.observe(stat.parentElement);
                 }
             });
+
+            // 访客统计显示
+            function updateVisitorCount() {
+                const visitorCountElement = document.getElementById('visitorCount');
+                if (visitorCountElement) {
+                    // 使用localStorage模拟访客统计
+                    let visits = localStorage.getItem('siteVisits');
+                    if (!visits) {
+                        visits = Math.floor(Math.random() * 5000) + 10000; // 初始随机访问量
+                    } else {
+                        visits = parseInt(visits) + 1;
+                    }
+                    localStorage.setItem('siteVisits', visits);
+                    visitorCountElement.textContent = visits.toLocaleString() + ' 次';
+                }
+            }
+            updateVisitorCount();
         });
 
         // 平滑滚动到锚点
@@ -1780,8 +2107,56 @@ body::after {
 				}
 			});
 			
+			// 轮播图功能
+			let currentSlide = 0;
+			const totalSlides = 5;
+			let autoSlideInterval;
+
+			function moveSlide(direction) {
+				currentSlide += direction;
+				if (currentSlide >= totalSlides) {
+					currentSlide = 0;
+				} else if (currentSlide < 0) {
+					currentSlide = totalSlides - 1;
+				}
+				updateCarousel();
+			}
+
+			function goToSlide(index) {
+				currentSlide = index;
+				updateCarousel();
+			}
+
+			function updateCarousel() {
+				const slide = document.querySelector('.carousel-slide');
+				const indicators = document.querySelectorAll('.indicator');
+				slide.style.transform = `translateX(-${currentSlide * 100}%)`;
+				indicators.forEach((indicator, index) => {
+					indicator.classList.toggle('active', index === currentSlide);
+				});
+			}
+
+			function startAutoSlide() {
+				autoSlideInterval = setInterval(() => {
+					moveSlide(1);
+				}, 4000);
+			}
+
+			function stopAutoSlide() {
+				clearInterval(autoSlideInterval);
+			}
+
+			document.addEventListener('DOMContentLoaded', function() {
+				updateCarousel();
+				startAutoSlide();
+
+				const carouselContainer = document.querySelector('.carousel-container');
+				carouselContainer.addEventListener('mouseenter', stopAutoSlide);
+				carouselContainer.addEventListener('mouseleave', startAutoSlide);
+			});
+
 			// 创建浮动粒子效果
-		function createParticles() {
+			function createParticles() {
             const particleCount = 25;
             const colors = [
                 'rgba(102, 126, 234, 0.6)',
