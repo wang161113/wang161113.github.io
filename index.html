@@ -1246,175 +1246,6 @@ body::after {
             margin-bottom: 15px;
         }
         
-        /* 价格模块样式 */
-        .pricing-section {
-            text-align: center;
-            margin: 60px 0;
-            padding: 50px 20px;
-            background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
-            border-radius: 20px;
-        }
-        
-        .pricing-section h2 {
-            font-size: 2.5em;
-            margin-bottom: 15px;
-            color: #333;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        
-        .pricing-section .section-subtitle {
-            font-size: 1.1em;
-            color: #666;
-            margin-bottom: 40px;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        
-        .pricing-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        
-        .pricing-card {
-            background: white;
-            border-radius: 20px;
-            padding: 40px 30px;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
-            border: 1px solid rgba(102, 126, 234, 0.1);
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            position: relative;
-        }
-        
-        .pricing-card.featured {
-            transform: scale(1.05);
-            border: 2px solid #667eea;
-            box-shadow: 0 20px 40px rgba(102, 126, 234, 0.2);
-        }
-        
-        .pricing-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 25px 50px rgba(102, 126, 234, 0.15);
-        }
-        
-        .pricing-card.featured:hover {
-            transform: scale(1.05) translateY(-10px);
-        }
-        
-        .popular-badge {
-            position: absolute;
-            top: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 8px 20px;
-            border-radius: 20px;
-            font-size: 0.9em;
-            font-weight: bold;
-        }
-        
-        .pricing-header {
-            margin-bottom: 30px;
-        }
-        
-        .pricing-header h3 {
-            font-size: 1.5em;
-            color: #333;
-            margin-bottom: 15px;
-        }
-        
-        .price {
-            font-size: 3em;
-            font-weight: bold;
-            color: #667eea;
-            margin-bottom: 5px;
-        }
-        
-        .period {
-            color: #666;
-            font-size: 0.9em;
-            margin-bottom: 10px;
-        }
-        
-        .savings {
-            color: #28a745;
-            font-weight: bold;
-            font-size: 0.9em;
-        }
-        
-        .features {
-            list-style: none;
-            padding: 0;
-            margin: 30px 0;
-            text-align: left;
-        }
-        
-        .features li {
-            padding: 8px 0;
-            color: #555;
-            font-size: 0.95em;
-        }
-        
-        .pricing-btn {
-            width: 100%;
-            padding: 15px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            border: none;
-            border-radius: 10px;
-            font-size: 1.1em;
-            font-weight: bold;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-        
-        .pricing-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
-        }
-        
-        .pricing-btn.featured-btn {
-            background: linear-gradient(135deg, #5a6fd8 0%, #6a4190 100%);
-        }
-        
-        .trial-notice {
-            margin-top: 40px;
-            padding: 20px;
-            background: #ffffff;
-            border-radius: 10px;
-            border: 1px solid rgba(102, 126, 234, 0.2);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        
-        .trial-notice p {
-            margin: 0;
-            color: #555;
-            font-size: 1em;
-        }
-        
-        .pricing-note {
-            width: 100%;
-            padding: 15px;
-            background: rgba(102, 126, 234, 0.1);
-            color: #667eea;
-            border: 2px solid rgba(102, 126, 234, 0.3);
-            border-radius: 10px;
-            font-size: 1.1em;
-            font-weight: bold;
-            text-align: center;
-            margin-top: 20px;
-        }
-        
         /* 统计数据样式 */
         .stats {
             display: flex;
@@ -1979,64 +1810,6 @@ body::after {
             </a>
         </div>
     </div>
-
-    <!-- 价格模块 -->
-    <div class="pricing-section fade-in">
-        <h2>价格方案</h2>
-        <p class="section-subtitle">安装后可免费试用三天，选择最适合您的方案</p>
-        <div class="pricing-grid">
-            <div class="pricing-card">
-                <div class="pricing-header">
-                    <h3>月付</h3>
-                    <div class="price">¥15</div>
-                    <div class="period">每月</div>
-                </div>
-                <ul class="features">
-                    <li>✓ 完整功能使用权限</li>
-                    <li>✓ 持续技术更新支持</li>
-                    <li>✓ 优先客服响应</li>
-                    <li>✓ 7x24小时在线支持</li>
-                </ul>
-            </div>
-
-            <div class="pricing-card featured">
-                <div class="pricing-header">
-                    <div class="popular-badge">最受欢迎</div>
-                    <h3>年付</h3>
-                    <div class="price">¥128</div>
-                    <div class="period">每年</div>
-                    <div class="savings">节省 ¥52</div>
-                </div>
-                <ul class="features">
-                    <li>✓ 完整功能使用权限</li>
-                    <li>✓ 持续技术更新支持</li>
-                    <li>✓ 优先客服响应</li>
-                    <li>✓ 7x24小时在线支持</li>
-                    <li>✓ 专属技术支持通道</li>
-                </ul>
-            </div>
-
-            <div class="pricing-card">
-                <div class="pricing-header">
-                    <h3>永久</h3>
-                    <div class="price">¥388</div>
-                    <div class="period">一次性买断</div>
-                    <div class="savings">终身使用</div>
-                </div>
-                <ul class="features">
-                    <li>✓ 完整功能使用权限</li>
-                    <li>✓ 终身免费更新</li>
-                    <li>✓ 最高优先级客服</li>
-                    <li>✓ 7x24小时在线支持</li>
-                    <li>✓ 专属技术支持通道</li>
-                    <li>✓ 个性化定制服务</li>
-                </ul>
-            </div>
-        </div>
-        <div class="trial-notice">
-            <p>💡 <strong>免费试用：</strong>安装后可免费试用三天，体验完整功能后再决定购买</p>
-        </div>
-    </div>
     
     <footer>
         <div class="container">
@@ -2059,7 +1832,6 @@ body::after {
             </div>
             <div class="footer-bottom">
                 <p>&copy; 2025 KeyPresser Team. 保留所有权利。</p>
-                <p style="margin-top: 10px; color: #999; font-size: 0.9em;">👥 访客统计：<span id="visitorCount">加载中...</span></p>
             </div>
         </div>
     </footer>
@@ -2253,22 +2025,6 @@ body::after {
                 }
             });
 
-            // 访客统计显示
-            function updateVisitorCount() {
-                const visitorCountElement = document.getElementById('visitorCount');
-                if (visitorCountElement) {
-                    // 使用localStorage模拟访客统计
-                    let visits = localStorage.getItem('siteVisits');
-                    if (!visits) {
-                        visits = Math.floor(Math.random() * 5000) + 10000; // 初始随机访问量
-                    } else {
-                        visits = parseInt(visits) + 1;
-                    }
-                    localStorage.setItem('siteVisits', visits);
-                    visitorCountElement.textContent = visits.toLocaleString() + ' 次';
-                }
-            }
-            updateVisitorCount();
         });
 
         // 平滑滚动到锚点
