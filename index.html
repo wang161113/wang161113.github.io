@@ -3,6 +3,7 @@
 <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="KeyPresser 专业自动化按键工具，支持后台运行、识图版、鼠标助手等多模块，免费下载体验。">
         <title>KeyPresser - 专业自动化按键工具</title>
         <link rel="icon" href="keypresser.ico" type="image/x-icon">
         <link rel="shortcut icon" href="keypresser.ico" type="image/x-icon">
@@ -214,13 +215,13 @@ body::after {
         header {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
-            padding: 20px 0 16px;
+            padding: 24px 0 18px;
             text-align: center;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
 
         header .container {
-            padding-top: 0;
+            padding-top: 4px;
             padding-bottom: 0;
         }
         
@@ -228,15 +229,15 @@ body::after {
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-bottom: 4px;
+            margin-bottom: 6px;
         }
         
         .logo {
-            width: 40px;
-            height: 40px;
-            margin-right: 10px;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 48px;
+            height: 48px;
+            margin-right: 12px;
+            object-fit: contain;
+            flex-shrink: 0;
         }
         
         header h1 {
@@ -247,9 +248,9 @@ body::after {
         
         @media (max-width: 768px) {
             .logo {
-                width: 36px;
-                height: 36px;
-                margin-right: 8px;
+                width: 44px;
+                height: 44px;
+                margin-right: 10px;
             }
         }
         
@@ -257,6 +258,91 @@ body::after {
             font-size: 0.95em;
             opacity: 0.9;
             margin: 0;
+        }
+
+        .notice-box {
+            margin-top: 0;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 16px 20px;
+            background: linear-gradient(145deg, #f8f9ff 0%, #eef2ff 100%);
+            border: 1px solid rgba(102, 126, 234, 0.2);
+            border-radius: 12px;
+            text-align: left;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        .notice-box h4 {
+            color: #667eea;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1em;
+        }
+
+        .notice-box p {
+            color: #555;
+            margin: 0;
+            line-height: 1.6;
+            font-size: 0.92em;
+        }
+
+        .community-box {
+            margin-top: 32px;
+            text-align: center;
+        }
+
+        .community-box h3 {
+            color: #333;
+            margin-bottom: 12px;
+            font-size: 1.2em;
+        }
+
+        .community-box p {
+            color: #666;
+            margin-bottom: 16px;
+            font-size: 0.95em;
+        }
+
+        .community-qq {
+            display: inline-block;
+            margin-bottom: 16px;
+            padding: 4px 14px;
+            color: white;
+            font-weight: 700;
+            font-size: 0.95em;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+        }
+
+        .community-box img {
+            width: 260px;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        [id] {
+            scroll-margin-top: 16px;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+
+            html {
+                scroll-behavior: auto;
+            }
         }
         
         .download-section {
@@ -835,14 +921,17 @@ body::after {
             font-size: 1.1em;
         }
         
-        .download-section h2 {
-            font-size: 2.2em;
-            margin-bottom: 15px;
-            color: #333;
+        .gradient-title-text {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
+        }
+        
+        .download-section h2 {
+            font-size: 2.2em;
+            margin-bottom: 15px;
+            color: #333;
         }
         
         .features {
@@ -1163,7 +1252,7 @@ body::after {
         .module-card {
             background: linear-gradient(135deg, #f8f9ff 0%, #fff 100%);
             border-radius: 12px;
-            padding: 25px;
+            padding: 14px 20px 18px;
             border: 1px solid rgba(102, 126, 234, 0.1);
             transition: all 0.3s ease;
             position: relative;
@@ -1192,20 +1281,22 @@ body::after {
         }
 
         .module-icon {
-            font-size: 3em;
-            margin-bottom: 15px;
+            font-size: 2.2em;
+            line-height: 1;
+            margin: 0 0 8px;
+            display: block;
         }
 
         .module-card h3 {
-            font-size: 1.4em;
-            margin-bottom: 10px;
+            font-size: 1.3em;
+            margin-bottom: 6px;
             color: #333;
         }
 
         .module-desc {
             color: #666;
             font-size: 0.95em;
-            margin-bottom: 15px;
+            margin-bottom: 10px;
             font-style: italic;
         }
 
@@ -1236,47 +1327,6 @@ body::after {
             .modules-grid {
                 grid-template-columns: 1fr;
             }
-        }
-        
-        .usage {
-            background: white;
-            border-radius: 15px;
-            padding: 50px 40px;
-            margin: 40px 0;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-        }
-        
-        .usage h2 {
-            font-size: 2.2em;
-            margin-bottom: 20px;
-            color: #333;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        
-        .usage-step {
-            margin: 20px 0;
-            padding-left: 30px;
-            position: relative;
-        }
-        
-        .usage-step::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 5px;
-            width: 20px;
-            height: 20px;
-            background: #667eea;
-            border-radius: 50%;
-        }
-        
-        .usage-step h3 {
-            color: #555;
-            margin-bottom: 10px;
         }
         
         footer {
@@ -1369,10 +1419,6 @@ body::after {
             font-size: 2.2em;
             margin-bottom: 15px;
             color: #333;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
         }
         
         .video-description {
@@ -1483,10 +1529,6 @@ body::after {
             margin-bottom: 40px;
             text-align: center;
             color: #333;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
         }
         
         .usage-step {
@@ -1823,7 +1865,7 @@ body::after {
     
     <div class="container">
         <div class="download-section fade-in" id="download">
-            <h2>🚀 立即下载 KeyPresser</h2>
+            <h2>🚀 <span class="gradient-title-text">立即下载 KeyPresser</span></h2>
             <p class="download-subtitle">超过 10,000+ 用户的选择，免费下载体验</p>
             
             <div class="download-buttons">
@@ -1860,7 +1902,7 @@ body::after {
             </div>
         </div>
 
-        <div class="promotion-section fade-in">
+        <div class="promotion-section fade-in" id="promotion">
             <span class="promotion-sparkle promotion-sparkle-a" aria-hidden="true"></span>
             <span class="promotion-sparkle promotion-sparkle-b" aria-hidden="true"></span>
             <div class="promotion-header">
@@ -1895,11 +1937,9 @@ body::after {
             <p class="promotion-footer"><span class="promotion-footer-icon">📮</span>达标后请将内容链接发送至 <span class="promotion-qq">QQ群 901882848</span> 申请开通</p>
         </div>
         
-        <div style="margin-top: 0; max-width: 1200px; margin-left: auto; margin-right: auto; padding: 20px; background: linear-gradient(145deg, #f8f9ff 0%, #eef2ff 100%); border: 1px solid rgba(102, 126, 234, 0.2); border-radius: 12px; text-align: left; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);">
-            <h4 style="color: #667eea; margin-bottom: 10px; display: flex; align-items: center; gap: 10px;">
-                <span>⚠️</span> 重要提示
-            </h4>
-            <p style="color: #555; margin: 0; line-height: 1.6;">安装&使用过程中请关闭360等杀毒软件，杀毒软件会误报或误删文件！如遇"软件初始化失败"等问题，请关闭杀毒软件并重新安装KeyPresser后重试！</p>
+        <div class="notice-box fade-in">
+            <h4><span>⚠️</span> 重要提示</h4>
+            <p>安装&使用过程中请关闭360等杀毒软件，杀毒软件会误报或误删文件！如遇"软件初始化失败"等问题，请关闭杀毒软件并重新安装KeyPresser后重试！</p>
         </div>
 
         <div class="screenshot fade-in">
@@ -2021,17 +2061,6 @@ body::after {
                         <li>更多功能即将上线</li>
                     </ul>
                 </div>
-
-                <div class="module-card coming-soon">
-                    <div class="module-icon">🚧</div>
-                    <h3>更多模块</h3>
-                    <p class="module-desc">更多模块正在开发中</p>
-                    <ul class="module-features">
-                        <li>敬请期待</li>
-                        <li>持续更新中</li>
-                        <li>更多功能即将上线</li>
-                    </ul>
-                </div>
             </div>
         </div>
         
@@ -2104,7 +2133,7 @@ body::after {
         </div>
 
         <div class="video-demo fade-in">
-            <h2>🎥 视频演示</h2>
+            <h2>🎥 <span class="gradient-title-text">视频演示</span></h2>
             <p class="video-description">视频中分别演示了使用keypresser和鼠标助手，实现在火影决斗场自动放技能！</p>
             <div class="video-container">
                 <iframe 
@@ -2196,7 +2225,7 @@ body::after {
         </div>
         
         <div class="usage fade-in" id="tutorial">
-            <h2>📚 KeyPresser使用指南</h2>
+            <h2>📚 <span class="gradient-title-text">KeyPresser使用指南</span></h2>
             
             <div class="usage-step">
                 <h3>选择目标窗口</h3>
@@ -2230,10 +2259,11 @@ body::after {
             <a href="https://gitcode.com/wang161019/KeyPresser/discussions/1" target="_blank" class="feedback-btn">
                 前往讨论区
             </a>
-            <div style="margin-top: 40px; text-align: center;">
-                <h3 style="color: #333; margin-bottom: 20px;">加入 KeyPresser 用户交流群</h3>
-                <p style="color: #666; margin-bottom: 20px;">扫描下方二维码加入QQ群，与其他用户交流使用心得</p>
-                <img src="wechat_qun.jpg" alt="KeyPresser用户交流群" style="width: 300px; height: auto; border-radius: 10px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);">
+            <div class="community-box">
+                <h3>加入 KeyPresser 用户交流群</h3>
+                <p>扫描下方二维码加入 QQ 群，与其他用户交流使用心得</p>
+                <span class="community-qq">QQ群 901882848</span><br>
+                <img src="wechat_qun.jpg" alt="KeyPresser 用户 QQ 群二维码">
             </div>
         </div>
     </div>
@@ -2249,6 +2279,7 @@ body::after {
                     <h4>快速链接</h4>
                     <a href="#modules">功能模块</a>
                     <a href="#download">下载安装</a>
+                    <a href="#promotion">限时活动</a>
                     <a href="#tutorial">使用指南</a>
                 </div>
                 <div class="footer-contact">
@@ -2263,99 +2294,7 @@ body::after {
         </div>
     </footer>
 
-    <!-- 图片放大查看模态框 -->
-    <div id="imageModal" class="modal">
-        <span class="close">&times;</span>
-        <img class="modal-content" id="modalImage">
-        <div id="caption"></div>
-    </div>
-
-    <style>
-        /* 模态框样式 */
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 9999;
-            padding-top: 60px;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            overflow: auto;
-            background-color: rgb(0,0,0);
-            background-color: rgba(0,0,0,0.9);
-        }
-
-        /* 模态框内容 */
-        .modal-content {
-            margin: auto;
-            display: block;
-            max-width: 90%;
-            max-height: 90%;
-            animation-name: zoom;
-            animation-duration: 0.6s;
-        }
-
-        @keyframes zoom {
-            from {transform:scale(0)}
-            to {transform:scale(1)}
-        }
-
-        /* 关闭按钮 */
-        .close {
-            position: absolute;
-            top: 20px;
-            right: 35px;
-            color: #f1f1f1;
-            font-size: 40px;
-            font-weight: bold;
-            transition: 0.3s;
-        }
-
-        .close:hover,
-        .close:focus {
-            color: #bbb;
-            text-decoration: none;
-            cursor: pointer;
-        }
-
-        /* 图片描述 */
-        #caption {
-            margin: auto;
-            display: block;
-            width: 80%;
-            max-width: 700px;
-            text-align: center;
-            color: #ccc;
-            padding: 10px 0;
-            height: 150px;
-        }
-    </style>
-
     <script>
-        // 图片放大查看功能
-        var modal = document.getElementById("imageModal");
-        var modalImg = document.getElementById("modalImage");
-        var captionText = document.getElementById("caption");
-        var span = document.getElementsByClassName("close")[0];
-
-        function openModal(img) {
-            modal.style.display = "block";
-            modalImg.src = img.src;
-            captionText.innerHTML = img.alt;
-        }
-
-        // 点击关闭按钮或模态框外部关闭模态框
-        span.onclick = function() {
-            modal.style.display = "none";
-        }
-
-        window.onclick = function(event) {
-            if (event.target == modal) {
-                modal.style.display = "none";
-            }
-        }
-
         // 滚动动画效果
         document.addEventListener('DOMContentLoaded', function() {
             const observerOptions = {
@@ -2454,21 +2393,7 @@ body::after {
 
         });
 
-        // 平滑滚动到锚点
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-
-        // 图片放大查看功能
+        // 图片放大查看
 			function openImageModal(imgSrc) {
 				// 创建模态框元素
 				let modal = document.createElement('div');
