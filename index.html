@@ -3,8 +3,12 @@
 <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description" content="KeyPresser 专业自动化按键工具，支持后台运行、识图版、鼠标助手等多模块，免费下载体验。">
-        <title>KeyPresser - 专业自动化按键工具</title>
+        <meta name="description" content="KeyPresser 6.1.0 专业自动化按键工具，支持动态行配置、在线授权、识图版、鼠标助手与 Python 脚本，免费下载体验。">
+        <title>KeyPresser 6.1.0 - 专业自动化按键工具</title>
+        <meta property="og:title" content="KeyPresser 6.1.0 - 专业自动化按键工具">
+        <meta property="og:description" content="支持动态行配置、在线授权、识图版、鼠标助手与 Python 脚本，免费下载体验。">
+        <meta property="og:type" content="website">
+        <meta property="og:image" content="https://keypresser.onepeak.cn/logo.png">
         <link rel="icon" href="keypresser.ico" type="image/x-icon">
         <link rel="shortcut icon" href="keypresser.ico" type="image/x-icon">
         <style>
@@ -358,8 +362,30 @@ body::after {
         .download-subtitle {
             font-size: 1.1em;
             color: #666;
+            margin-bottom: 16px;
+            line-height: 1.6;
+        }
+
+        .download-migration-note {
+            font-size: 0.92em;
+            color: #666;
             margin-bottom: 28px;
             line-height: 1.6;
+            padding: 10px 16px;
+            background: linear-gradient(145deg, #f8f9ff 0%, #eef2ff 100%);
+            border-radius: 8px;
+            border: 1px solid rgba(102, 126, 234, 0.15);
+        }
+
+        .download-migration-note a {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 600;
+            border-bottom: 1px solid rgba(102, 126, 234, 0.3);
+        }
+
+        .download-migration-note a:hover {
+            color: #764ba2;
         }
         
         .download-buttons {
@@ -1514,47 +1540,154 @@ body::after {
             line-height: 1.6;
         }
         
-        /* 快速使用指南样式 */
-        .usage {
+        /* 帮助文档引导 */
+        .help-doc {
             margin: 60px 0;
             background: white;
             border-radius: 15px;
             padding: 50px 40px;
             box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
             border: 1px solid rgba(255, 255, 255, 0.2);
-        }
-        
-        .usage h2 {
-            font-size: 2.2em;
-            margin-bottom: 40px;
             text-align: center;
+        }
+
+        .help-doc h2 {
+            font-size: 2.2em;
+            margin-bottom: 16px;
             color: #333;
         }
-        
-        .usage-step {
-            background: #f8f9ff;
-            border-radius: 12px;
-            padding: 25px 30px;
-            margin-bottom: 20px;
-            border-left: 4px solid #667eea;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-            transition: transform 0.2s ease;
-        }
-        
-        .usage-step:hover {
-            transform: translateX(5px);
-        }
-        
-        .usage-step h3 {
-            font-size: 1.2em;
-            margin-bottom: 10px;
-            color: #333;
-        }
-        
-        .usage-step p {
+
+        .help-doc p {
             color: #666;
-            line-height: 1.6;
+            font-size: 1.05em;
+            line-height: 1.7;
+            max-width: 640px;
+            margin: 0 auto 28px;
+        }
+
+        .help-doc-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 14px 32px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 10px;
+            font-size: 1.05em;
+            font-weight: 600;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.35);
+            transition: all 0.3s ease;
+        }
+
+        .help-doc-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 22px rgba(102, 126, 234, 0.45);
+            background: linear-gradient(135deg, #5a6fd8 0%, #6a4190 100%);
+        }
+
+        /* 更新日志 */
+        .update-log {
+            background: white;
+            border-radius: 15px;
+            padding: 50px 40px;
+            margin: 60px 0;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .update-log h2 {
+            font-size: 2.2em;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .update-content {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .update-item {
+            border-bottom: 1px solid #f0f0f0;
+            padding: 30px 0;
+        }
+
+        .update-item:last-child {
+            border-bottom: none;
+        }
+
+        .update-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .update-header h3 {
+            font-size: 1.5em;
+            color: #667eea;
             margin: 0;
+        }
+
+        .update-badge {
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: 600;
+        }
+
+        .update-badge.latest {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .update-badge.history {
+            background: #e0e0e0;
+            color: #666;
+        }
+
+        .update-details {
+            color: #666;
+            line-height: 1.8;
+            padding-left: 20px;
+            border-left: 3px solid #ddd;
+        }
+
+        .update-details.highlight {
+            border-left-color: #667eea;
+        }
+
+        .update-details p {
+            margin: 10px 0;
+        }
+
+        .update-details h4 {
+            margin: 20px 0 10px;
+            color: #333;
+        }
+
+        .update-details ul {
+            margin: 10px 0 10px 20px;
+            padding-left: 20px;
+        }
+
+        .update-details li {
+            margin: 5px 0;
+        }
+
+        .update-details a {
+            color: #667eea;
+            text-decoration: none;
+            border-bottom: 1px solid #667eea;
+            padding-bottom: 2px;
+            transition: all 0.3s ease;
+        }
+
+        .update-details a:hover {
+            color: #764ba2;
+            border-bottom-color: #764ba2;
         }
         
         /* 用户评价模块样式 */
@@ -1859,17 +1992,18 @@ body::after {
                 <img src="logo.png" alt="KeyPresser Logo" class="logo">
                 <h1>KeyPresser</h1>
             </div>
-            <p>专业的自动化按键工具，支持后台运行，解放你的双手</p>
+            <p>KeyPresser 6.1.0 · 动态行配置 · 在线授权 · 多模块自动化</p>
         </div>
     </header>
     
     <div class="container">
         <div class="download-section fade-in" id="download">
             <h2>🚀 <span class="gradient-title-text">立即下载 KeyPresser</span></h2>
-            <p class="download-subtitle">超过 10,000+ 用户的选择，免费下载体验</p>
+            <p class="download-subtitle">当前最新版 KeyPresser 6.1.0，超过 10,000+ 用户的选择，免费下载体验</p>
+            <p class="download-migration-note">从 5.x 升级用户：安装 6.x 后可在「授权管理」中将本地激活码绑定到账号，详见<a href="https://ocn1lplwg6gi.feishu.cn/wiki/Ual4wc4SxiKIodkuSSUcpLBTnsc?from=from_copylink" target="_blank" rel="noopener noreferrer">帮助文档</a></p>
             
             <div class="download-buttons">
-                <a href="https://share.feijipan.com/s/CcXgqvzw" class="download-btn primary" target="_blank">
+                <a href="https://share.feijipan.com/s/CcXgqvzw" class="download-btn primary" target="_blank" rel="noopener noreferrer">
                     <span class="btn-icon">⬇️</span>
                     <span class="btn-text">
                         <strong>立即下载</strong>
@@ -1877,7 +2011,7 @@ body::after {
                     </span>
                 </a>
                 
-                <a href="https://pan.baidu.com/s/1TK0YWSvB8WE-wJpf7TmKoA?pwd=ej7b" class="download-btn secondary" target="_blank">
+                <a href="https://pan.baidu.com/s/1TK0YWSvB8WE-wJpf7TmKoA?pwd=ej7b" class="download-btn secondary" target="_blank" rel="noopener noreferrer">
                     <span class="btn-icon">📦</span>
                     <span class="btn-text">
                         <strong>百度网盘</strong>
@@ -1948,12 +2082,12 @@ body::after {
             <div class="carousel-container">
                 <div class="carousel-slide">
                     <img src="carousel/1.png" alt="KeyPresser软件界面1" onclick="openImageModal(this.src)" class="carousel-image">
-                    <img src="carousel/2.png" alt="KeyPresser软件界面2" onclick="openImageModal(this.src)" class="carousel-image">
-                    <img src="carousel/3.png" alt="KeyPresser软件界面3" onclick="openImageModal(this.src)" class="carousel-image">
-                    <img src="carousel/4.png" alt="KeyPresser软件界面4" onclick="openImageModal(this.src)" class="carousel-image">
-                    <img src="carousel/5.png" alt="KeyPresser软件界面5" onclick="openImageModal(this.src)" class="carousel-image">
-                    <img src="carousel/6.png" alt="KeyPresser软件界面6" onclick="openImageModal(this.src)" class="carousel-image">
-                    <img src="carousel/7.png" alt="KeyPresser软件界面7" onclick="openImageModal(this.src)" class="carousel-image">
+                    <img src="carousel/2.png" alt="KeyPresser软件界面2" onclick="openImageModal(this.src)" class="carousel-image" loading="lazy">
+                    <img src="carousel/3.png" alt="KeyPresser软件界面3" onclick="openImageModal(this.src)" class="carousel-image" loading="lazy">
+                    <img src="carousel/4.png" alt="KeyPresser软件界面4" onclick="openImageModal(this.src)" class="carousel-image" loading="lazy">
+                    <img src="carousel/5.png" alt="KeyPresser软件界面5" onclick="openImageModal(this.src)" class="carousel-image" loading="lazy">
+                    <img src="carousel/6.png" alt="KeyPresser软件界面6" onclick="openImageModal(this.src)" class="carousel-image" loading="lazy">
+                    <img src="carousel/7.png" alt="KeyPresser软件界面7" onclick="openImageModal(this.src)" class="carousel-image" loading="lazy">
                 </div>
                 <button class="carousel-btn prev" onclick="moveSlide(-1)">&#10094;</button>
                 <button class="carousel-btn next" onclick="moveSlide(1)">&#10095;</button>
@@ -1972,16 +2106,16 @@ body::after {
         <!-- 功能模块部分 -->
         <div id="modules" class="modules-section fade-in">
             <h2>功能模块</h2>
-            <p class="section-subtitle">七大核心功能，满足各种自动化需求</p>
+            <p class="section-subtitle">七大核心模块，6.1.0 动态行全面升级</p>
             <div class="modules-grid">
                 <div class="module-card">
                     <div class="module-icon">⌨️</div>
                     <h3>KeyPresser</h3>
-                    <p class="module-desc">基础的键盘按键模拟工具</p>
+                    <p class="module-desc">标准键盘按键模拟工具</p>
                     <ul class="module-features">
-                        <li>模拟键盘按键输入</li>
-                        <li>支持自定义按键序列</li>
-                        <li>可配置按键间隔时间</li>
+                        <li>6.1.0 动态行：无限添加、批量导入</li>
+                        <li>6.0.1 支持长按、组合键</li>
+                        <li>独立/顺序触发，可配置随机间隔</li>
                     </ul>
                 </div>
 
@@ -1990,8 +2124,8 @@ body::after {
                     <h3>KeyPresser 识图版</h3>
                     <p class="module-desc">集成图像识别功能的按键模拟工具</p>
                     <ul class="module-features">
-                        <li>基于图像识别定位目标</li>
-                        <li>自动识别屏幕上的特定元素</li>
+                        <li>识别指定图片后自动按键</li>
+                        <li>6.1.0 动态行配置</li>
                         <li>结合按键模拟实现自动化操作</li>
                     </ul>
                 </div>
@@ -2001,9 +2135,9 @@ body::after {
                     <h3>鼠标助手</h3>
                     <p class="module-desc">鼠标操作自动化工具</p>
                     <ul class="module-features">
-                        <li>模拟鼠标点击、移动等操作</li>
-                        <li>支持自定义鼠标动作序列</li>
-                        <li>可配置鼠标移动路径和速度</li>
+                        <li>模拟点击、移动、滚轮等操作</li>
+                        <li>6.1.0 动态行动作序列</li>
+                        <li>可配置移动路径与速度</li>
                     </ul>
                 </div>
 
@@ -2012,9 +2146,9 @@ body::after {
                     <h3>鼠标助手识图版</h3>
                     <p class="module-desc">集成图像识别功能的鼠标操作工具</p>
                     <ul class="module-features">
-                        <li>通过图像识别定位目标位置</li>
-                        <li>自动在识别到的目标上执行鼠标操作</li>
-                        <li>支持复杂场景下的自动化操作</li>
+                        <li>识图定位后自动执行鼠标操作</li>
+                        <li>6.1.0 动态行配置</li>
+                        <li>支持复杂场景自动化</li>
                     </ul>
                 </div>
 
@@ -2034,9 +2168,9 @@ body::after {
                     <h3>KeyPresser硬件版</h3>
                     <p class="module-desc">基于 Arduino 硬件的按键模拟工具</p>
                     <ul class="module-features">
-                        <li>通过 Arduino 硬件实现真实的按键输入</li>
-                        <li>支持硬件级按键模拟</li>
-                        <li>需要检测 Arduino 连接状态</li>
+                        <li>Arduino 物理级按键，绕过软件拦截</li>
+                        <li>6.1.0 动态行配置</li>
+                        <li>串口通信远程控制硬件</li>
                     </ul>
                 </div>
 
@@ -2149,121 +2283,130 @@ body::after {
         </div>
         
         <!-- 更新日志模块 -->
-        <div class="update-log fade-in" style="background: white; border-radius: 15px; padding: 50px 40px; margin: 60px 0; box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1); border: 1px solid rgba(255, 255, 255, 0.2);">
-            <h2 style="font-size: 2.2em; margin-bottom: 30px; color: #333; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; text-align: center;">更新日志</h2>
+        <div class="update-log fade-in" id="changelog">
+            <h2><span class="gradient-title-text">更新日志</span></h2>
             
-            <div class="update-content" style="max-width: 1000px; margin: 0 auto;">
-                <!-- 更新版本项 -->
-                <div class="update-item" style="border-bottom: 1px solid #f0f0f0; padding: 30px 0; transition: transform 0.3s ease;">
-                    <div class="update-header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
-                        <h3 style="font-size: 1.5em; color: #667eea; margin: 0;">KeyPresser 5.4.0</h3>
-                        <span class="update-badge" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 5px 15px; border-radius: 20px; font-size: 0.9em;">最新版本</span>
+            <div class="update-content">
+                <div class="update-item">
+                    <div class="update-header">
+                        <h3>KeyPresser 6.1.0</h3>
+                        <span class="update-badge latest">最新版本</span>
                     </div>
-                    <div class="update-details" style="color: #666; line-height: 1.8; padding-left: 20px; border-left: 3px solid #667eea;">
-                        <p style="margin: 10px 0;">• 添加Python脚本系统</p>
+                    <div class="update-details highlight">
+                        <p>• 按键/鼠标配置行全面升级为<strong>动态行</strong>：可按需添加、删除，支持批量导入</p>
+                        <p>• 标准键盘、硬件键盘、识图键盘、鼠标识图、鼠标标准五个模块统一改造</p>
+                        <p>• 行列表支持滚动，窗口高度不再随行数膨胀；运行中自动锁定编辑，更稳定安全</p>
+                        <p>• 原有 ini 配置文件自动兼容读取，无需手动迁移</p>
                     </div>
                 </div>
 
-                <div class="update-item" style="border-bottom: 1px solid #f0f0f0; padding: 30px 0; transition: transform 0.3s ease;">
-                    <div class="update-header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
-                        <h3 style="font-size: 1.5em; color: #667eea; margin: 0;">KeyPresser 5.3.0</h3>
-                        <span class="update-badge" style="background: #e0e0e0; color: #666; padding: 5px 15px; border-radius: 20px; font-size: 0.9em;">历史版本</span>
+                <div class="update-item">
+                    <div class="update-header">
+                        <h3>KeyPresser 6.0.1</h3>
+                        <span class="update-badge history">历史版本</span>
                     </div>
-                    <div class="update-details" style="color: #666; line-height: 1.8; padding-left: 20px; border-left: 3px solid #667eea;">
-                        <p style="margin: 10px 0;">• KeyPresser硬件版来袭，绕过软件输入拦截</p>
-                        <p style="margin: 10px 0;">• KeyPresser硬件版使用Arduino Leonardo作为物理按键模拟器，并通过KeyPresser界面远程控制它发送按键消息</p>
-                        <h4 style="margin: 20px 0 10px 0; color: #333;">Arduino Leonardo原理</h4>
-                        <p style="margin: 10px 0;">该方案的核心原理是通过串口通信在keypresser软件和Arduino之间建立连接：</p>
-                        <ul style="margin: 10px 0 10px 20px; padding-left: 20px;">
-                            <li style="margin: 5px 0;">keypresser软件发送特定格式的指令到Arduino</li>
-                            <li style="margin: 5px 0;">Arduino接收并解析这些指令</li>
-                            <li style="margin: 5px 0;">根据指令内容模拟相应的键盘按键操作</li>
+                    <div class="update-details">
+                        <p>• 标准版新增<strong>长按</strong>功能，独立触发模式下可勾选长按按键</p>
+                        <p>• 顺序触发模式下长按选项自动禁用，切换模式后状态保留</p>
+                    </div>
+                </div>
+
+                <div class="update-item">
+                    <div class="update-header">
+                        <h3>KeyPresser 6.0.0</h3>
+                        <span class="update-badge history">历史版本</span>
+                    </div>
+                    <div class="update-details">
+                        <p>• 授权体系升级：<strong>邮箱账号在线授权</strong>为主，保留本地激活码与 3 天试用</p>
+                        <p>• 客户端内嵌续费支付（月卡/年卡/永久），支付成功自动同步会员状态</p>
+                        <p>• 每账号最多 3 台设备同时在线；本地激活码可绑定迁移到账号</p>
+                        <p>• 在线授权离线宽限 24 小时；注册邮箱白名单校验</p>
+                        <p>• 启动时检测新版本并提示；套餐价格与公告由服务端远程下发</p>
+                        <p>• 授权管理窗口展示 QQ 交流群二维码（群号 901882848）</p>
+                    </div>
+                </div>
+
+                <div class="update-item">
+                    <div class="update-header">
+                        <h3>KeyPresser 5.4.x</h3>
+                        <span class="update-badge history">历史版本</span>
+                    </div>
+                    <div class="update-details">
+                        <p>• 5.4.0：添加 Python 脚本系统</p>
+                        <p>• 5.4.3：添加触发模式选择</p>
+                        <p>• 5.4.8：优化截图选择体验</p>
+                        <p>• 修复快捷键相关 bug、关闭后未停止等问题</p>
+                    </div>
+                </div>
+
+                <div class="update-item">
+                    <div class="update-header">
+                        <h3>KeyPresser 5.3.0</h3>
+                        <span class="update-badge history">历史版本</span>
+                    </div>
+                    <div class="update-details highlight">
+                        <p>• KeyPresser 硬件版来袭，绕过软件输入拦截</p>
+                        <p>• 使用 Arduino Leonardo 作为物理按键模拟器，通过 KeyPresser 界面远程控制</p>
+                        <p>• 5.3.5：标准版添加组合键；5.3.6：添加鼠标助手标准版</p>
+                        <h4>优势特点</h4>
+                        <ul>
+                            <li>绕过软件拦截：利用 Arduino 物理输入模拟能力</li>
+                            <li>灵活控制：支持复杂按键序列与组合键</li>
+                            <li>易于扩展：可扩展鼠标操作、批量指令等功能</li>
                         </ul>
-                        <h4 style="margin: 20px 0 10px 0; color: #333;">优势特点</h4>
-                        <ul style="margin: 10px 0 10px 20px; padding-left: 20px;">
-                            <li style="margin: 5px 0;">绕过软件拦截：利用Arduino的物理输入模拟能力，绕过游戏的软件输入拦截</li>
-                            <li style="margin: 5px 0;">灵活控制：通过keypresser可以方便地发送各种复杂的按键序列（后续会拓展组合键）</li>
-                            <li style="margin: 5px 0;">易于扩展：后续可以根据需要扩展支持鼠标操作、批量指令等功能</li>
-                        </ul>
-                        <p style="margin: 10px 0;">KeyPresser硬件版详细使用教程请查看<a href="https://ocn1lplwg6gi.feishu.cn/wiki/Ual4wc4SxiKIodkuSSUcpLBTnsc?from=from_copylink" target="_blank" style="color: #667eea; text-decoration: none; border-bottom: 1px solid #667eea; padding-bottom: 2px; transition: all 0.3s ease;">帮助文档</a></p>
+                        <p>硬件版详细教程请查看<a href="https://ocn1lplwg6gi.feishu.cn/wiki/Ual4wc4SxiKIodkuSSUcpLBTnsc?from=from_copylink" target="_blank" rel="noopener noreferrer">帮助文档</a></p>
                     </div>
                 </div>
 
-                <div class="update-item" style="border-bottom: 1px solid #f0f0f0; padding: 30px 0; transition: transform 0.3s ease;">
-                    <div class="update-header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
-                        <h3 style="font-size: 1.5em; color: #667eea; margin: 0;">KeyPresser 5.2.0</h3>
-                        <span class="update-badge" style="background: #e0e0e0; color: #666; padding: 5px 15px; border-radius: 20px; font-size: 0.9em;">历史版本</span>
+                <div class="update-item">
+                    <div class="update-header">
+                        <h3>KeyPresser 5.2.0</h3>
+                        <span class="update-badge history">历史版本</span>
                     </div>
-                    <div class="update-details" style="color: #666; line-height: 1.8; padding-left: 20px; border-left: 3px solid #ddd;">
-                        <p style="margin: 10px 0;">• 添加KeyPresser识图版：支持识别到指定图片后自动点击按键</p>
+                    <div class="update-details">
+                        <p>• 添加 KeyPresser 识图版：支持识别到指定图片后自动点击按键</p>
                     </div>
                 </div>
 
-                <div class="update-item" style="border-bottom: 1px solid #f0f0f0; padding: 30px 0; transition: transform 0.3s ease;">
-                    <div class="update-header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
-                        <h3 style="font-size: 1.5em; color: #667eea; margin: 0;">KeyPresser 5.1.0</h3>
-                        <span class="update-badge" style="background: #e0e0e0; color: #666; padding: 5px 15px; border-radius: 20px; font-size: 0.9em;">历史版本</span>
+                <div class="update-item">
+                    <div class="update-header">
+                        <h3>KeyPresser 5.1.0</h3>
+                        <span class="update-badge history">历史版本</span>
                     </div>
-                    <div class="update-details" style="color: #666; line-height: 1.8; padding-left: 20px; border-left: 3px solid  #ddd;">
-                        <p style="margin: 10px 0;">• 集成鼠标键盘录制功能</p>
+                    <div class="update-details">
+                        <p>• 集成鼠标键盘录制功能</p>
                     </div>
                 </div>
                 
-                <div class="update-item" style="border-bottom: 1px solid #f0f0f0; padding: 30px 0; transition: transform 0.3s ease;">
-                    <div class="update-header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
-                        <h3 style="font-size: 1.5em; color: #667eea; margin: 0;">KeyPresser 5.0.0</h3>
-                        <span class="update-badge" style="background: #e0e0e0; color: #666; padding: 5px 15px; border-radius: 20px; font-size: 0.9em;">历史版本</span>
+                <div class="update-item">
+                    <div class="update-header">
+                        <h3>KeyPresser 5.0.0</h3>
+                        <span class="update-badge history">历史版本</span>
                     </div>
-                    <div class="update-details" style="color: #666; line-height: 1.8; padding-left: 20px; border-left: 3px solid #ddd;">
-
-                        <p style="margin: 10px 0;">• 架构升级，支持更多应用</p>
-                        
+                    <div class="update-details">
+                        <p>• 架构升级，支持更多应用</p>
                     </div>
                 </div>
-                
             </div>
         </div>
         
-        <div class="usage fade-in" id="tutorial">
-            <h2>📚 <span class="gradient-title-text">KeyPresser使用指南</span></h2>
-            
-            <div class="usage-step">
-                <h3>选择目标窗口</h3>
-                <p>点击"选择窗口"按钮后，根据提示点击目标窗口（例如游戏窗口）。可以点击"凸显所选窗口"来确认选择是否正确。</p>
-            </div>
-            
-            <div class="usage-step">
-                <h3>选择触发模式</h3>
-                <p>根据需要选择"独立触发"或"顺序触发"模式。独立触发模式下，勾选的按键独立计算时间间隔；顺序触发模式下，按键按顺序依次触发。</p>
-            </div>
-            
-            <div class="usage-step">
-                <h3>配置键盘仿真模式</h3>
-                <p>选择合适的键盘仿真模式：正常模式、Windows模式或DX模式。如果Windows后台模式不生效，可以尝试DX模式。</p>
-            </div>
-            
-            <div class="usage-step">
-                <h3>设置按键和时间间隔</h3>
-                <p>勾选需要自动点击的按键，选择具体的按键类型，并设置时间间隔。当最小值和最大值不同时，将在范围内生成随机间隔。</p>
-            </div>
-            
-            <div class="usage-step">
-                <h3>开始自动操作</h3>
-                <p>点击"开始"按钮或按下快捷键，即可开始自动按键。点击"停止"按钮或再次按下快捷键可停止操作。</p>
-            </div>
+        <div class="help-doc fade-in" id="help">
+            <h2>📚 <span class="gradient-title-text">使用帮助</span></h2>
+            <p>安装配置、各模块详细说明、6.0 升级迁移指南等内容，均已整理至官方帮助文档，请前往查看。</p>
+            <a href="https://ocn1lplwg6gi.feishu.cn/wiki/Ual4wc4SxiKIodkuSSUcpLBTnsc?from=from_copylink" target="_blank" rel="noopener noreferrer" class="help-doc-btn">📖 前往帮助文档</a>
         </div>
         
         <div class="feedback fade-in">
             <h2>问题反馈与建议</h2>
             <p>如有任何问题或建议，请访问：</p>
-            <a href="https://gitcode.com/wang161019/KeyPresser/discussions/1" target="_blank" class="feedback-btn">
+            <a href="https://gitcode.com/wang161019/KeyPresser/discussions/1" target="_blank" rel="noopener noreferrer" class="feedback-btn">
                 前往讨论区
             </a>
             <div class="community-box">
                 <h3>加入 KeyPresser 用户交流群</h3>
                 <p>扫描下方二维码加入 QQ 群，与其他用户交流使用心得</p>
                 <span class="community-qq">QQ群 901882848</span><br>
-                <img src="wechat_qun.jpg" alt="KeyPresser 用户 QQ 群二维码">
+                <img src="wechat_qun.jpg" alt="KeyPresser 用户 QQ 群二维码" loading="lazy">
             </div>
         </div>
     </div>
@@ -2280,12 +2423,13 @@ body::after {
                     <a href="#modules">功能模块</a>
                     <a href="#download">下载安装</a>
                     <a href="#promotion">限时活动</a>
-                    <a href="#tutorial">使用指南</a>
+                    <a href="#changelog">更新日志</a>
+                    <a href="https://ocn1lplwg6gi.feishu.cn/wiki/Ual4wc4SxiKIodkuSSUcpLBTnsc?from=from_copylink" target="_blank" rel="noopener noreferrer">使用帮助</a>
                 </div>
                 <div class="footer-contact">
                     <h4>联系我们</h4>
-                    <a href="https://gitcode.com/wang161019/KeyPresser/discussions/1" target="_blank">问题反馈</a>
-                    <a href="https://gitcode.com/wang161019/KeyPresser" target="_blank">项目源码</a>
+                    <a href="https://gitcode.com/wang161019/KeyPresser/discussions/1" target="_blank" rel="noopener noreferrer">问题反馈</a>
+                    <a href="https://gitcode.com/wang161019/KeyPresser" target="_blank" rel="noopener noreferrer">项目源码</a>
                 </div>
             </div>
             <div class="footer-bottom">
