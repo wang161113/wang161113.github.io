@@ -1292,7 +1292,7 @@ body::after {
         .module-card {
             background: linear-gradient(135deg, #f8f9ff 0%, #fff 100%);
             border-radius: 12px;
-            padding: 14px 20px 18px;
+            padding: 25px;
             border: 1px solid rgba(102, 126, 234, 0.1);
             transition: all 0.3s ease;
             position: relative;
@@ -1321,22 +1321,20 @@ body::after {
         }
 
         .module-icon {
-            font-size: 2.2em;
-            line-height: 1;
-            margin: 0 0 8px;
-            display: block;
+            font-size: 3em;
+            margin-bottom: 15px;
         }
 
         .module-card h3 {
-            font-size: 1.3em;
-            margin-bottom: 6px;
+            font-size: 1.4em;
+            margin-bottom: 10px;
             color: #333;
         }
 
         .module-desc {
             color: #666;
             font-size: 0.95em;
-            margin-bottom: 10px;
+            margin-bottom: 15px;
             font-style: italic;
         }
 
@@ -2120,16 +2118,16 @@ body::after {
         <!-- 功能模块部分 -->
         <div id="modules" class="modules-section fade-in">
             <h2>功能模块</h2>
-            <p class="section-subtitle">七大核心模块，6.2.0 按键录制全面升级</p>
+            <p class="section-subtitle">七大核心功能，满足各种自动化需求</p>
             <div class="modules-grid">
                 <div class="module-card">
                     <div class="module-icon">⌨️</div>
                     <h3>KeyPresser</h3>
-                    <p class="module-desc">标准键盘按键模拟工具</p>
+                    <p class="module-desc">基础的键盘按键模拟工具</p>
                     <ul class="module-features">
-                        <li>6.2.0 点击录制按键，支持 Ctrl 等组合键</li>
-                        <li>6.1.0 动态行：无限添加、批量导入</li>
-                        <li>独立/顺序触发，可配置随机间隔</li>
+                        <li>模拟键盘按键输入</li>
+                        <li>支持自定义按键序列</li>
+                        <li>可配置按键间隔时间</li>
                     </ul>
                 </div>
 
@@ -2138,20 +2136,20 @@ body::after {
                     <h3>KeyPresser 识图版</h3>
                     <p class="module-desc">集成图像识别功能的按键模拟工具</p>
                     <ul class="module-features">
-                        <li>识别指定图片后自动按键</li>
-                        <li>6.2.0 点击录制按键与组合键</li>
-                        <li>6.1.0 动态行配置</li>
+                        <li>基于图像识别定位目标</li>
+                        <li>自动识别屏幕上的特定元素</li>
+                        <li>结合按键模拟实现自动化操作</li>
                     </ul>
                 </div>
 
                 <div class="module-card">
                     <div class="module-icon">🖱️</div>
                     <h3>鼠标助手</h3>
-                    <p class="module-desc">鼠标操作自动化工具</p>
+                    <p class="module-desc">向目标窗口发送鼠标消息的自动化工具</p>
                     <ul class="module-features">
-                        <li>模拟点击、移动、滚轮等操作</li>
-                        <li>6.1.0 动态行动作序列</li>
-                        <li>可配置移动路径与速度</li>
+                        <li>向指定坐标发送鼠标点击消息</li>
+                        <li>支持左键、右键、滚轮的单击与双击</li>
+                        <li>可配置点击位置与时间间隔</li>
                     </ul>
                 </div>
 
@@ -2160,9 +2158,9 @@ body::after {
                     <h3>鼠标助手识图版</h3>
                     <p class="module-desc">集成图像识别功能的鼠标操作工具</p>
                     <ul class="module-features">
-                        <li>识图定位后自动执行鼠标操作</li>
-                        <li>6.1.0 动态行配置</li>
-                        <li>支持复杂场景自动化</li>
+                        <li>识别屏幕目标图片后自动执行鼠标操作</li>
+                        <li>支持左键、右键、滚轮的单击与双击</li>
+                        <li>可配置识别后的动作与时间间隔</li>
                     </ul>
                 </div>
 
@@ -2182,9 +2180,9 @@ body::after {
                     <h3>KeyPresser硬件版</h3>
                     <p class="module-desc">基于 Arduino 硬件的按键模拟工具</p>
                     <ul class="module-features">
-                        <li>Arduino 物理级按键，绕过软件拦截</li>
-                        <li>6.2.0 点击录制按键与组合键</li>
-                        <li>6.1.0 动态行配置</li>
+                        <li>通过 Arduino 硬件实现真实的按键输出</li>
+                        <li>支持硬件级按键模拟</li>
+                        <li>需要检测 Arduino 连接状态</li>
                     </ul>
                 </div>
 
