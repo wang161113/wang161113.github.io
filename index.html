@@ -3,10 +3,10 @@
 <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description" content="KeyPresser 6.1.0 专业自动化按键工具，支持动态行配置、在线授权、识图版、鼠标助手与 Python 脚本，免费下载体验。">
+        <meta name="description" content="KeyPresser 6.2.0 专业自动化按键工具，支持点击录制按键、组合键、动态行配置、在线授权、识图版、鼠标助手与 Python 脚本，免费下载体验。">
         <title>KeyPresser - 专业自动化按键工具</title>
         <meta property="og:title" content="KeyPresser - 专业自动化按键工具">
-        <meta property="og:description" content="支持动态行配置、在线授权、识图版、鼠标助手与 Python 脚本，免费下载体验。">
+        <meta property="og:description" content="6.2.0 支持点击录制按键与组合键，动态行配置、在线授权、识图版、鼠标助手与 Python 脚本，免费下载体验。">
         <meta property="og:type" content="website">
         <meta property="og:image" content="https://keypresser.onepeak.cn/logo.png">
         <link rel="icon" href="keypresser.ico" type="image/x-icon">
@@ -1999,7 +1999,7 @@ body::after {
     <div class="container">
         <div class="download-section fade-in" id="download">
             <h2>🚀 <span class="gradient-title-text">立即下载 KeyPresser</span></h2>
-            <p class="download-subtitle">当前最新版 KeyPresser 6.1.0，超过 10,000+ 用户的选择，免费下载体验</p>
+            <p class="download-subtitle">当前最新版 KeyPresser 6.2.0，超过 10,000+ 用户的选择，免费下载体验</p>
             <p class="download-migration-note">从 5.x 升级用户：安装 6.x 后可在「授权管理」中将本地激活码绑定到账号，详见<a href="https://ocn1lplwg6gi.feishu.cn/wiki/Ual4wc4SxiKIodkuSSUcpLBTnsc?from=from_copylink" target="_blank" rel="noopener noreferrer">帮助文档</a></p>
             
             <div class="download-buttons">
@@ -2106,15 +2106,15 @@ body::after {
         <!-- 功能模块部分 -->
         <div id="modules" class="modules-section fade-in">
             <h2>功能模块</h2>
-            <p class="section-subtitle">七大核心模块，6.1.0 动态行全面升级</p>
+            <p class="section-subtitle">七大核心模块，6.2.0 按键录制全面升级</p>
             <div class="modules-grid">
                 <div class="module-card">
                     <div class="module-icon">⌨️</div>
                     <h3>KeyPresser</h3>
                     <p class="module-desc">标准键盘按键模拟工具</p>
                     <ul class="module-features">
+                        <li>6.2.0 点击录制按键，支持 Ctrl 等组合键</li>
                         <li>6.1.0 动态行：无限添加、批量导入</li>
-                        <li>6.0.1 支持长按、组合键</li>
                         <li>独立/顺序触发，可配置随机间隔</li>
                     </ul>
                 </div>
@@ -2125,8 +2125,8 @@ body::after {
                     <p class="module-desc">集成图像识别功能的按键模拟工具</p>
                     <ul class="module-features">
                         <li>识别指定图片后自动按键</li>
+                        <li>6.2.0 点击录制按键与组合键</li>
                         <li>6.1.0 动态行配置</li>
-                        <li>结合按键模拟实现自动化操作</li>
                     </ul>
                 </div>
 
@@ -2169,8 +2169,8 @@ body::after {
                     <p class="module-desc">基于 Arduino 硬件的按键模拟工具</p>
                     <ul class="module-features">
                         <li>Arduino 物理级按键，绕过软件拦截</li>
+                        <li>6.2.0 点击录制按键与组合键</li>
                         <li>6.1.0 动态行配置</li>
-                        <li>串口通信远程控制硬件</li>
                     </ul>
                 </div>
 
@@ -2289,10 +2289,23 @@ body::after {
             <div class="update-content">
                 <div class="update-item">
                     <div class="update-header">
-                        <h3>KeyPresser 6.1.0</h3>
+                        <h3>KeyPresser 6.2.0</h3>
                         <span class="update-badge latest">最新版本</span>
                     </div>
                     <div class="update-details highlight">
+                        <p>• 按键设置改为<strong>点击录制</strong>：点一下输入框，直接按键盘即可设置，告别双下拉框</p>
+                        <p>• 标准版、识图版、硬件版均支持<strong>组合键</strong>（如 Ctrl+A），可连续按键覆盖修改</p>
+                        <p>• 完善小键盘、方向键（↑↓←→）、标点键及更多特殊键显示</p>
+                        <p>• 原有配置文件自动兼容，无需手动迁移</p>
+                    </div>
+                </div>
+
+                <div class="update-item">
+                    <div class="update-header">
+                        <h3>KeyPresser 6.1.0</h3>
+                        <span class="update-badge history">历史版本</span>
+                    </div>
+                    <div class="update-details">
                         <p>• 按键/鼠标配置行全面升级为<strong>动态行</strong>：可按需添加、删除，支持批量导入</p>
                         <p>• 标准键盘、硬件键盘、识图键盘、鼠标识图、鼠标标准五个模块统一改造</p>
                         <p>• 行列表支持滚动，窗口高度不再随行数膨胀；运行中自动锁定编辑，更稳定安全</p>
