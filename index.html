@@ -264,6 +264,20 @@ body::after {
             margin: 0;
         }
 
+        .download-changelog-link {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 600;
+            margin-left: 0.35em;
+            border-bottom: 1px solid rgba(102, 126, 234, 0.35);
+            transition: color 0.2s ease, border-color 0.2s ease;
+        }
+
+        .download-changelog-link:hover {
+            color: #764ba2;
+            border-bottom-color: rgba(118, 75, 162, 0.5);
+        }
+
         .notice-box {
             margin-top: 0;
             max-width: 1200px;
@@ -1999,7 +2013,7 @@ body::after {
     <div class="container">
         <div class="download-section fade-in" id="download">
             <h2>🚀 <span class="gradient-title-text">立即下载 KeyPresser</span></h2>
-            <p class="download-subtitle">当前最新版 KeyPresser 6.2.0，超过 10,000+ 用户的选择，免费下载体验</p>
+            <p class="download-subtitle">当前最新版 KeyPresser 6.2.0<a href="#changelog" class="download-changelog-link">查看更新日志</a>，超过 10,000+ 用户的选择，免费下载体验</p>
             <p class="download-migration-note">从 5.x 升级用户：安装 6.x 后可在「授权管理」中将本地激活码绑定到账号，详见<a href="https://ocn1lplwg6gi.feishu.cn/wiki/Ual4wc4SxiKIodkuSSUcpLBTnsc?from=from_copylink" target="_blank" rel="noopener noreferrer">帮助文档</a></p>
             
             <div class="download-buttons">
