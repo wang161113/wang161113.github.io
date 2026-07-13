@@ -11,7 +11,35 @@
         <meta property="og:image" content="https://keypresser.onepeak.cn/logo.png">
         <link rel="icon" href="keypresser.ico" type="image/x-icon">
         <link rel="shortcut icon" href="keypresser.ico" type="image/x-icon">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
         <style>
+        :root {
+            --bg: #0b0c0f;
+            --bg-muted: #14161b;
+            --bg-subtle: #1a1d24;
+            --bg-card: #1a1d24;
+            --bg-dark: #060708;
+            --bg-alt: #111318;
+            --text: #ffffff;
+            --text-secondary: #b9bdc6;
+            --text-muted: #6f7480;
+            --border: rgba(255, 255, 255, 0.08);
+            --border-strong: rgba(255, 255, 255, 0.14);
+            --accent: #a9e600;
+            --accent-bright: #c2ff45;
+            --accent-hover: #b6f328;
+            --accent-text: #0b0c0f;
+            --glow: rgba(169, 230, 0, 0.35);
+            --radius: 16px;
+            --radius-sm: 12px;
+            --radius-lg: 24px;
+            --shadow: 0 8px 32px rgba(0, 0, 0, 0.45);
+            --font: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Microsoft YaHei', sans-serif;
+            --nav-h: 64px;
+            --max-w: 1120px;
+        }
 		/* 图片放大查看功能 */
 		.image-modal {
 			display: none;
@@ -72,210 +100,675 @@
         }
         
         body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Microsoft YaHei', sans-serif;
-    line-height: 1.6;
-    color: #333;
-    background: 
-        linear-gradient(135deg, #f8f9ff 0%, #eef2ff 50%, #f8f9ff 100%),
-        radial-gradient(circle at 20% 80%, rgba(102, 126, 234, 0.05) 0%, transparent 50%),
-        radial-gradient(circle at 80% 20%, rgba(118, 75, 162, 0.05) 0%, transparent 50%);
-    background-attachment: fixed;
-    background-size: 400% 400%;
-    animation: gradientShift 15s ease infinite;
-    position: relative;
-    overflow-x: hidden;
-}
+            font-family: var(--font);
+            line-height: 1.6;
+            color: var(--text);
+            background: var(--bg);
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
 
-body::before {
-    content: '';
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: 
-        radial-gradient(circle at 10% 20%, rgba(102, 126, 234, 0.03) 0%, transparent 40%),
-        radial-gradient(circle at 90% 80%, rgba(118, 75, 162, 0.03) 0%, transparent 40%),
-        radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.05) 0%, transparent 60%);
-    animation: backgroundPulse 8s ease-in-out infinite;
-    pointer-events: none;
-    z-index: -1;
-}
+        .bg-scene {
+            position: fixed;
+            inset: 0;
+            z-index: -1;
+            overflow: hidden;
+            pointer-events: none;
+            background:
+                radial-gradient(ellipse 110% 60% at 50% -18%, rgba(169, 230, 0, 0.30) 0%, rgba(120, 165, 0, 0.10) 34%, transparent 62%),
+                linear-gradient(180deg, #0e1207 0%, #0b0c0f 30%, #060708 100%);
+        }
 
-body::after {
-    content: '';
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: 
-        linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.1) 50%, transparent 70%);
-    animation: shimmer 6s linear infinite;
-    pointer-events: none;
-    z-index: -1;
-}
+        .bg-scene::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image:
+                linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+            background-size: 64px 64px;
+            mask-image: radial-gradient(ellipse 95% 75% at 50% -8%, #000 18%, transparent 78%);
+            -webkit-mask-image: radial-gradient(ellipse 95% 75% at 50% -8%, #000 18%, transparent 78%);
+        }
 
-@keyframes gradientShift {
-    0% {
-        background-position: 0% 50%;
-    }
-    50% {
-        background-position: 100% 50%;
-    }
-    100% {
-        background-position: 0% 50%;
-    }
-}
+        .bg-scene::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(ellipse 48% 32% at 50% -4%, rgba(194, 255, 69, 0.18) 0%, transparent 70%),
+                radial-gradient(ellipse 100% 100% at 50% 100%, rgba(0, 0, 0, 0.55) 0%, transparent 55%);
+            opacity: 0.95;
+        }
 
-@keyframes backgroundPulse {
-    0%, 100% {
-        transform: scale(1);
-        opacity: 0.8;
-    }
-    50% {
-        transform: scale(1.2);
-        opacity: 1;
-    }
-}
+        .bg-spotlight {
+            position: absolute;
+            top: -22vh;
+            left: 50%;
+            width: min(1200px, 150vw);
+            height: 58vh;
+            transform: translateX(-50%);
+            background: radial-gradient(ellipse 50% 55% at 50% 38%, rgba(169, 230, 0, 0.34) 0%, rgba(169, 230, 0, 0.1) 40%, transparent 70%);
+            filter: blur(30px);
+            animation: spotlightPulse 10s ease-in-out infinite;
+        }
 
-@keyframes shimmer {
-    0% {
-        transform: translateX(-100%);
-    }
-    100% {
-        transform: translateX(100%);
-    }
-}
+        .bg-mesh {
+            position: absolute;
+            inset: 0;
+            background-image: radial-gradient(rgba(194, 255, 69, 0.14) 1px, transparent 1px);
+            background-size: 42px 42px;
+            mask-image: radial-gradient(ellipse 80% 65% at 50% 15%, #000 12%, transparent 72%);
+            -webkit-mask-image: radial-gradient(ellipse 80% 65% at 50% 15%, #000 12%, transparent 72%);
+            opacity: 0.45;
+        }
 
-/* 添加浮动粒子效果 */
-.particle {
-    position: fixed;
-    background: rgba(102, 126, 234, 0.05);
-    border-radius: 50%;
-    pointer-events: none;
-    z-index: -1;
-    animation: float 20s infinite linear;
-}
+        .glow-orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(90px);
+            will-change: transform;
+            animation: orbFloat 14s ease-in-out infinite;
+        }
 
-@keyframes float {
-    0% {
-        transform: translateY(100vh) rotate(0deg);
-        opacity: 0;
-    }
-    10% {
-        opacity: 1;
-    }
-    90% {
-        opacity: 1;
-    }
-    100% {
-        transform: translateY(-100vh) rotate(360deg);
-        opacity: 0;
-    }
-}
+        .glow-orb-1 {
+            width: 780px;
+            height: 780px;
+            top: -380px;
+            left: 50%;
+            margin-left: -390px;
+            background: radial-gradient(circle, rgba(169, 230, 0, 0.34) 0%, rgba(169, 230, 0, 0.08) 44%, transparent 72%);
+        }
 
-@keyframes float2 {
-    0% {
-        transform: translateY(100vh) translateX(0) rotate(0deg);
-        opacity: 0;
-    }
-    20% {
-        opacity: 1;
-    }
-    80% {
-        opacity: 1;
-    }
-    100% {
-        transform: translateY(-100vh) translateX(100px) rotate(180deg);
-        opacity: 0;
-    }
-}
+        .glow-orb-2 {
+            width: 520px;
+            height: 520px;
+            top: 22%;
+            right: -140px;
+            background: radial-gradient(circle, rgba(194, 255, 69, 0.22) 0%, transparent 70%);
+            animation-delay: -5s;
+        }
 
-@keyframes float3 {
-    0% {
-        transform: translateY(100vh) translateX(0) scale(0.5);
-        opacity: 0;
-    }
-    15% {
-        opacity: 1;
-        transform: translateY(80vh) translateX(50px) scale(1);
-    }
-    85% {
-        opacity: 1;
-    }
-    100% {
-        transform: translateY(-100vh) translateX(-100px) scale(1.5);
-        opacity: 0;
-    }
-}
-        
+        .glow-orb-3 {
+            width: 600px;
+            height: 600px;
+            bottom: 5%;
+            left: -200px;
+            background: radial-gradient(circle, rgba(169, 230, 0, 0.16) 0%, transparent 72%);
+            animation-delay: -9s;
+        }
+
+        .glow-orb-4 {
+            width: 480px;
+            height: 480px;
+            bottom: 18%;
+            right: 6%;
+            background: radial-gradient(circle, rgba(194, 255, 69, 0.12) 0%, transparent 70%);
+            animation-delay: -3s;
+        }
+
+        @keyframes spotlightPulse {
+            0%, 100% { opacity: 0.82; transform: translateX(-50%) scale(1); }
+            50% { opacity: 1; transform: translateX(-50%) scale(1.05); }
+        }
+
+        @keyframes orbFloat {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(24px, -28px) scale(1.06); }
+        }
+
+        .page-band {
+            padding: 72px 0;
+            position: relative;
+            isolation: isolate;
+            overflow: hidden;
+        }
+
+        .page-band > .container,
+        .page-band > .download-section,
+        .section-dark > .container {
+            position: relative;
+            z-index: 1;
+        }
+
+        .page-band.alt {
+            background: linear-gradient(180deg, rgba(20, 22, 27, 0.72) 0%, rgba(11, 12, 15, 0.88) 100%);
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .page-band.compact {
+            padding: 48px 0;
+        }
+
+        /* 各区块专属炫酷背景 */
+        .page-band::before,
+        .page-band::after,
+        .hero::before,
+        .hero::after,
+        .section-dark::before,
+        .section-dark::after {
+            content: '';
+            position: absolute;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* Hero：顶部强光 + 细网格 */
+        .hero {
+            overflow: hidden;
+            isolation: isolate;
+        }
+
+        .hero::before {
+            width: 1000px;
+            height: 560px;
+            top: -300px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: radial-gradient(ellipse, rgba(169, 230, 0, 0.34) 0%, rgba(169, 230, 0, 0.1) 40%, transparent 72%);
+            filter: blur(30px);
+            animation: heroGlowPulse 8s ease-in-out infinite;
+        }
+
+        .hero::after {
+            inset: 0;
+            background-image:
+                linear-gradient(rgba(194, 255, 69, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(194, 255, 69, 0.05) 1px, transparent 1px);
+            background-size: 56px 56px;
+            mask-image: radial-gradient(ellipse 85% 60% at 50% 0%, #000 8%, transparent 72%);
+            -webkit-mask-image: radial-gradient(ellipse 85% 60% at 50% 0%, #000 8%, transparent 72%);
+            opacity: 0.85;
+        }
+
+        /* 限时活动区 */
+        .band-promotion {
+            background:
+                linear-gradient(180deg, transparent 0%, rgba(11, 12, 15, 0.85) 24%, rgba(8, 9, 12, 0.95) 100%);
+            border-bottom: 1px solid rgba(169, 230, 0, 0.06);
+            padding-top: 16px;
+        }
+
+        /* 软件界面：斜切网格 + 底部青绿光 */
+        .band-preview {
+            background:
+                linear-gradient(160deg, rgba(20, 22, 27, 0.95) 0%, rgba(11, 12, 15, 0.98) 100%);
+        }
+
+        .band-preview::before {
+            inset: 0;
+            background-image:
+                linear-gradient(rgba(169, 230, 0, 0.035) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(169, 230, 0, 0.035) 1px, transparent 1px);
+            background-size: 48px 48px;
+            transform: skewY(-2deg) scale(1.08);
+            transform-origin: center;
+            opacity: 0.55;
+            mask-image: linear-gradient(180deg, transparent, #000 20%, #000 80%, transparent);
+            -webkit-mask-image: linear-gradient(180deg, transparent, #000 20%, #000 80%, transparent);
+        }
+
+        .band-preview::after {
+            width: 70%;
+            height: 280px;
+            left: 15%;
+            bottom: -120px;
+            background: radial-gradient(ellipse, rgba(169, 230, 0, 0.16) 0%, transparent 70%);
+            filter: blur(30px);
+        }
+
+        /* 功能模块：中心聚光 + 边框光带 */
+        .band-modules {
+            background:
+                radial-gradient(ellipse 90% 70% at 50% -15%, rgba(169, 230, 0, 0.2) 0%, rgba(169, 230, 0, 0.06) 40%, transparent 65%),
+                radial-gradient(ellipse 70% 60% at 50% 0%, rgba(169, 230, 0, 0.14) 0%, transparent 55%),
+                linear-gradient(180deg, #101218 0%, #0b0c0f 100%);
+            border-top: 1px solid rgba(169, 230, 0, 0.12);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .band-modules::before {
+            left: 0;
+            right: 0;
+            top: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(169, 230, 0, 0.55), transparent);
+            box-shadow: 0 0 24px rgba(169, 230, 0, 0.35);
+        }
+
+        .band-modules::after {
+            width: 520px;
+            height: 520px;
+            bottom: -220px;
+            left: 50%;
+            margin-left: -260px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(194, 255, 69, 0.1) 0%, transparent 65%);
+            filter: blur(20px);
+        }
+
+        /* 用户评价：左侧暖绿光晕 */
+        .band-reviews {
+            background:
+                radial-gradient(ellipse 55% 80% at -10% 40%, rgba(169, 230, 0, 0.14) 0%, transparent 60%),
+                radial-gradient(ellipse 40% 50% at 110% 80%, rgba(255, 106, 61, 0.06) 0%, transparent 55%),
+                linear-gradient(180deg, rgba(18, 20, 26, 0.95) 0%, rgba(11, 12, 15, 0.98) 100%);
+        }
+
+        .band-reviews::before {
+            width: 420px;
+            height: 420px;
+            top: 10%;
+            left: -140px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(169, 230, 0, 0.2) 0%, transparent 70%);
+            filter: blur(50px);
+            animation: orbFloat 16s ease-in-out infinite reverse;
+        }
+
+        .band-reviews::after {
+            inset: 0;
+            background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.015) 50%, transparent 100%);
+        }
+
+        /* 视频演示：圆环光 + 点阵 */
+        .band-demo {
+            background:
+                radial-gradient(circle at 50% 120%, rgba(169, 230, 0, 0.12) 0%, transparent 45%),
+                linear-gradient(180deg, #0d0f14 0%, #0b0c0f 100%);
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .band-demo::before {
+            width: 560px;
+            height: 560px;
+            left: 50%;
+            top: 55%;
+            margin-left: -280px;
+            border: 1px solid rgba(169, 230, 0, 0.12);
+            border-radius: 50%;
+            box-shadow:
+                0 0 80px rgba(169, 230, 0, 0.08),
+                inset 0 0 60px rgba(169, 230, 0, 0.04);
+            animation: ringPulse 10s ease-in-out infinite;
+        }
+
+        .band-demo::after {
+            inset: 0;
+            background-image: radial-gradient(rgba(255, 255, 255, 0.07) 1px, transparent 1px);
+            background-size: 28px 28px;
+            mask-image: radial-gradient(ellipse 70% 60% at 50% 50%, #000 20%, transparent 75%);
+            -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 50%, #000 20%, transparent 75%);
+            opacity: 0.5;
+        }
+
+        /* 更新日志：竖向光线 + 暗面板 */
+        .band-changelog {
+            background:
+                linear-gradient(90deg, rgba(169, 230, 0, 0.04) 0%, transparent 18%, transparent 82%, rgba(169, 230, 0, 0.04) 100%),
+                linear-gradient(180deg, rgba(16, 18, 24, 0.98) 0%, rgba(11, 12, 15, 1) 100%);
+        }
+
+        .band-changelog::before {
+            top: 0;
+            bottom: 0;
+            left: 12%;
+            width: 1px;
+            background: linear-gradient(180deg, transparent, rgba(169, 230, 0, 0.35), transparent);
+            opacity: 0.7;
+        }
+
+        .band-changelog::after {
+            top: 0;
+            bottom: 0;
+            right: 12%;
+            width: 1px;
+            background: linear-gradient(180deg, transparent, rgba(169, 230, 0, 0.25), transparent);
+            opacity: 0.5;
+        }
+
+        /* 帮助：右上角光斑 */
+        .band-help {
+            background:
+                radial-gradient(ellipse 50% 60% at 90% 10%, rgba(194, 255, 69, 0.12) 0%, transparent 55%),
+                linear-gradient(180deg, #0c0e13 0%, #0b0c0f 100%);
+            border-top: 1px solid rgba(169, 230, 0, 0.08);
+        }
+
+        .band-help::before {
+            width: 380px;
+            height: 380px;
+            top: -100px;
+            right: -60px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(169, 230, 0, 0.22) 0%, transparent 68%);
+            filter: blur(45px);
+            animation: sectionPulse 9s ease-in-out infinite;
+        }
+
+        /* 反馈：底部扫描线 */
+        .band-feedback {
+            background:
+                radial-gradient(ellipse 80% 50% at 50% 100%, rgba(169, 230, 0, 0.1) 0%, transparent 55%),
+                linear-gradient(180deg, rgba(18, 20, 26, 0.95) 0%, rgba(8, 9, 12, 0.98) 100%);
+            border-top: 1px solid var(--border);
+        }
+
+        .band-feedback::before {
+            left: 0;
+            right: 0;
+            bottom: 0;
+            height: 120px;
+            background: linear-gradient(0deg, rgba(169, 230, 0, 0.06), transparent);
+        }
+
+        .band-feedback::after {
+            left: 10%;
+            right: 10%;
+            bottom: 18%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(169, 230, 0, 0.4), transparent);
+            box-shadow: 0 0 18px rgba(169, 230, 0, 0.25);
+            animation: scanLine 6s ease-in-out infinite;
+        }
+
+        @keyframes sectionPulse {
+            0%, 100% { opacity: 0.75; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.08); }
+        }
+
+        @keyframes heroGlowPulse {
+            0%, 100% { opacity: 0.75; transform: translateX(-50%) scale(1); }
+            50% { opacity: 1; transform: translateX(-50%) scale(1.08); }
+        }
+
+        @keyframes ringPulse {
+            0%, 100% { transform: translateY(-50%) scale(1); opacity: 0.55; }
+            50% { transform: translateY(-50%) scale(1.06); opacity: 0.9; }
+        }
+
+        @keyframes scanLine {
+            0%, 100% { opacity: 0.35; transform: translateY(0); }
+            50% { opacity: 0.9; transform: translateY(-12px); }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .bg-spotlight,
+            .hero::before,
+            .band-reviews::before,
+            .band-help::before,
+            .band-demo::before,
+            .band-feedback::after {
+                animation: none;
+            }
+        }
+
         .container {
-            max-width: 1200px;
+            max-width: var(--max-w);
             margin: 0 auto;
-            padding: 20px;
-        }
-        
-        header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 24px 0 18px;
-            text-align: center;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 0 24px;
         }
 
-        header .container {
-            padding-top: 4px;
-            padding-bottom: 0;
-        }
-        
-        .logo-container {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 6px;
-        }
-        
         .logo {
-            width: 48px;
-            height: 48px;
-            margin-right: 12px;
+            width: 32px;
+            height: 32px;
             object-fit: contain;
             flex-shrink: 0;
         }
-        
-        header h1 {
-            font-size: 2em;
-            margin-bottom: 4px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        .site-nav {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            height: var(--nav-h);
+            background: rgba(11, 12, 15, 0.82);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid var(--border);
         }
-        
+
+        .nav-inner {
+            max-width: var(--max-w);
+            margin: 0 auto;
+            padding: 0 24px;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 24px;
+        }
+
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 700;
+            font-size: 1.05em;
+            flex-shrink: 0;
+        }
+
+        .nav-brand-mark {
+            display: inline-flex;
+            align-items: flex-end;
+            justify-content: center;
+            width: 34px;
+            height: 28px;
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+
+        .nav-brand .logo {
+            width: 34px;
+            height: 34px;
+            object-fit: contain;
+            object-position: center bottom;
+            display: block;
+        }
+
+        .nav-brand-text {
+            line-height: 1;
+            transform: translateY(1px);
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 28px;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.92em;
+            font-weight: 500;
+            transition: color 0.2s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--text);
+        }
+
+        .nav-cta {
+            display: inline-flex;
+            align-items: center;
+            padding: 9px 18px;
+            background: var(--accent);
+            color: var(--accent-text) !important;
+            text-decoration: none;
+            border-radius: 999px;
+            font-size: 0.88em;
+            font-weight: 700;
+            transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+            flex-shrink: 0;
+            box-shadow: 0 0 24px rgba(169, 230, 0, 0.25);
+        }
+
+        .nav-cta:hover {
+            background: var(--accent-bright);
+            transform: translateY(-1px);
+            box-shadow: 0 0 32px rgba(194, 255, 69, 0.35);
+        }
+
+        /* Hero */
+        .hero {
+            text-align: center;
+            padding: 88px 0 56px;
+            background: transparent;
+            border-bottom: none;
+            position: relative;
+            overflow: hidden;
+            isolation: isolate;
+        }
+
+        .hero > .container {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-title {
+            font-size: clamp(2.2rem, 5vw, 3.75rem);
+            font-weight: 800;
+            line-height: 1.12;
+            letter-spacing: -0.03em;
+            color: var(--text);
+            margin-bottom: 20px;
+        }
+
+        .hero-accent {
+            background: linear-gradient(90deg, var(--accent) 0%, var(--accent-bright) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 800;
+        }
+
+        .hero-lead {
+            font-size: 1.125rem;
+            color: var(--text-secondary);
+            max-width: 580px;
+            margin: 0 auto;
+            line-height: 1.75;
+        }
+
+        .hero-download-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            margin-top: 32px;
+            flex-wrap: wrap;
+        }
+
+        .hero-download-buttons .download-btn {
+            justify-content: center;
+            min-width: 168px;
+            padding: 14px 32px;
+            font-size: 1.02em;
+        }
+
+        .section-eyebrow {
+            display: inline-block;
+            font-size: 0.78em;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 12px;
+        }
+
+        .section-eyebrow.light {
+            color: rgba(255, 255, 255, 0.55);
+        }
+
+        .section-head {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .section-head h2 {
+            font-size: clamp(1.75rem, 3vw, 2.25rem);
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            color: var(--text);
+            margin-bottom: 12px;
+        }
+
+        .section-head p {
+            color: var(--text-secondary);
+            font-size: 1.05em;
+            max-width: 520px;
+            margin: 0 auto;
+        }
+
+        .section-dark {
+            background:
+                radial-gradient(ellipse 100% 65% at 50% -25%, rgba(169, 230, 0, 0.32) 0%, rgba(169, 230, 0, 0.1) 38%, transparent 68%),
+                linear-gradient(180deg, rgba(169, 230, 0, 0.08) 0%, rgba(11, 12, 15, 0.92) 42%, var(--bg-dark) 100%);
+            color: #fff;
+            padding: 72px 0;
+            border-top: 1px solid rgba(169, 230, 0, 0.16);
+            border-bottom: 1px solid var(--border);
+            position: relative;
+            isolation: isolate;
+            overflow: hidden;
+        }
+
+        .section-dark::before {
+            width: 760px;
+            height: 380px;
+            top: -140px;
+            left: 50%;
+            margin-left: -380px;
+            background: radial-gradient(ellipse, rgba(194, 255, 69, 0.28) 0%, transparent 72%);
+            filter: blur(36px);
+            animation: sectionPulse 7s ease-in-out infinite;
+        }
+
+        .section-dark::after {
+            inset: 0;
+            background-image:
+                linear-gradient(rgba(169, 230, 0, 0.04) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(169, 230, 0, 0.04) 1px, transparent 1px);
+            background-size: 56px 56px;
+            mask-image: radial-gradient(ellipse 90% 70% at 50% 0%, #000 15%, transparent 70%);
+            -webkit-mask-image: radial-gradient(ellipse 90% 70% at 50% 0%, #000 15%, transparent 70%);
+            opacity: 0.6;
+        }
+
+        .section-dark .stat-number {
+            color: var(--accent-bright);
+            background: none;
+            -webkit-text-fill-color: var(--accent-bright);
+        }
+
+        .section-dark .section-head p,
+        .section-dark .stat-label {
+            color: rgba(255, 255, 255, 0.55);
+        }
+
         @media (max-width: 768px) {
-            .logo {
-                width: 44px;
-                height: 44px;
-                margin-right: 10px;
+            .nav-links {
+                display: none;
             }
-        }
-        
-        header p {
-            font-size: 0.95em;
-            opacity: 0.9;
-            margin: 0;
+
+            .hero {
+                padding: 48px 0 32px;
+            }
         }
 
         .download-changelog-link {
-            color: #667eea;
+            color: var(--accent-bright);
             text-decoration: none;
             font-weight: 600;
             margin-left: 0.35em;
-            border-bottom: 1px solid rgba(102, 126, 234, 0.35);
+            border-bottom: 1px solid rgba(194, 255, 69, 0.35);
             transition: color 0.2s ease, border-color 0.2s ease;
         }
 
         .download-changelog-link:hover {
-            color: #764ba2;
-            border-bottom-color: rgba(118, 75, 162, 0.5);
+            color: var(--accent);
         }
 
         .notice-box {
@@ -348,7 +841,7 @@ body::after {
         }
 
         [id] {
-            scroll-margin-top: 16px;
+            scroll-margin-top: calc(var(--nav-h) + 16px);
         }
 
         @media (prefers-reduced-motion: reduce) {
@@ -1967,14 +2460,6 @@ body::after {
         }
         
         @media (max-width: 768px) {
-            header {
-                padding: 16px 0 14px;
-            }
-
-            header h1 {
-                font-size: 1.65em;
-            }
-            
             .download-btn {
                 display: block;
                 margin: 10px auto;
@@ -1985,6 +2470,881 @@ body::after {
             }
         }
 
+
+        /* ===== Dingphone 风格覆盖 ===== */
+        .download-section {
+            margin: 0;
+            background: transparent;
+            border-radius: 0;
+            padding: 0;
+            box-shadow: none;
+            border: none;
+        }
+
+        .download-section h2 {
+            font-size: 1.5em;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: var(--text);
+        }
+
+        .download-subtitle {
+            color: var(--text-secondary);
+        }
+
+        .download-migration-note {
+            background: var(--bg-muted);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+        }
+
+        .download-migration-note a {
+            color: var(--text);
+            border-bottom-color: var(--border-strong);
+        }
+
+        .download-btn.primary {
+            background: var(--accent);
+            color: var(--accent-text);
+            border-radius: 999px;
+            box-shadow: 0 0 28px rgba(169, 230, 0, 0.22);
+            font-weight: 700;
+        }
+
+        .download-btn.primary:hover {
+            background: var(--accent-bright);
+            box-shadow: 0 0 36px rgba(194, 255, 69, 0.32);
+        }
+
+        .download-btn.secondary {
+            background: rgba(255, 255, 255, 0.04);
+            color: var(--text);
+            border: 1px solid var(--border-strong);
+            border-radius: 999px;
+            box-shadow: none;
+        }
+
+        .download-btn.secondary:hover {
+            background: rgba(255, 255, 255, 0.08);
+            color: var(--text);
+            border-color: rgba(255, 255, 255, 0.22);
+        }
+
+        .download-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow);
+        }
+
+        .feature-item {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid var(--border);
+            border-radius: 999px;
+            box-shadow: none;
+            cursor: default;
+            color: var(--text-secondary);
+        }
+
+        .feature-item::before { display: none; }
+
+        .feature-item:hover {
+            transform: none;
+            background: rgba(169, 230, 0, 0.08);
+            border-color: rgba(169, 230, 0, 0.25);
+            color: var(--text);
+            box-shadow: none;
+        }
+
+        .promotion-section {
+            padding: 0;
+            margin: 0;
+            background: transparent;
+            border: none;
+            border-radius: 0;
+            box-shadow: none;
+            overflow: visible;
+        }
+
+        .promotion-section::before,
+        .promotion-section::after,
+        .promotion-sparkle { display: none; }
+
+        .promotion-badge {
+            background: var(--bg-dark);
+            animation: none;
+            box-shadow: none;
+            border-radius: 999px;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            font-size: 0.72em;
+        }
+
+        .promotion-section h2 {
+            font-size: 1.35em;
+            font-weight: 700;
+            color: var(--text);
+            background: none;
+            -webkit-text-fill-color: var(--text);
+            animation: none;
+            filter: none;
+        }
+
+        .promotion-step {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            backdrop-filter: blur(8px);
+        }
+
+        .promotion-step::after { display: none; }
+
+        .promotion-step:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow);
+            border-color: var(--border-strong);
+        }
+
+        .promotion-step h3,
+        .promotion-step p {
+            color: var(--text-secondary);
+        }
+
+        .promotion-step-num {
+            background: var(--accent);
+            color: var(--accent-text);
+            box-shadow: none;
+            font-weight: 800;
+        }
+
+        .promotion-arrow {
+            color: var(--text-muted);
+            animation: none;
+            text-shadow: none;
+        }
+
+        .promotion-step-reward {
+            background: linear-gradient(135deg, rgba(169, 230, 0, 0.18) 0%, rgba(26, 29, 36, 0.95) 100%);
+            border: 1px solid rgba(169, 230, 0, 0.25);
+            animation: none;
+        }
+
+        .promotion-step-reward h3,
+        .promotion-step-reward p {
+            color: var(--text);
+        }
+
+        .promotion-step-reward:hover {
+            box-shadow: var(--shadow);
+        }
+
+        .promotion-metric {
+            background: rgba(169, 230, 0, 0.08);
+            border-color: rgba(169, 230, 0, 0.2);
+            color: var(--accent-bright);
+            box-shadow: none;
+        }
+
+        .promotion-footer {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            backdrop-filter: none;
+            box-shadow: none;
+            color: var(--text-secondary);
+        }
+
+        .promotion-qq {
+            background: var(--accent);
+            color: var(--accent-text);
+            animation: none;
+            box-shadow: 0 0 20px rgba(169, 230, 0, 0.2);
+            border-radius: 999px;
+            font-weight: 800;
+        }
+
+        .notice-box {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            box-shadow: none;
+            margin-top: 32px;
+        }
+
+        .notice-box h4 {
+            color: var(--accent-bright);
+        }
+
+        .notice-box p {
+            color: var(--text-secondary);
+        }
+
+        .screenshot h2,
+        .modules-section h2,
+        .testimonials h2,
+        .feedback h2,
+        .video-demo h2,
+        .update-log h2,
+        .help-doc h2 {
+            background: none !important;
+            -webkit-text-fill-color: var(--text) !important;
+            color: var(--text) !important;
+        }
+
+        .gradient-title-text {
+            background: none;
+            -webkit-text-fill-color: var(--text);
+            color: var(--text);
+        }
+
+        .screenshot {
+            margin: 0;
+            padding: 0;
+        }
+
+        .screenshot > p {
+            color: var(--text-secondary);
+            margin-bottom: 32px;
+        }
+
+        .carousel-container {
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--border);
+            background: rgba(26, 29, 36, 0.55);
+            box-shadow: 0 24px 64px rgba(0, 0, 0, 0.35);
+        }
+
+        .carousel-btn {
+            background: rgba(0, 0, 0, 0.55);
+            border-radius: 50%;
+        }
+
+        .carousel-btn:hover {
+            background: var(--accent);
+            transform: translateY(-50%) scale(1.05);
+        }
+
+        .indicator.active {
+            background: var(--accent);
+        }
+
+        .indicator:hover {
+            background: var(--text-secondary);
+        }
+
+        .modules-section {
+            background: transparent;
+            border: none;
+            border-radius: 0;
+            padding: 0;
+            margin: 0;
+            box-shadow: none;
+        }
+
+        .section-subtitle {
+            color: var(--text-secondary);
+        }
+
+        .module-card {
+            background: rgba(26, 29, 36, 0.72);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            box-shadow: none;
+            backdrop-filter: blur(8px);
+        }
+
+        .module-card::before { display: none; }
+
+        .module-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.35), 0 0 0 1px rgba(169, 230, 0, 0.12);
+            border-color: rgba(169, 230, 0, 0.22);
+        }
+
+        .module-card h3 {
+            color: var(--text);
+        }
+
+        .module-desc,
+        .module-features li {
+            color: var(--text-secondary);
+        }
+
+        .module-features li::before {
+            color: var(--accent);
+        }
+
+        .stats {
+            margin: 0;
+            gap: 16px;
+        }
+
+        .stat-item {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            box-shadow: none;
+            cursor: default;
+            perspective: none;
+            transform-style: flat;
+            padding: 28px 20px;
+        }
+
+        .stat-item::before,
+        .stat-item::after { display: none; }
+
+        .stat-item:hover {
+            transform: none;
+            background: rgba(169, 230, 0, 0.06);
+            box-shadow: none;
+            border-color: rgba(169, 230, 0, 0.18);
+        }
+
+        .stat-label {
+            color: var(--text-secondary) !important;
+        }
+
+        .testimonials {
+            background: transparent;
+            border: none;
+            box-shadow: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .testimonial-card {
+            background: rgba(26, 29, 36, 0.72);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            box-shadow: none;
+            backdrop-filter: blur(8px);
+        }
+
+        .testimonial-card::before { display: none; }
+
+        .testimonial-card:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow);
+            border-color: rgba(169, 230, 0, 0.18);
+        }
+
+        .testimonial-content {
+            color: var(--text-secondary);
+        }
+
+        .author-info h4 {
+            color: var(--text);
+        }
+
+        .author-info p {
+            color: var(--text-muted);
+        }
+
+        .author-avatar {
+            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-bright) 100%);
+            color: var(--accent-text);
+        }
+
+        .video-demo,
+        .help-doc,
+        .update-log,
+        .feedback {
+            background: transparent;
+            border: none;
+            box-shadow: none;
+            border-radius: 0;
+            padding: 0;
+            margin: 0;
+        }
+
+        .video-container {
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--border);
+            box-shadow: none;
+        }
+
+        .video-container:hover {
+            transform: none;
+        }
+
+        .help-doc-btn,
+        .feedback-btn,
+        .community-qq {
+            background: var(--accent);
+            color: var(--accent-text);
+            border-radius: 999px;
+            box-shadow: 0 0 24px rgba(169, 230, 0, 0.22);
+            font-weight: 700;
+        }
+
+        .help-doc-btn:hover,
+        .feedback-btn:hover {
+            background: var(--accent-bright);
+            box-shadow: 0 0 32px rgba(194, 255, 69, 0.32);
+        }
+
+        .update-header h3 {
+            color: var(--text);
+        }
+
+        .update-badge.latest {
+            background: var(--accent);
+            color: var(--accent-text);
+        }
+
+        .update-badge.history {
+            background: rgba(255, 255, 255, 0.08);
+            color: var(--text-secondary);
+        }
+
+        .update-details {
+            color: var(--text-secondary);
+            border-left-color: var(--border-strong);
+        }
+
+        .update-details.highlight {
+            border-left-color: var(--accent);
+        }
+
+        .update-details h4 {
+            color: var(--text);
+        }
+
+        .update-details ul {
+            color: var(--text-secondary);
+        }
+
+        .update-details li {
+            color: var(--text-secondary);
+        }
+
+        .update-details a {
+            color: var(--accent-bright);
+            border-bottom-color: rgba(194, 255, 69, 0.35);
+        }
+
+        .update-log .update-item {
+            background: rgba(26, 29, 36, 0.72);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 24px;
+            margin-bottom: 16px;
+            backdrop-filter: blur(8px);
+        }
+
+        footer {
+            background: var(--bg-dark);
+            margin-top: 0;
+            padding: 64px 0 24px;
+            border-top: 1px solid var(--border);
+        }
+
+        .footer-info h3 {
+            background: none;
+            -webkit-text-fill-color: #fff;
+            color: #fff;
+        }
+
+        .footer-info p,
+        .footer-links a,
+        .footer-contact a {
+            color: var(--text-secondary);
+        }
+
+        .footer-links a:hover,
+        .footer-contact a:hover {
+            color: var(--accent-bright);
+            transform: none;
+        }
+
+        .footer-bottom {
+            color: var(--text-muted);
+        }
+
+        .section-dark .section-head h2 {
+            color: #fff;
+        }
+
+        .promotion-section .section-head h2 {
+            font-size: 1.35em;
+        }
+
+        .stat-number {
+            font-size: 2.75em;
+            font-weight: 800;
+            letter-spacing: -0.03em;
+        }
+
+        .stat-item:hover .stat-number {
+            transform: none;
+            text-shadow: none;
+        }
+
+        .download-migration-note {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--border);
+            color: var(--text-secondary);
+        }
+
+        .download-migration-note a {
+            color: var(--accent-bright);
+            border-bottom-color: rgba(194, 255, 69, 0.35);
+        }
+
+        /* 下载区（参考 dingphone.io/download） */
+        .download-section {
+            position: relative;
+            isolation: isolate;
+        }
+
+        .download-section::before {
+            content: '';
+            position: absolute;
+            top: -100px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: min(960px, 140%);
+            height: 500px;
+            background: radial-gradient(ellipse, rgba(194, 255, 69, 0.22) 0%, rgba(169, 230, 0, 0.08) 42%, transparent 72%);
+            filter: blur(36px);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .download-section > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        .download-hero {
+            text-align: center;
+            max-width: 720px;
+            margin: 0 auto 56px;
+        }
+
+        .download-hero-title {
+            font-size: clamp(2rem, 4.5vw, 3rem);
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            line-height: 1.15;
+            color: var(--text);
+            margin-bottom: 18px;
+        }
+
+        .download-hero-lead {
+            font-size: 1.08rem;
+            color: var(--text-secondary);
+            line-height: 1.75;
+            margin-bottom: 28px;
+        }
+
+        .download-hero-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 14px 36px;
+            background: linear-gradient(180deg, #d4ff66 0%, var(--accent) 45%, #8ec400 100%);
+            color: var(--accent-text);
+            text-decoration: none;
+            border-radius: 999px;
+            font-size: 1.05em;
+            font-weight: 700;
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            box-shadow:
+                0 0 40px rgba(169, 230, 0, 0.38),
+                0 8px 28px rgba(0, 0, 0, 0.35),
+                inset 0 1px 0 rgba(255, 255, 255, 0.35);
+            transition: all 0.25s ease;
+        }
+
+        .download-hero-cta:hover {
+            background: linear-gradient(180deg, #e2ff80 0%, var(--accent-bright) 45%, #a9e600 100%);
+            transform: translateY(-2px);
+            box-shadow:
+                0 0 56px rgba(194, 255, 69, 0.48),
+                0 12px 32px rgba(0, 0, 0, 0.4),
+                inset 0 1px 0 rgba(255, 255, 255, 0.45);
+        }
+
+        .download-platform {
+            margin-bottom: 56px;
+        }
+
+        .download-platform-head {
+            text-align: center;
+            max-width: 640px;
+            margin: 0 auto 32px;
+        }
+
+        .download-platform-title {
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            color: var(--text);
+            margin-bottom: 12px;
+        }
+
+        .download-platform-desc {
+            color: var(--text-secondary);
+            font-size: 1.02em;
+            line-height: 1.7;
+        }
+
+        .platform-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 20px;
+            max-width: 760px;
+            margin: 0 auto;
+        }
+
+        .platform-card {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            padding: 28px 24px;
+            background: rgba(14, 16, 20, 0.65);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: var(--radius-lg);
+            text-decoration: none;
+            color: var(--text);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            transition: all 0.25s ease;
+            min-height: 160px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
+        }
+
+        .platform-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(169, 230, 0, 0.42);
+            box-shadow:
+                0 16px 48px rgba(0, 0, 0, 0.4),
+                0 0 40px rgba(169, 230, 0, 0.14);
+        }
+
+        .platform-card-primary {
+            background: linear-gradient(155deg, rgba(169, 230, 0, 0.22) 0%, rgba(20, 24, 14, 0.88) 48%, rgba(14, 16, 20, 0.92) 100%);
+            border-color: rgba(169, 230, 0, 0.38);
+            box-shadow:
+                0 8px 32px rgba(0, 0, 0, 0.35),
+                0 0 48px rgba(169, 230, 0, 0.12),
+                inset 0 1px 0 rgba(194, 255, 69, 0.15);
+        }
+
+        .platform-card-primary:hover {
+            border-color: rgba(194, 255, 69, 0.55);
+            box-shadow:
+                0 16px 48px rgba(0, 0, 0, 0.4),
+                0 0 64px rgba(169, 230, 0, 0.22),
+                inset 0 1px 0 rgba(194, 255, 69, 0.22);
+        }
+
+        .platform-tag {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            padding: 4px 10px;
+            background: var(--accent);
+            color: var(--accent-text);
+            font-size: 0.72em;
+            font-weight: 700;
+            border-radius: 999px;
+            letter-spacing: 0.04em;
+        }
+
+        .platform-type {
+            font-size: 0.82em;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+        }
+
+        .platform-name {
+            font-size: 1.35em;
+            font-weight: 700;
+            color: var(--text);
+        }
+
+        .platform-action {
+            margin-top: auto;
+            font-size: 0.92em;
+            font-weight: 600;
+            color: var(--accent-bright);
+        }
+
+        .platform-status {
+            margin-top: auto;
+            font-size: 0.88em;
+            color: var(--text-muted);
+            padding: 4px 10px;
+            background: rgba(255, 255, 255, 0.06);
+            border-radius: 999px;
+            align-self: flex-start;
+        }
+
+        .download-highlights {
+            max-width: 760px;
+            margin: 0 auto 56px;
+            padding: 28px 32px;
+            background: rgba(12, 14, 18, 0.55);
+            border: 1px solid rgba(169, 230, 0, 0.14);
+            border-radius: var(--radius-lg);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            box-shadow:
+                0 8px 32px rgba(0, 0, 0, 0.3),
+                inset 0 1px 0 rgba(194, 255, 69, 0.08);
+        }
+
+        .download-highlights h3 {
+            font-size: 1.15em;
+            font-weight: 700;
+            color: var(--text);
+            margin-bottom: 20px;
+        }
+
+        .highlight-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .highlight-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            color: var(--text-secondary);
+            line-height: 1.65;
+            font-size: 0.98em;
+        }
+
+        .highlight-num {
+            flex-shrink: 0;
+            width: 28px;
+            height: 28px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(169, 230, 0, 0.12);
+            border: 1px solid rgba(169, 230, 0, 0.25);
+            border-radius: 50%;
+            color: var(--accent-bright);
+            font-size: 0.85em;
+            font-weight: 700;
+        }
+
+        .download-steps {
+            margin-bottom: 32px;
+        }
+
+        .download-steps-head {
+            text-align: center;
+            margin-bottom: 36px;
+        }
+
+        .download-steps-head h3 {
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            font-weight: 800;
+            color: var(--text);
+            margin-bottom: 10px;
+        }
+
+        .download-steps-sub {
+            color: var(--text-secondary);
+            font-size: 1.02em;
+        }
+
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 20px;
+        }
+
+        .step-card {
+            padding: 28px 24px;
+            background: rgba(12, 14, 18, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.09);
+            border-radius: var(--radius-lg);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            transition: all 0.25s ease;
+            box-shadow: 0 6px 24px rgba(0, 0, 0, 0.28);
+        }
+
+        .step-card:hover {
+            border-color: rgba(169, 230, 0, 0.32);
+            transform: translateY(-3px);
+            box-shadow:
+                0 12px 36px rgba(0, 0, 0, 0.35),
+                0 0 28px rgba(169, 230, 0, 0.1);
+        }
+
+        .step-num {
+            display: block;
+            font-size: 2.5em;
+            font-weight: 800;
+            line-height: 1;
+            letter-spacing: -0.04em;
+            color: rgba(194, 255, 69, 0.55);
+            text-shadow: 0 0 24px rgba(169, 230, 0, 0.35);
+            margin-bottom: 16px;
+        }
+
+        .step-card h4 {
+            font-size: 1.1em;
+            font-weight: 700;
+            color: var(--text);
+            margin-bottom: 10px;
+        }
+
+        .step-card p {
+            font-size: 0.92em;
+            color: var(--text-secondary);
+            line-height: 1.65;
+            margin: 0;
+        }
+
+        .download-migration-note {
+            margin-top: 0;
+            padding: 14px 18px;
+            border-radius: var(--radius-sm);
+            font-size: 0.92em;
+            line-height: 1.65;
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            .platform-grid,
+            .steps-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .download-highlights {
+                padding: 22px 20px;
+            }
+        }
+
+        .community-box h3 {
+            color: var(--text);
+        }
+
+        .community-box p,
+        .video-source,
+        .feedback p,
+        .help-doc p {
+            color: var(--text-secondary);
+        }
+
+        .update-log .update-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .update-log .update-content {
+            max-width: none;
+        }
 
     </style>
     <script>
@@ -1998,63 +3358,54 @@ body::after {
     </script>
 </head>
 <body>
-    <header>
-        <div class="container">
-            <div class="logo-container">
-                <img src="logo.png" alt="KeyPresser Logo" class="logo">
-                <h1>KeyPresser</h1>
+    <div class="bg-scene" aria-hidden="true">
+        <div class="bg-spotlight"></div>
+        <div class="bg-mesh"></div>
+        <div class="glow-orb glow-orb-1"></div>
+        <div class="glow-orb glow-orb-2"></div>
+        <div class="glow-orb glow-orb-3"></div>
+        <div class="glow-orb glow-orb-4"></div>
+    </div>
+    <nav class="site-nav">
+        <div class="nav-inner">
+            <a href="#" class="nav-brand">
+                <span class="nav-brand-mark" aria-hidden="true">
+                    <img src="logo.png" alt="" class="logo">
+                </span>
+                <span class="nav-brand-text">KeyPresser</span>
+            </a>
+            <div class="nav-links">
+                <a href="#modules">功能模块</a>
+                <a href="#download">下载</a>
+                <a href="#promotion">限时活动</a>
+                <a href="#changelog">更新日志</a>
+                <a href="#help">使用帮助</a>
             </div>
-            <p>专业的自动化按键工具，支持后台运行，解放你的双手</p>
+            <a href="#download" class="nav-cta">立即下载</a>
         </div>
-    </header>
-    
-    <div class="container">
-        <div class="download-section fade-in" id="download">
-            <h2>🚀 <span class="gradient-title-text">立即下载 KeyPresser</span></h2>
-            <p class="download-subtitle">当前最新版 KeyPresser 6.2.0<a href="#changelog" class="download-changelog-link">查看更新日志</a>，超过 10,000+ 用户的选择，免费下载体验</p>
-            <p class="download-migration-note">从 5.x 升级用户：安装 6.x 后可在「授权管理」中将本地激活码绑定到账号，详见<a href="https://ocn1lplwg6gi.feishu.cn/wiki/Ual4wc4SxiKIodkuSSUcpLBTnsc?from=from_copylink" target="_blank" rel="noopener noreferrer">帮助文档</a></p>
-            
-            <div class="download-buttons">
-                <a href="https://share.feijipan.com/s/CcXgqvzw" class="download-btn primary" target="_blank" rel="noopener noreferrer">
-                    <span class="btn-icon">⬇️</span>
-                    <span class="btn-text">
-                        <strong>立即下载</strong>
-                        <small>不限速下载</small>
-                    </span>
-                </a>
-                
-                <a href="https://pan.baidu.com/s/1TK0YWSvB8WE-wJpf7TmKoA?pwd=ej7b" class="download-btn secondary" target="_blank" rel="noopener noreferrer">
-                    <span class="btn-icon">📦</span>
-                    <span class="btn-text">
-                        <strong>百度网盘</strong>
-                        <small>备用下载</small>
-                    </span>
-                </a>
-            </div>
-            
-            <div class="download-features">
-                <div class="feature-item">
-                    <span class="feature-icon">🖥️</span>
-                    <span>支持 Windows 7/8/10/11</span>
-                </div>
-                <div class="feature-item">
-                    <span class="feature-icon">🔒</span>
-                    <span>安全无毒</span>
-                </div>
-                <div class="feature-item">
-                    <span class="feature-icon">💝</span>
-                    <span>简约高效</span>
-                </div>
-            </div>
-        </div>
+    </nav>
 
+    <section class="hero" id="download">
+        <div class="container">
+            <p class="section-eyebrow">Windows 自动化工具</p>
+            <h1 class="hero-title">专业自动化按键工具<br><span class="hero-accent">解放你的双手</span></h1>
+            <p class="hero-lead">支持后台运行、识图版、鼠标助手与 Python 脚本，超过 10,000+ 用户的选择</p>
+            <div class="hero-download-buttons">
+                <a href="https://share.feijipan.com/s/CcXgqvzw" class="download-btn primary" target="_blank" rel="noopener noreferrer">立即下载</a>
+                <a href="https://pan.baidu.com/s/1TK0YWSvB8WE-wJpf7TmKoA?pwd=ej7b" class="download-btn secondary" target="_blank" rel="noopener noreferrer">备用下载</a>
+            </div>
+        </div>
+    </section>
+    
+    <section class="page-band band-promotion">
+        <div class="container">
         <div class="promotion-section fade-in" id="promotion">
+            <div class="section-head" style="margin-bottom: 20px;">
+                <p class="section-eyebrow">Promotion</p>
+                <h2 style="font-size: 1.35em; font-weight: 700; margin-bottom: 0;">当前优惠与促销信息</h2>
+            </div>
             <span class="promotion-sparkle promotion-sparkle-a" aria-hidden="true"></span>
             <span class="promotion-sparkle promotion-sparkle-b" aria-hidden="true"></span>
-            <div class="promotion-header">
-                <span class="promotion-badge">✨ 限时活动</span>
-                <h2>当前优惠与促销信息</h2>
-            </div>
             <div class="promotion-flow">
                 <div class="promotion-step">
                     <span class="promotion-step-num">1</span>
@@ -2087,10 +3438,17 @@ body::after {
             <h4><span>⚠️</span> 重要提示</h4>
             <p>安装&使用过程中请关闭360等杀毒软件，杀毒软件会误报或误删文件！如遇"软件初始化失败"等问题，请关闭杀毒软件并重新安装KeyPresser后重试！</p>
         </div>
+        </div>
+    </section>
 
+        <section class="page-band alt band-preview">
+        <div class="container">
         <div class="screenshot fade-in">
-            <h2>软件界面</h2>
-            <p>简洁直观的操作界面，让自动化操作变得简单</p>
+            <div class="section-head">
+                <p class="section-eyebrow">Preview</p>
+                <h2>软件界面</h2>
+                <p>简洁直观的操作界面，让自动化操作变得简单</p>
+            </div>
             <div class="carousel-container">
                 <div class="carousel-slide">
                     <img src="carousel/1.png" alt="KeyPresser软件界面1" onclick="openImageModal(this.src)" class="carousel-image">
@@ -2114,11 +3472,18 @@ body::after {
                 </div>
             </div>
         </div>
+        </div>
+    </section>
 
         <!-- 功能模块部分 -->
-        <div id="modules" class="modules-section fade-in">
-            <h2>功能模块</h2>
-            <p class="section-subtitle">七大核心功能，满足各种自动化需求</p>
+        <section class="page-band band-modules" id="modules">
+        <div class="container">
+        <div class="modules-section fade-in">
+            <div class="section-head">
+                <p class="section-eyebrow">Modules</p>
+                <h2>功能模块</h2>
+                <p class="section-subtitle" style="margin-bottom: 0;">七大核心功能，满足各种自动化需求</p>
+            </div>
             <div class="modules-grid">
                 <div class="module-card">
                     <div class="module-icon">⌨️</div>
@@ -2209,9 +3574,17 @@ body::after {
                 </div>
             </div>
         </div>
+        </div>
+    </section>
         
         <!-- 统计数据部分 -->
-        <div class="stats fade-in">
+        <section class="section-dark fade-in">
+            <div class="container">
+            <div class="section-head">
+                <p class="section-eyebrow light">Stats</p>
+                <h2>用户信赖的数据</h2>
+            </div>
+            <div class="stats">
             <div class="stat-item slide-in-left">
                 <div class="stat-number">10,000+</div>
                 <div class="stat-label">用户下载</div>
@@ -2228,11 +3601,18 @@ body::after {
                 <div class="stat-number">24/7</div>
                 <div class="stat-label">技术支持</div>
             </div>
-        </div>
+            </div>
+            </div>
+        </section>
 
         <!-- 用户评价模块 -->
+        <section class="page-band alt band-reviews">
+        <div class="container">
         <div class="testimonials fade-in">
-            <h2>用户真实评价</h2>
+            <div class="section-head">
+                <p class="section-eyebrow">Reviews</p>
+                <h2>用户真实评价</h2>
+            </div>
             <div class="testimonial-grid">
                 <div class="testimonial-card slide-in-left">
                     <div class="stars">★★★★★</div>
@@ -2275,12 +3655,33 @@ body::after {
                         </div>
                     </div>
                 </div>
+
+                <div class="testimonial-card fade-in">
+                    <div class="stars">★★★★★</div>
+                    <div class="testimonial-content">
+                        "识图版和 Python 脚本很实用，日常重复操作基本都能自动完成。配置保存后下次直接运行，稳定性比我之前用过的工具好很多。"
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">陈</div>
+                        <div class="author-info">
+                            <h4>陈先生</h4>
+                            <p>自动化爱好者 | 使用4个月</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
+        </div>
+    </section>
 
+        <section class="page-band band-demo">
+        <div class="container">
         <div class="video-demo fade-in">
-            <h2>🎥 <span class="gradient-title-text">视频演示</span></h2>
-            <p class="video-description">视频中分别演示了使用keypresser和鼠标助手，实现在火影决斗场自动放技能！</p>
+            <div class="section-head">
+                <p class="section-eyebrow">Demo</p>
+                <h2>视频演示</h2>
+                <p class="video-description">视频中分别演示了使用 KeyPresser 和鼠标助手，实现在火影决斗场自动放技能！</p>
+            </div>
             <div class="video-container">
                 <iframe 
                     src="https://player.bilibili.com/player.html?bvid=BV1fNWvzuED4&page=1&high_quality=1&autoplay=0" 
@@ -2293,10 +3694,17 @@ body::after {
             </div>
             <p class="video-source">视频来源：Bilibili - KeyPresser使用演示</p>
         </div>
+        </div>
+    </section>
         
         <!-- 更新日志模块 -->
-        <div class="update-log fade-in" id="changelog">
-            <h2><span class="gradient-title-text">更新日志</span></h2>
+        <section class="page-band alt band-changelog" id="changelog">
+        <div class="container">
+        <div class="update-log fade-in">
+            <div class="section-head">
+                <p class="section-eyebrow">Changelog</p>
+                <h2>更新日志</h2>
+            </div>
             
             <div class="update-content">
                 <div class="update-item">
@@ -2369,7 +3777,7 @@ body::after {
                         <h3>KeyPresser 5.3.0</h3>
                         <span class="update-badge history">历史版本</span>
                     </div>
-                    <div class="update-details highlight">
+                    <div class="update-details">
                         <p>• KeyPresser 硬件版来袭，绕过软件输入拦截</p>
                         <p>• 使用 Arduino Leonardo 作为物理按键模拟器，通过 KeyPresser 界面远程控制</p>
                         <p>• 5.3.5：标准版添加组合键；5.3.6：添加鼠标助手标准版</p>
@@ -2414,16 +3822,30 @@ body::after {
                 </div>
             </div>
         </div>
-        
-        <div class="help-doc fade-in" id="help">
-            <h2>📚 <span class="gradient-title-text">使用帮助</span></h2>
-            <p>安装配置、各模块详细说明、6.0 升级迁移指南等内容，均已整理至官方帮助文档，请前往查看。</p>
-            <a href="https://ocn1lplwg6gi.feishu.cn/wiki/Ual4wc4SxiKIodkuSSUcpLBTnsc?from=from_copylink" target="_blank" rel="noopener noreferrer" class="help-doc-btn">📖 前往帮助文档</a>
         </div>
+    </section>
         
+        <section class="page-band band-help" id="help">
+        <div class="container">
+        <div class="help-doc fade-in">
+            <div class="section-head">
+                <p class="section-eyebrow">Help</p>
+                <h2>使用帮助</h2>
+                <p>安装配置、各模块详细说明、6.0 升级迁移指南等内容，均已整理至官方帮助文档，请前往查看。</p>
+            </div>
+            <a href="https://ocn1lplwg6gi.feishu.cn/wiki/Ual4wc4SxiKIodkuSSUcpLBTnsc?from=from_copylink" target="_blank" rel="noopener noreferrer" class="help-doc-btn">前往帮助文档</a>
+        </div>
+        </div>
+    </section>
+        
+        <section class="page-band alt band-feedback">
+        <div class="container">
         <div class="feedback fade-in">
-            <h2>问题反馈与建议</h2>
-            <p>如有任何问题或建议，请访问：</p>
+            <div class="section-head">
+                <p class="section-eyebrow">Feedback</p>
+                <h2>问题反馈与建议</h2>
+                <p>如有任何问题或建议，请访问讨论区或加入用户交流群</p>
+            </div>
             <a href="https://gitcode.com/wang161019/KeyPresser/discussions/1" target="_blank" rel="noopener noreferrer" class="feedback-btn">
                 前往讨论区
             </a>
@@ -2434,7 +3856,8 @@ body::after {
                 <img src="wechat_qun.jpg" alt="KeyPresser 用户 QQ 群二维码" loading="lazy">
             </div>
         </div>
-    </div>
+        </div>
+    </section>
     
     <footer>
         <div class="container">
@@ -2663,53 +4086,6 @@ body::after {
 				carouselContainer.addEventListener('mouseleave', startAutoSlide);
 			});
 
-			// 创建浮动粒子效果
-			function createParticles() {
-            const particleCount = 25;
-            const colors = [
-                'rgba(102, 126, 234, 0.6)',
-                'rgba(118, 75, 162, 0.6)',
-                'rgba(255, 255, 255, 0.8)',
-                'rgba(103, 198, 243, 0.6)',
-                'rgba(255, 107, 107, 0.5)',
-                'rgba(255, 206, 86, 0.6)'
-            ];
-            
-            for (let i = 0; i < particleCount; i++) {
-                const particle = document.createElement('div');
-                particle.className = 'particle';
-                
-                // 随机大小 (3px - 12px)
-                const size = Math.random() * 9 + 3;
-                particle.style.width = `${size}px`;
-                particle.style.height = `${size}px`;
-                
-                // 随机颜色
-                particle.style.background = colors[Math.floor(Math.random() * colors.length)];
-                
-                // 随机位置
-                particle.style.left = `${Math.random() * 100}%`;
-                particle.style.top = `${Math.random() * 100}%`;
-                
-                // 随机动画延迟和持续时间
-                const delay = Math.random() * 1; // 进一步减少最大延迟到1秒
-                const duration = Math.random() * 15 + 10;
-                particle.style.animationDelay = `${delay}s`;
-                particle.style.animationDuration = `${duration}s`;
-                
-                // 随机动画名称（创建不同的浮动效果）
-                const animations = ['float', 'float2', 'float3'];
-                particle.style.animationName = animations[Math.floor(Math.random() * animations.length)];
-                
-                // 添加模糊效果
-                particle.style.filter = `blur(${Math.random() * 2}px)`;
-                
-                document.body.appendChild(particle);
-            }
-        }
-
-        // DOM内容加载完成后立即创建粒子
-        document.addEventListener('DOMContentLoaded', createParticles);
     </script>
 </body>
 
