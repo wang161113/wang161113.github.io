@@ -1639,6 +1639,21 @@
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
         }
 
+        .screenshot-single {
+            max-width: 720px;
+            margin: 20px auto 0;
+        }
+
+        .screenshot-main-image {
+            display: block;
+            width: 100%;
+            height: auto;
+            border-radius: var(--radius);
+            cursor: pointer;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border);
+        }
+
         .carousel-container {
             position: relative;
             max-width: 100%;
@@ -3427,29 +3442,8 @@
                 <h2>软件界面</h2>
                 <p>简洁直观的操作界面，让自动化操作变得简单</p>
             </div>
-            <div class="carousel-container">
-                <div class="carousel-slide">
-                    <img src="carousel/1.png" alt="KeyPresser软件界面1" onclick="openImageModal(this.src)" class="carousel-image">
-                    <img src="carousel/2.png" alt="KeyPresser软件界面2" onclick="openImageModal(this.src)" class="carousel-image" loading="lazy">
-                    <img src="carousel/3.png" alt="KeyPresser软件界面3" onclick="openImageModal(this.src)" class="carousel-image" loading="lazy">
-                    <img src="carousel/4.png" alt="KeyPresser软件界面4" onclick="openImageModal(this.src)" class="carousel-image" loading="lazy">
-                    <img src="carousel/5.png" alt="KeyPresser软件界面5" onclick="openImageModal(this.src)" class="carousel-image" loading="lazy">
-                    <img src="carousel/6.png" alt="KeyPresser软件界面6" onclick="openImageModal(this.src)" class="carousel-image" loading="lazy">
-                    <img src="carousel/7.png" alt="KeyPresser软件界面7" onclick="openImageModal(this.src)" class="carousel-image" loading="lazy">
-                    <img src="carousel/8.png" alt="KeyPresser 6.3.0 主页与窗口录制回放" onclick="openImageModal(this.src)" class="carousel-image" loading="lazy">
-                </div>
-                <button class="carousel-btn prev" onclick="moveSlide(-1)">&#10094;</button>
-                <button class="carousel-btn next" onclick="moveSlide(1)">&#10095;</button>
-                <div class="carousel-indicators">
-                    <span class="indicator active" onclick="goToSlide(0)"></span>
-                    <span class="indicator" onclick="goToSlide(1)"></span>
-                    <span class="indicator" onclick="goToSlide(2)"></span>
-                    <span class="indicator" onclick="goToSlide(3)"></span>
-                    <span class="indicator" onclick="goToSlide(4)"></span>
-                    <span class="indicator" onclick="goToSlide(5)"></span>
-                    <span class="indicator" onclick="goToSlide(6)"></span>
-                    <span class="indicator" onclick="goToSlide(7)"></span>
-                </div>
+            <div class="screenshot-single">
+                <img src="carousel/home-6.3.0.png" alt="KeyPresser专业版 6.3.0 主界面" onclick="openImageModal(this.src)" class="screenshot-main-image">
             </div>
         </div>
         </div>
@@ -4041,54 +4035,6 @@
 				if (e.key === 'Escape') {
 					closeImageModal();
 				}
-			});
-			
-			// 轮播图功能
-			let currentSlide = 0;
-			const totalSlides = 8;
-			let autoSlideInterval;
-
-			function moveSlide(direction) {
-				currentSlide += direction;
-				if (currentSlide >= totalSlides) {
-					currentSlide = 0;
-				} else if (currentSlide < 0) {
-					currentSlide = totalSlides - 1;
-				}
-				updateCarousel();
-			}
-
-			function goToSlide(index) {
-				currentSlide = index;
-				updateCarousel();
-			}
-
-			function updateCarousel() {
-				const slide = document.querySelector('.carousel-slide');
-				const indicators = document.querySelectorAll('.indicator');
-				slide.style.transform = `translateX(-${currentSlide * 100}%)`;
-				indicators.forEach((indicator, index) => {
-					indicator.classList.toggle('active', index === currentSlide);
-				});
-			}
-
-			function startAutoSlide() {
-				autoSlideInterval = setInterval(() => {
-					moveSlide(1);
-				}, 4000);
-			}
-
-			function stopAutoSlide() {
-				clearInterval(autoSlideInterval);
-			}
-
-			document.addEventListener('DOMContentLoaded', function() {
-				updateCarousel();
-				startAutoSlide();
-
-				const carouselContainer = document.querySelector('.carousel-container');
-				carouselContainer.addEventListener('mouseenter', stopAutoSlide);
-				carouselContainer.addEventListener('mouseleave', startAutoSlide);
 			});
 
     </script>
