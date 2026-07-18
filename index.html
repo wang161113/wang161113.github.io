@@ -3,10 +3,10 @@
 <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description" content="KeyPresser 6.2.0 专业自动化按键工具，支持点击录制按键、组合键、动态行配置、在线授权、识图版、鼠标助手与 Python 脚本，免费下载体验。">
+        <meta name="description" content="KeyPresser 6.3.0 专业自动化按键工具，新增窗口录制回放，支持绑定窗口仿真回放、多轮间隔、停止快捷键提示、识图版、鼠标助手与 Python 脚本，免费下载体验。">
         <title>KeyPresser - 专业自动化按键工具</title>
         <meta property="og:title" content="KeyPresser - 专业自动化按键工具">
-        <meta property="og:description" content="6.2.0 支持点击录制按键与组合键，动态行配置、在线授权、识图版、鼠标助手与 Python 脚本，免费下载体验。">
+        <meta property="og:description" content="6.3.0 新增窗口录制回放：选窗录制、仿真模式回放、多轮与间隔；全工具停止快捷键提示，免费下载体验。">
         <meta property="og:type" content="website">
         <meta property="og:image" content="https://keypresser.onepeak.cn/logo.png">
         <link rel="icon" href="keypresser.ico" type="image/x-icon">
@@ -3367,7 +3367,7 @@
         <div class="container">
             <p class="section-eyebrow">Windows 自动化工具</p>
             <h1 class="hero-title">专业自动化按键工具<br><span class="hero-accent">解放你的双手</span></h1>
-            <p class="hero-lead">支持后台运行、识图版、鼠标助手与 Python 脚本，超过 10,000+ 用户的选择</p>
+            <p class="hero-lead">支持窗口录制回放、后台运行、识图版、鼠标助手与 Python 脚本，超过 10,000+ 用户的选择</p>
             <div class="hero-download-buttons">
                 <a href="https://share.feijipan.com/s/CcXgqvzw" class="download-btn primary" target="_blank" rel="noopener noreferrer">立即下载</a>
                 <a href="https://pan.baidu.com/s/1TK0YWSvB8WE-wJpf7TmKoA?pwd=ej7b" class="download-btn secondary" target="_blank" rel="noopener noreferrer">备用下载</a>
@@ -3460,7 +3460,7 @@
             <div class="section-head">
                 <p class="section-eyebrow">Modules</p>
                 <h2>功能模块</h2>
-                <p class="section-subtitle" style="margin-bottom: 0;">七大核心功能，满足各种自动化需求</p>
+                <p class="section-subtitle" style="margin-bottom: 0;">八大核心功能，满足各种自动化需求</p>
             </div>
             <div class="modules-grid">
                 <div class="module-card">
@@ -3504,6 +3504,17 @@
                         <li>识别屏幕目标图片后自动执行鼠标操作</li>
                         <li>支持左键、右键、滚轮的单击与双击</li>
                         <li>可配置识别后的动作与时间间隔</li>
+                    </ul>
+                </div>
+
+                <div class="module-card">
+                    <div class="module-icon">📹</div>
+                    <h3>窗口录制回放</h3>
+                    <p class="module-desc">选定窗口后录制键鼠操作，按仿真模式回放</p>
+                    <ul class="module-features">
+                        <li>绑定目标窗口，支持 Windows / DX 等仿真模式</li>
+                        <li>支持回放次数、轮次间隔（分钟）与速度调节</li>
+                        <li>全局快捷键录制 / 回放 / 停止，脚本一键加载</li>
                     </ul>
                 </div>
 
@@ -3687,10 +3698,24 @@
             <div class="update-content">
                 <div class="update-item">
                     <div class="update-header">
-                        <h3>KeyPresser 6.2.0</h3>
+                        <h3>KeyPresser 6.3.0</h3>
                         <span class="update-badge latest">最新版本</span>
                     </div>
                     <div class="update-details highlight">
+                        <p>• 新增<strong>窗口录制回放</strong>：选定目标窗口后录制键盘与鼠标，按仿真模式回放到该窗口</p>
+                        <p>• 支持回放次数、轮次间隔（分钟）、速度百分比；脚本保存为 <code>.kprec</code>，可加载 / 重命名 / 删除</p>
+                        <p>• 默认全局快捷键 <strong>F8 录制 / F9 回放 / F10 停止</strong>（可自定义）；录制与回放时自动最小化并显示停止提示</p>
+                        <p>• 各工具运行时屏幕右下角显示停止快捷键；选窗后更稳定地唤回本窗口</p>
+                        <p>• 与 KeyMouseGo 互补：绑窗 + 仿真回放用「窗口录制回放」，通用桌面录制继续用 KeyMouseGo</p>
+                    </div>
+                </div>
+
+                <div class="update-item">
+                    <div class="update-header">
+                        <h3>KeyPresser 6.2.0</h3>
+                        <span class="update-badge history">历史版本</span>
+                    </div>
+                    <div class="update-details">
                         <p>• 按键设置改为<strong>点击录制</strong>：点一下输入框，直接按键盘即可设置，告别双下拉框</p>
                         <p>• 标准版、识图版、硬件版均支持<strong>组合键</strong>（如 Ctrl+A），可连续按键覆盖修改</p>
                         <p>• 完善小键盘、方向键（↑↓←→）、标点键及更多特殊键显示</p>
