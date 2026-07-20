@@ -3,10 +3,10 @@
 <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description" content="KeyPresser 6.3.0 专业自动化按键工具，新增窗口录制回放，支持绑定窗口仿真回放、多轮间隔、停止快捷键提示、识图版、鼠标助手与 Python 脚本，免费下载体验。">
+        <meta name="description" content="KeyPresser 6.3.0 专业自动化按键工具；全新一代 KeyPresserNext 即将发布——统一键鼠识图编辑器，敬请期待。">
         <title>KeyPresser - 专业自动化按键工具</title>
         <meta property="og:title" content="KeyPresser - 专业自动化按键工具">
-        <meta property="og:description" content="6.3.0 新增窗口录制回放：选窗录制、仿真模式回放、多轮与间隔；全工具停止快捷键提示，免费下载体验。">
+        <meta property="og:description" content="KeyPresser 稳定好用；下一代 KeyPresserNext 即将上线，统一按键 / 鼠标 / 识图，录得下改得动跑得稳。">
         <meta property="og:type" content="website">
         <meta property="og:image" content="https://keypresser.onepeak.cn/logo.png">
         <link rel="icon" href="keypresser.ico" type="image/x-icon">
@@ -290,40 +290,12 @@
             padding-top: 16px;
         }
 
-        /* 软件界面：斜切网格 + 底部青绿光 */
-        .band-preview {
-            background:
-                linear-gradient(160deg, rgba(20, 22, 27, 0.95) 0%, rgba(11, 12, 15, 0.98) 100%);
-        }
-
-        .band-preview::before {
-            inset: 0;
-            background-image:
-                linear-gradient(rgba(109, 79, 216, 0.035) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(109, 79, 216, 0.035) 1px, transparent 1px);
-            background-size: 48px 48px;
-            transform: skewY(-2deg) scale(1.08);
-            transform-origin: center;
-            opacity: 0.55;
-            mask-image: linear-gradient(180deg, transparent, #000 20%, #000 80%, transparent);
-            -webkit-mask-image: linear-gradient(180deg, transparent, #000 20%, #000 80%, transparent);
-        }
-
-        .band-preview::after {
-            width: 70%;
-            height: 280px;
-            left: 15%;
-            bottom: -120px;
-            background: radial-gradient(ellipse, rgba(109, 79, 216, 0.16) 0%, transparent 70%);
-            filter: blur(30px);
-        }
-
-        /* 功能模块：中心聚光 + 边框光带 */
+        /* 软件界面 + 功能模块：网格底 + 中心聚光 */
         .band-modules {
             background:
                 radial-gradient(ellipse 90% 70% at 50% -15%, rgba(109, 79, 216, 0.2) 0%, rgba(109, 79, 216, 0.06) 40%, transparent 65%),
                 radial-gradient(ellipse 70% 60% at 50% 0%, rgba(109, 79, 216, 0.14) 0%, transparent 55%),
-                linear-gradient(180deg, #101218 0%, #0b0c0f 100%);
+                linear-gradient(160deg, rgba(20, 22, 27, 0.95) 0%, rgba(11, 12, 15, 0.98) 100%);
             border-top: 1px solid rgba(109, 79, 216, 0.12);
             border-bottom: 1px solid var(--border);
         }
@@ -1640,8 +1612,8 @@
         }
 
         .screenshot-single {
-            max-width: 720px;
-            margin: 20px auto 0;
+            max-width: 280px;
+            margin: 0 auto;
         }
 
         .screenshot-main-image {
@@ -1652,6 +1624,82 @@
             cursor: pointer;
             box-shadow: var(--shadow);
             border: 1px solid var(--border);
+        }
+
+        .preview-modules-layout {
+            display: grid;
+            grid-template-columns: minmax(0, 0.7fr) minmax(0, 1.3fr);
+            gap: 36px;
+            align-items: start;
+        }
+
+        .preview-side,
+        .modules-side {
+            min-width: 0;
+        }
+
+        .preview-side {
+            position: sticky;
+            top: 88px;
+        }
+
+        .modules-section > .section-head {
+            margin-bottom: 36px;
+        }
+
+        .preview-modules-layout .modules-grid {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 14px;
+        }
+
+        .preview-modules-layout .module-card {
+            padding: 16px;
+        }
+
+        .preview-modules-layout .module-icon {
+            font-size: 1.6em;
+            margin-bottom: 8px;
+        }
+
+        .preview-modules-layout .module-card h3 {
+            font-size: 1.05em;
+            margin-bottom: 6px;
+        }
+
+        .preview-modules-layout .module-desc {
+            font-size: 0.85em;
+            margin-bottom: 10px;
+        }
+
+        .preview-modules-layout .module-features li {
+            padding: 4px 0 4px 20px;
+            font-size: 0.8em;
+        }
+
+        @media (max-width: 960px) {
+            .preview-modules-layout {
+                grid-template-columns: 1fr;
+                gap: 28px;
+            }
+
+            .preview-side {
+                position: static;
+            }
+
+            .preview-side .screenshot-single {
+                max-width: 240px;
+                margin: 0 auto;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .preview-modules-layout .modules-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .preview-side .screenshot-single {
+                max-width: 200px;
+            }
         }
 
         .carousel-container {
@@ -3340,6 +3388,209 @@
             max-width: none;
         }
 
+        /* —— KeyPresserNext 预告 —— */
+        .next-teaser {
+            position: relative;
+            border-radius: var(--radius-lg);
+            padding: 28px 28px 24px;
+            margin: 0 0 8px;
+            overflow: hidden;
+            isolation: isolate;
+            background:
+                linear-gradient(145deg, rgba(26, 29, 36, 0.95) 0%, rgba(18, 16, 32, 0.98) 55%, rgba(14, 18, 28, 0.96) 100%);
+            border: 1px solid rgba(139, 92, 246, 0.35);
+            box-shadow:
+                0 0 0 1px rgba(255, 255, 255, 0.04) inset,
+                0 20px 50px rgba(0, 0, 0, 0.35),
+                0 0 60px rgba(109, 79, 216, 0.18);
+        }
+
+        .next-teaser::before {
+            content: '';
+            position: absolute;
+            inset: -40% -20% auto auto;
+            width: 55%;
+            height: 120%;
+            background: radial-gradient(ellipse at center, rgba(109, 79, 216, 0.35) 0%, transparent 70%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .next-teaser-grid {
+            position: relative;
+            z-index: 1;
+            display: grid;
+            grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+            gap: 28px;
+            align-items: center;
+        }
+
+        .next-badge-row {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 14px;
+        }
+
+        .next-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 5px 12px;
+            border-radius: 999px;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            color: #fff;
+            background: linear-gradient(135deg, #6d4fd8, #8b5cf6);
+            box-shadow: 0 4px 16px rgba(109, 79, 216, 0.4);
+        }
+
+        .next-badge-soft {
+            background: rgba(255, 255, 255, 0.06);
+            color: var(--text-secondary);
+            font-weight: 600;
+            text-transform: none;
+            letter-spacing: 0;
+            box-shadow: none;
+            border: 1px solid var(--border);
+        }
+
+        .next-teaser h2 {
+            font-size: clamp(1.55rem, 3vw, 2rem);
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            color: #fff;
+            margin: 0 0 12px;
+            line-height: 1.25;
+        }
+
+        .next-teaser h2 .next-name {
+            background: linear-gradient(90deg, #c4b5fd 0%, #8b5cf6 45%, #a78bfa 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            color: #a78bfa;
+        }
+
+        .next-teaser-lead {
+            color: var(--text-secondary);
+            font-size: 1.02rem;
+            line-height: 1.65;
+            margin: 0 0 18px;
+            max-width: 36em;
+        }
+
+        .next-points {
+            list-style: none;
+            display: grid;
+            gap: 8px;
+            margin: 0 0 22px;
+            padding: 0;
+        }
+
+        .next-points li {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            color: rgba(255, 255, 255, 0.82);
+            font-size: 0.95rem;
+            line-height: 1.45;
+        }
+
+        .next-points li::before {
+            content: '';
+            flex: 0 0 8px;
+            height: 8px;
+            margin-top: 0.45em;
+            border-radius: 50%;
+            background: var(--accent-bright);
+            box-shadow: 0 0 10px rgba(139, 92, 246, 0.7);
+        }
+
+        .next-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            align-items: center;
+        }
+
+        .next-cta-disabled {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 22px;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 0.95rem;
+            color: rgba(255, 255, 255, 0.55);
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px dashed rgba(255, 255, 255, 0.18);
+            cursor: default;
+            user-select: none;
+        }
+
+        .next-cta-qq {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 18px;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 0.92rem;
+            color: #fff;
+            text-decoration: none;
+            background: rgba(109, 79, 216, 0.25);
+            border: 1px solid rgba(139, 92, 246, 0.45);
+            cursor: default;
+            user-select: text;
+        }
+
+        .next-preview-wrap {
+            position: relative;
+            border-radius: 14px;
+            overflow: visible;
+            padding: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45);
+            background: rgba(0, 0, 0, 0.35);
+        }
+
+        .next-preview-wrap img {
+            display: block;
+            width: 100%;
+            height: auto;
+            vertical-align: middle;
+            border-radius: 0;
+            /* 不裁切截图自身圆角，完整露出窗口四角 */
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+        }
+
+        .next-preview-caption {
+            position: absolute;
+            left: 22px;
+            bottom: 22px;
+            padding: 4px 10px;
+            border-radius: 8px;
+            font-size: 12px;
+            font-weight: 600;
+            color: #fff;
+            background: rgba(0, 0, 0, 0.55);
+            backdrop-filter: blur(8px);
+            pointer-events: none;
+        }
+
+        @media (max-width: 860px) {
+            .next-teaser-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .next-teaser {
+                padding: 22px 18px;
+            }
+        }
     </style>
     <script>
         var _hmt = _hmt || [];
@@ -3369,6 +3620,7 @@
                 <span class="nav-brand-text">KeyPresser</span>
             </a>
             <div class="nav-links">
+                <a href="#next">KeyPresserNext</a>
                 <a href="#modules">功能模块</a>
                 <a href="#download">下载</a>
                 <a href="#promotion">限时活动</a>
@@ -3382,14 +3634,47 @@
         <div class="container">
             <p class="section-eyebrow">Windows 自动化工具</p>
             <h1 class="hero-title">专业自动化按键工具<br><span class="hero-accent">解放你的双手</span></h1>
-            <p class="hero-lead">支持窗口录制回放、后台运行、识图版、鼠标助手与 Python 脚本，超过 10,000+ 用户的选择</p>
+            <p class="hero-lead">支持窗口录制回放、后台运行、识图版、鼠标助手与 Python 脚本，超过 10,000+ 用户的选择。<a href="#next" style="color:var(--accent-bright);font-weight:600;text-decoration:none;border-bottom:1px solid rgba(139,92,246,.45);">下一代 KeyPresserNext 即将发布 →</a></p>
             <div class="hero-download-buttons">
                 <a href="https://share.feijipan.com/s/CcXgqvzw" class="download-btn primary" target="_blank" rel="noopener noreferrer">立即下载</a>
                 <a href="https://pan.baidu.com/s/1TK0YWSvB8WE-wJpf7TmKoA?pwd=ej7b" class="download-btn secondary" target="_blank" rel="noopener noreferrer">备用下载</a>
             </div>
         </div>
     </section>
-    
+
+    <section class="page-band band-next" id="next">
+        <div class="container">
+            <div class="next-teaser fade-in">
+                <div class="next-teaser-grid">
+                    <div>
+                        <div class="next-badge-row">
+                            <span class="next-badge">Coming Soon</span>
+                            <span class="next-badge next-badge-soft">下一代 · 提前预告</span>
+                        </div>
+                        <h2>全新一代 <span class="next-name">KeyPresserNext</span></h2>
+                        <p class="next-teaser-lead">
+                            录得下，改得动，跑得稳。把按键、鼠标、识图收进同一套行编辑器，新引擎驱动，顺序与独立运行一键切换——现有 KeyPresser 继续好用，Next 正在路上。
+                        </p>
+                        <ul class="next-points">
+                            <li>一套界面搞定按键、鼠标、识图，不用多开工具来回拷配置</li>
+                            <li>录制可改：按下 / 弹起分行编辑，间隔与坐标事后微调</li>
+                            <li>顺序跑或独立并行一键切换；绑窗、取点、测试键鼠即时反馈</li>
+                            <li>NextCore 新引擎，后台键鼠与识图更稳</li>
+                        </ul>
+                        <div class="next-actions">
+                            <span class="next-cta-disabled" aria-disabled="true">下载即将开放</span>
+                            <span class="next-cta-qq" role="note">进 QQ 群 901882848 抢先围观</span>
+                        </div>
+                    </div>
+                    <div class="next-preview-wrap">
+                        <img src="keypresser-next-preview.png" alt="KeyPresserNext 界面预览" width="602" height="702" loading="lazy" onclick="openImageModal(this.src)">
+                        <span class="next-preview-caption">界面预览 · 开发中</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section class="page-band band-promotion">
         <div class="container">
         <div class="promotion-section fade-in" id="promotion">
@@ -3434,31 +3719,23 @@
         </div>
     </section>
 
-        <section class="page-band alt band-preview">
-        <div class="container">
-        <div class="screenshot fade-in">
-            <div class="section-head">
-                <p class="section-eyebrow">Preview</p>
-                <h2>软件界面</h2>
-                <p>简洁直观的操作界面，让自动化操作变得简单</p>
-            </div>
-            <div class="screenshot-single">
-                <img src="carousel/home-6.3.0.png" alt="KeyPresser专业版 6.3.0 主界面" onclick="openImageModal(this.src)" class="screenshot-main-image">
-            </div>
-        </div>
-        </div>
-    </section>
-
-        <!-- 功能模块部分 -->
+        <!-- 软件界面 + 功能模块 -->
         <section class="page-band band-modules" id="modules">
         <div class="container">
         <div class="modules-section fade-in">
             <div class="section-head">
-                <p class="section-eyebrow">Modules</p>
-                <h2>功能模块</h2>
-                <p class="section-subtitle" style="margin-bottom: 0;">八大核心功能，满足各种自动化需求</p>
+                <p class="section-eyebrow">Overview</p>
+                <h2>软件界面与功能</h2>
+                <p class="section-subtitle" style="margin-bottom: 0;">简洁直观的操作界面，八大核心功能满足各种自动化需求</p>
             </div>
-            <div class="modules-grid">
+            <div class="preview-modules-layout">
+                <div class="preview-side">
+                    <div class="screenshot-single">
+                        <img src="carousel/home-6.3.0.png" alt="KeyPresser专业版 6.3.0 主界面" onclick="openImageModal(this.src)" class="screenshot-main-image">
+                    </div>
+                </div>
+                <div class="modules-side">
+                    <div class="modules-grid">
                 <div class="module-card">
                     <div class="module-icon">⌨️</div>
                     <h3>KeyPresser</h3>
@@ -3504,13 +3781,13 @@
                 </div>
 
                 <div class="module-card">
-                    <div class="module-icon">📹</div>
-                    <h3>窗口录制回放</h3>
-                    <p class="module-desc">选定窗口后录制键鼠操作，按仿真模式回放</p>
+                    <div class="module-icon">🔌</div>
+                    <h3>KeyPresser硬件版</h3>
+                    <p class="module-desc">基于 Arduino 硬件的按键模拟工具</p>
                     <ul class="module-features">
-                        <li>绑定目标窗口，支持 Windows / DX 等仿真模式</li>
-                        <li>支持回放次数、轮次间隔（分钟）与速度调节</li>
-                        <li>全局快捷键录制 / 回放 / 停止，脚本一键加载</li>
+                        <li>通过 Arduino 硬件实现真实的按键输出</li>
+                        <li>支持硬件级按键模拟</li>
+                        <li>需要检测 Arduino 连接状态</li>
                     </ul>
                 </div>
 
@@ -3526,13 +3803,13 @@
                 </div>
 
                 <div class="module-card">
-                    <div class="module-icon">🔌</div>
-                    <h3>KeyPresser硬件版</h3>
-                    <p class="module-desc">基于 Arduino 硬件的按键模拟工具</p>
+                    <div class="module-icon">📹</div>
+                    <h3>窗口录制回放</h3>
+                    <p class="module-desc">选定窗口后录制键鼠操作，按仿真模式回放</p>
                     <ul class="module-features">
-                        <li>通过 Arduino 硬件实现真实的按键输出</li>
-                        <li>支持硬件级按键模拟</li>
-                        <li>需要检测 Arduino 连接状态</li>
+                        <li>绑定目标窗口，支持 Windows / DX 等仿真模式</li>
+                        <li>支持回放次数、轮次间隔（分钟）与速度调节</li>
+                        <li>全局快捷键录制 / 回放 / 停止，脚本一键加载</li>
                     </ul>
                 </div>
 
@@ -3546,16 +3823,7 @@
                         <li>可扩展的自动化脚本功能</li>
                     </ul>
                 </div>
-
-                <div class="module-card coming-soon">
-                    <div class="module-icon">🚧</div>
-                    <h3>更多模块</h3>
-                    <p class="module-desc">更多模块正在开发中</p>
-                    <ul class="module-features">
-                        <li>敬请期待</li>
-                        <li>持续更新中</li>
-                        <li>更多功能即将上线</li>
-                    </ul>
+                    </div>
                 </div>
             </div>
         </div>
