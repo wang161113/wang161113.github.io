@@ -3458,12 +3458,28 @@
             border: 1px solid var(--border);
         }
 
+        .next-title-row {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin: 0 0 12px;
+        }
+
+        .next-logo {
+            width: 56px;
+            height: 56px;
+            flex-shrink: 0;
+            border-radius: 14px;
+            object-fit: contain;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+        }
+
         .next-teaser h2 {
             font-size: clamp(1.55rem, 3vw, 2rem);
             font-weight: 800;
             letter-spacing: -0.03em;
             color: #fff;
-            margin: 0 0 12px;
+            margin: 0;
             line-height: 1.25;
         }
 
@@ -3590,6 +3606,12 @@
             .next-teaser {
                 padding: 22px 18px;
             }
+
+            .next-logo {
+                width: 48px;
+                height: 48px;
+                border-radius: 12px;
+            }
         }
     </style>
     <script>
@@ -3651,7 +3673,10 @@
                             <span class="next-badge">Coming Soon</span>
                             <span class="next-badge next-badge-soft">下一代 · 提前预告</span>
                         </div>
-                        <h2>全新一代 <span class="next-name">KeyPresserNext</span></h2>
+                        <div class="next-title-row">
+                            <img class="next-logo" src="keypresser-next-logo.png" alt="KeyPresserNext" width="56" height="56">
+                            <h2>全新一代 <span class="next-name">KeyPresserNext</span></h2>
+                        </div>
                         <p class="next-teaser-lead">
                             录得下，改得动，跑得稳。把按键、鼠标、识图收进同一套行编辑器，新引擎驱动，顺序与独立运行一键切换——现有 KeyPresser 继续好用，Next 正在路上。
                         </p>
