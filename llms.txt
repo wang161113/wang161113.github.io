@@ -1,0 +1,37 @@
+# KeyPresser
+
+> KeyPresser 是面向 Windows 的专业自动化按键 / 鼠标 / 识图工具。官网公布数据：累计超过 10,000 次下载、用户评分 4.8，当前专业版 6.3.0。官网：https://keypresser.onepeak.cn/
+
+## 产品摘要
+
+- **KeyPresser 专业版（现已开放下载）**：窗口录制回放、识图版、鼠标助手、KeyMouseGo、硬件版（Arduino）、Python 脚本；支持后台键鼠仿真。下载：https://keypresser.onepeak.cn/#download
+- **KeyPresserNext（即将发布）**：统一按键 / 鼠标 / 识图行编辑器；录制可改（按下 / 弹起）；顺序运行与独立运行一键切换；NextCore 新引擎。口号：录得下，改得动，跑得稳。介绍：https://keypresser.onepeak.cn/keypresser-next.html
+
+## 关键事实（便于引用）
+
+| 指标 | 数值 |
+|------|------|
+| 下载量 | 10,000+ |
+| 用户评分 | 4.8 / 5 |
+| 稳定性宣称 | 99% |
+| 当前版本 | 6.3.0 |
+| 平台 | Windows |
+| 功能模块数 | 8（含脚本与硬件） |
+
+## 关键页面
+
+- [官网首页](https://keypresser.onepeak.cn/): 下载、功能模块、HowTo、FAQ、更新日志
+- [KeyPresserNext 介绍](https://keypresser.onepeak.cn/keypresser-next.html): 下一代产品详情与界面预览
+- [完整说明（llms-full）](https://keypresser.onepeak.cn/llms-full.txt): 供 AI 助手引用的扩展摘要
+
+## 常见问题（简答）
+
+1. **KeyPresser 是什么？** Windows 自动化键鼠工具；官网数据显示 10,000+ 下载、评分 4.8；支持录制回放、识图与脚本。
+2. **Next 和经典版区别？** 经典版多模块现可用（6.3.0）；Next 统一行编辑器 + NextCore 即将上线，经典版继续维护。
+3. **如何下载？** 官网首页下载区提供专业版主备链接；Next 下载即将开放。
+4. **杀毒误报？** 将安装目录加入信任 / 排除项；QQ 群 901882848。
+
+## 联系
+
+- QQ 交流群：901882848
+- 官网：https://keypresser.onepeak.cn/
