@@ -3548,6 +3548,28 @@
             user-select: none;
         }
 
+        .next-cta-more {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 22px;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 0.95rem;
+            color: #fff;
+            text-decoration: none;
+            background: linear-gradient(135deg, #6d4fd8, #8b5cf6);
+            border: 1px solid rgba(167, 139, 250, 0.45);
+            box-shadow: 0 8px 24px rgba(109, 79, 216, 0.35);
+            transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+        }
+
+        .next-cta-more:hover {
+            transform: translateY(-1px);
+            filter: brightness(1.06);
+            box-shadow: 0 12px 28px rgba(109, 79, 216, 0.45);
+        }
+
         .next-cta-qq {
             display: inline-flex;
             align-items: center;
@@ -3642,7 +3664,7 @@
                 <span class="nav-brand-text">KeyPresser</span>
             </a>
             <div class="nav-links">
-                <a href="#next">KeyPresserNext</a>
+                <a href="keypresser-next.html">KeyPresserNext</a>
                 <a href="#modules">功能模块</a>
                 <a href="#download">下载</a>
                 <a href="#promotion">限时活动</a>
@@ -3656,7 +3678,7 @@
         <div class="container">
             <p class="section-eyebrow">Windows 自动化工具</p>
             <h1 class="hero-title">专业自动化按键工具<br><span class="hero-accent">解放你的双手</span></h1>
-            <p class="hero-lead">支持窗口录制回放、后台运行、识图版、鼠标助手与 Python 脚本，超过 10,000+ 用户的选择。<a href="#next" style="color:var(--accent-bright);font-weight:600;text-decoration:none;border-bottom:1px solid rgba(139,92,246,.45);">下一代 KeyPresserNext 即将发布 →</a></p>
+            <p class="hero-lead">支持窗口录制回放、后台运行、识图版、鼠标助手与 Python 脚本，超过 10,000+ 用户的选择。<a href="keypresser-next.html" style="color:var(--accent-bright);font-weight:600;text-decoration:none;border-bottom:1px solid rgba(139,92,246,.45);">下一代 KeyPresserNext 即将发布 →</a></p>
             <div class="hero-download-buttons">
                 <a href="https://share.feijipan.com/s/CcXgqvzw" class="download-btn primary" target="_blank" rel="noopener noreferrer">立即下载</a>
                 <a href="https://pan.baidu.com/s/1TK0YWSvB8WE-wJpf7TmKoA?pwd=ej7b" class="download-btn secondary" target="_blank" rel="noopener noreferrer">备用下载</a>
@@ -3688,7 +3710,7 @@
                         </ul>
                         <div class="next-actions">
                             <span class="next-cta-disabled" aria-disabled="true">下载即将开放</span>
-                            <span class="next-cta-qq" role="note">进 QQ 群 901882848 抢先围观</span>
+                            <a class="next-cta-more" href="keypresser-next.html">了解更多详情</a>
                         </div>
                     </div>
                     <div class="next-preview-wrap">
@@ -4160,6 +4182,7 @@
                 </div>
                 <div class="footer-links">
                     <h4>快速链接</h4>
+                    <a href="keypresser-next.html">KeyPresserNext</a>
                     <a href="#modules">功能模块</a>
                     <a href="#download">下载安装</a>
                     <a href="#promotion">限时活动</a>

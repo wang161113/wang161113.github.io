@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="KeyPresserNext：下一代 Windows 自动化工具。统一按键 / 鼠标 / 识图行编辑器，录制可改，顺序与独立运行一键切换，NextCore 新引擎驱动。">
+    <title>KeyPresserNext - 录得下，改得动，跑得稳</title>
+    <meta property="og:title" content="KeyPresserNext - 下一代自动化键鼠助手">
+    <meta property="og:description" content="把按键、鼠标、识图收进同一套行编辑器。录制可改，顺序 / 独立一键切换，NextCore 新引擎。">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://keypresser.onepeak.cn/keypresser-next-preview.png">
+    <link rel="icon" href="keypresser.ico" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #0b0c0f;
+            --bg-muted: #14161b;
+            --text: #ffffff;
+            --text-secondary: #b9bdc6;
+            --text-muted: #6f7480;
+            --border: rgba(255, 255, 255, 0.08);
+            --accent: #6d4fd8;
+            --accent-bright: #8b5cf6;
+            --radius: 16px;
+            --radius-lg: 24px;
+            --font: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Microsoft YaHei', sans-serif;
+            --nav-h: 64px;
+            --max-w: 1120px;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: var(--font);
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+        a { color: var(--accent-bright); }
+        .bg-scene {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 0;
+            overflow: hidden;
+        }
+        .bg-spotlight {
+            position: absolute;
+            width: 70%;
+            height: 50%;
+            left: 15%;
+            top: -10%;
+            background: radial-gradient(ellipse, rgba(109, 79, 216, 0.28) 0%, transparent 70%);
+            filter: blur(40px);
+        }
+        .bg-mesh {
+            position: absolute;
+            inset: 0;
+            background-image:
+                linear-gradient(rgba(109, 79, 216, 0.04) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(109, 79, 216, 0.04) 1px, transparent 1px);
+            background-size: 48px 48px;
+            mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, #000 10%, transparent 75%);
+            -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, #000 10%, transparent 75%);
+        }
+        .container {
+            max-width: var(--max-w);
+            margin: 0 auto;
+            padding: 0 24px;
+            position: relative;
+            z-index: 1;
+        }
+        .site-nav {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            height: var(--nav-h);
+            background: rgba(11, 12, 15, 0.82);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid var(--border);
+        }
+        .nav-inner {
+            max-width: var(--max-w);
+            margin: 0 auto;
+            padding: 0 24px;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 24px;
+        }
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 700;
+            font-size: 1.05em;
+        }
+        .nav-brand img {
+            width: 34px;
+            height: 34px;
+            object-fit: contain;
+        }
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 22px;
+            flex-wrap: wrap;
+        }
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.92em;
+            font-weight: 500;
+        }
+        .nav-links a:hover,
+        .nav-links a.is-active { color: var(--text); }
+
+        .hero {
+            padding: 72px 0 48px;
+            text-align: center;
+        }
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 5px 14px;
+            border-radius: 999px;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            color: #fff;
+            background: linear-gradient(135deg, #6d4fd8, #8b5cf6);
+            margin-bottom: 22px;
+            box-shadow: 0 4px 16px rgba(109, 79, 216, 0.4);
+        }
+        .hero-brand {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+            margin-bottom: 18px;
+        }
+        .hero-brand img {
+            width: 72px;
+            height: 72px;
+            border-radius: 18px;
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4);
+        }
+        .hero h1 {
+            font-size: clamp(2rem, 5vw, 3.25rem);
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            line-height: 1.15;
+            margin-bottom: 16px;
+        }
+        .hero h1 .accent {
+            background: linear-gradient(90deg, #c4b5fd 0%, #8b5cf6 50%, #a78bfa 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .hero-lead {
+            max-width: 36em;
+            margin: 0 auto 28px;
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            line-height: 1.7;
+        }
+        .hero-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            justify-content: center;
+            margin-bottom: 40px;
+        }
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 22px;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 0.95rem;
+            text-decoration: none;
+            transition: transform 0.2s ease, filter 0.2s ease;
+        }
+        .btn:hover { transform: translateY(-1px); filter: brightness(1.06); }
+        .btn-primary {
+            color: #fff;
+            background: linear-gradient(135deg, #6d4fd8, #8b5cf6);
+            box-shadow: 0 8px 24px rgba(109, 79, 216, 0.35);
+        }
+        .btn-ghost {
+            color: var(--text);
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid var(--border);
+        }
+        .btn-disabled {
+            color: rgba(255, 255, 255, 0.5);
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px dashed rgba(255, 255, 255, 0.18);
+            cursor: default;
+            user-select: none;
+        }
+        .btn-disabled:hover { transform: none; filter: none; }
+
+        .preview-block {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 12px;
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: rgba(0, 0, 0, 0.35);
+            box-shadow: 0 24px 64px rgba(0, 0, 0, 0.45);
+        }
+        .preview-block img {
+            display: block;
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            cursor: zoom-in;
+        }
+        .preview-caption {
+            margin-top: 10px;
+            font-size: 13px;
+            color: var(--text-muted);
+            text-align: center;
+        }
+
+        .section {
+            padding: 64px 0;
+            border-top: 1px solid var(--border);
+        }
+        .section-head {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .section-eyebrow {
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--accent-bright);
+            margin-bottom: 10px;
+        }
+        .section-head h2 {
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            margin-bottom: 10px;
+        }
+        .section-head p {
+            color: var(--text-secondary);
+            max-width: 34em;
+            margin: 0 auto;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 18px;
+        }
+        .feature-card {
+            padding: 22px 22px 20px;
+            border-radius: var(--radius);
+            background: rgba(26, 29, 36, 0.72);
+            border: 1px solid var(--border);
+        }
+        .feature-card h3 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+        .feature-card p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.65;
+        }
+        .feature-num {
+            display: inline-block;
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--accent-bright);
+            letter-spacing: 0.06em;
+            margin-bottom: 8px;
+        }
+
+        .compare-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.95rem;
+            overflow: hidden;
+            border-radius: var(--radius);
+            border: 1px solid var(--border);
+        }
+        .compare-table th,
+        .compare-table td {
+            padding: 14px 16px;
+            text-align: left;
+            border-bottom: 1px solid var(--border);
+        }
+        .compare-table th {
+            background: rgba(109, 79, 216, 0.15);
+            font-weight: 700;
+        }
+        .compare-table tr:last-child td { border-bottom: none; }
+        .compare-table td:first-child {
+            color: var(--text-secondary);
+            width: 28%;
+        }
+        .compare-table tbody tr:nth-child(even) {
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 20px;
+        }
+        .step {
+            text-align: center;
+            padding: 8px 12px;
+        }
+        .step-n {
+            width: 36px;
+            height: 36px;
+            margin: 0 auto 12px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            background: rgba(109, 79, 216, 0.25);
+            border: 1px solid rgba(139, 92, 246, 0.45);
+            color: #fff;
+        }
+        .step h3 {
+            font-size: 1.05rem;
+            margin-bottom: 6px;
+        }
+        .step p {
+            color: var(--text-secondary);
+            font-size: 0.92rem;
+        }
+
+        .cta-band {
+            margin: 24px 0 72px;
+            padding: 36px 28px;
+            border-radius: var(--radius-lg);
+            text-align: center;
+            background:
+                linear-gradient(145deg, rgba(26, 29, 36, 0.95) 0%, rgba(18, 16, 32, 0.98) 100%);
+            border: 1px solid rgba(139, 92, 246, 0.35);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35), 0 0 60px rgba(109, 79, 216, 0.12);
+        }
+        .cta-band h2 {
+            font-size: 1.5rem;
+            font-weight: 800;
+            margin-bottom: 10px;
+        }
+        .cta-band p {
+            color: var(--text-secondary);
+            margin-bottom: 22px;
+        }
+        .cta-band .qq {
+            display: inline-block;
+            margin-top: 14px;
+            padding: 10px 16px;
+            border-radius: 10px;
+            background: rgba(109, 79, 216, 0.25);
+            border: 1px solid rgba(139, 92, 246, 0.45);
+            font-weight: 600;
+            user-select: text;
+        }
+
+        footer {
+            border-top: 1px solid var(--border);
+            padding: 28px 0;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+        footer a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            margin: 0 10px;
+        }
+        footer a:hover { color: var(--text); }
+
+        .image-modal {
+            display: none;
+            position: fixed;
+            z-index: 10000;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.9);
+        }
+        .image-modal-content {
+            max-width: 90%;
+            max-height: 90%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        .close-modal {
+            position: absolute;
+            top: 20px;
+            right: 35px;
+            color: #fff;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+            z-index: 10001;
+        }
+
+        @media (max-width: 800px) {
+            .feature-grid,
+            .steps { grid-template-columns: 1fr; }
+            .hero { padding: 48px 0 36px; }
+            .hero-brand img { width: 56px; height: 56px; }
+            .nav-links { gap: 14px; }
+            .compare-table { font-size: 0.85rem; }
+            .compare-table th,
+            .compare-table td { padding: 10px 12px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-scene" aria-hidden="true">
+        <div class="bg-spotlight"></div>
+        <div class="bg-mesh"></div>
+    </div>
+
+    <nav class="site-nav">
+        <div class="nav-inner">
+            <a href="keypresser-next.html" class="nav-brand">
+                <img src="keypresser-next-logo.png" alt="KeyPresserNext">
+                <span>KeyPresserNext</span>
+            </a>
+            <div class="nav-links">
+                <a href="index.html">返回官网</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="container">
+            <span class="hero-badge">Coming Soon</span>
+            <div class="hero-brand">
+                <img src="keypresser-next-logo.png" alt="KeyPresserNext">
+            </div>
+            <h1><span class="accent">KeyPresserNext</span><br>录得下，改得动，跑得稳</h1>
+            <p class="hero-lead">
+                下一代 Windows 自动化工具：把按键、鼠标、识图收进同一套行编辑器。
+                录制结果可逐行修改，顺序运行与独立并行一键切换，NextCore 新引擎驱动后台键鼠与识图。
+            </p>
+            <div class="hero-actions">
+                <span class="btn btn-disabled" aria-disabled="true">下载即将开放</span>
+                <a class="btn btn-ghost" href="index.html#next">返回官网预告</a>
+            </div>
+            <div class="preview-block">
+                <img src="keypresser-next-preview.png" alt="KeyPresserNext 主界面预览" width="652" height="702" loading="eager" onclick="openImageModal(this.src)">
+                <p class="preview-caption">界面预览 · 开发中 · 点击可放大</p>
+            </div>
+        </div>
+    </header>
+
+    <section class="section" id="features">
+        <div class="container">
+            <div class="section-head">
+                <p class="section-eyebrow">Features</p>
+                <h2>为什么做 KeyPresserNext</h2>
+                <p>现有 KeyPresser 继续好用；Next 把多工具能力收成一套可编辑的工作流。</p>
+            </div>
+            <div class="feature-grid">
+                <article class="feature-card">
+                    <span class="feature-num">01</span>
+                    <h3>一套界面，三种动作</h3>
+                    <p>按键行、鼠标行、识图目标在同一列表里编排。不用再在标准版、识图版、鼠标助手之间来回拷配置。</p>
+                </article>
+                <article class="feature-card">
+                    <span class="feature-num">02</span>
+                    <h3>录得下，改得动</h3>
+                    <p>录制会拆成「按下 / 弹起」等可编辑行。间隔、坐标、按键事后都能微调，而不是只能整段重录。</p>
+                </article>
+                <article class="feature-card">
+                    <span class="feature-num">03</span>
+                    <h3>顺序跑或独立并行</h3>
+                    <p>顺序运行按列表逐步执行；独立运行让各行按自己的节奏循环。切换时若涉及按下/弹起，会先提示再转换。</p>
+                </article>
+                <article class="feature-card">
+                    <span class="feature-num">04</span>
+                    <h3>NextCore 新引擎</h3>
+                    <p>基于成熟开源键鼠与识图能力重构的 NextCore，后台发送、绑窗、取点与测试反馈更稳，也更适合后续扩展。</p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="workflow">
+        <div class="container">
+            <div class="section-head">
+                <p class="section-eyebrow">Workflow</p>
+                <h2>典型使用流程</h2>
+                <p>从绑窗到跑脚本，三步就能上手。</p>
+            </div>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-n">1</div>
+                    <h3>选择目标窗口</h3>
+                    <p>点「选择窗口」，再点游戏或软件窗口完成绑定；可置顶、凸显，并测试截图 / 键鼠。</p>
+                </div>
+                <div class="step">
+                    <div class="step-n">2</div>
+                    <h3>录制或手动编排</h3>
+                    <p>用 F8 录制，或添加按键行 / 鼠标行；识图截图、取点、批量导入都支持。</p>
+                </div>
+                <div class="step">
+                    <div class="step-n">3</div>
+                    <h3>保存并运行</h3>
+                    <p>保存为 <code>.kpn</code>，配合同名 assets 目录分享。F9 开始，次数 / 间隔 / 速率可调。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="compare">
+        <div class="container">
+            <div class="section-head">
+                <p class="section-eyebrow">Compare</p>
+                <h2>和经典 KeyPresser 比什么</h2>
+                <p>不是简单换皮，而是工作方式升级；经典版仍会持续维护。</p>
+            </div>
+            <table class="compare-table">
+                <thead>
+                    <tr>
+                        <th>能力</th>
+                        <th>KeyPresser 专业版</th>
+                        <th>KeyPresserNext</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>工具形态</td>
+                        <td>多模块分工具使用</td>
+                        <td>统一行编辑器</td>
+                    </tr>
+                    <tr>
+                        <td>录制结果</td>
+                        <td>偏固定回放</td>
+                        <td>按下 / 弹起可编辑</td>
+                    </tr>
+                    <tr>
+                        <td>运行方式</td>
+                        <td>各工具自有逻辑</td>
+                        <td>顺序 / 独立一键切换</td>
+                    </tr>
+                    <tr>
+                        <td>配置格式</td>
+                        <td>各模块独立配置</td>
+                        <td><code>.kpn</code> + assets</td>
+                    </tr>
+                    <tr>
+                        <td>引擎</td>
+                        <td>现有稳定方案</td>
+                        <td>NextCore 新引擎</td>
+                    </tr>
+                    <tr>
+                        <td>下载状态</td>
+                        <td>现已开放</td>
+                        <td>即将开放</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <section class="section" style="border-top: none; padding-top: 0;">
+        <div class="container">
+            <div class="cta-band">
+                <h2>想第一时间体验？</h2>
+                <p>下载通道即将开放。欢迎进群围观进度、反馈需求，现有 KeyPresser 也可继续用。</p>
+                <div class="hero-actions" style="margin-bottom: 0;">
+                    <span class="btn btn-disabled" aria-disabled="true">下载即将开放</span>
+                    <a class="btn btn-primary" href="index.html#download">下载经典版 KeyPresser</a>
+                </div>
+                <div class="qq">QQ 群 901882848</div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <a href="index.html">返回官网</a>
+            <a href="index.html#download">下载</a>
+            <a href="index.html#help">使用帮助</a>
+            <p style="margin-top: 14px;">© KeyPresser · KeyPresserNext 预告页</p>
+        </div>
+    </footer>
+
+    <div id="imageModal" class="image-modal" onclick="closeImageModal()">
+        <span class="close-modal" onclick="closeImageModal()">&times;</span>
+        <img class="image-modal-content" id="modalImage" alt="预览放大">
+    </div>
+    <script>
+        function openImageModal(src) {
+            var modal = document.getElementById('imageModal');
+            var img = document.getElementById('modalImage');
+            img.src = src;
+            modal.style.display = 'block';
+        }
+        function closeImageModal() {
+            document.getElementById('imageModal').style.display = 'none';
+        }
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape') closeImageModal();
+        });
+    </script>
+</body>
+</html>
