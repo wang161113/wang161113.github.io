@@ -39,6 +39,18 @@ Allow: /
 User-agent: Applebot-Extended
 Allow: /
 
+User-agent: Amazonbot
+Allow: /
+
+User-agent: meta-externalagent
+Allow: /
+
+User-agent: FacebookBot
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
 # LLM-readable summaries
 # https://keypresser.onepeak.cn/llms.txt
 # https://keypresser.onepeak.cn/llms-full.txt
