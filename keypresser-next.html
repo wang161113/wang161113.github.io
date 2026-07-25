@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>KeyPresserNext - 录得下改得动跑得稳 | Windows自动化行编辑器</title>
-    <meta name="description" content="KeyPresserNext 现已开放下载：统一按键/鼠标/识图行编辑器，录制可改，顺序与独立一键切换，NextCore 引擎。口号录得下改得动跑得稳。">
+    <meta name="description" content="KeyPresserNext 现已开放下载：统一按键/鼠标/识图行编辑器，F8 录制可改、F9 运行，顺序/独立切换，窗口绑定与多模式仿真，15 天试用。口号录得下改得动跑得稳。">
     <meta name="keywords" content="KeyPresserNext,KeyPresser Next,自动化按键,行编辑器,识图按键,键鼠录制,NextCore,Windows宏">
     <meta name="author" content="KeyPresser">
     <meta name="robots" content="index,follow,max-image-preview:large">
@@ -76,8 +76,13 @@
             "统一按键 / 鼠标 / 识图行编辑器",
             "录制按下与弹起可分行编辑",
             "顺序运行与独立运行一键切换",
+            "窗口绑定、置顶与运行前测试",
+            "多种截图 / 键鼠 / 绑定模式",
+            "批量导入动作行",
+            "F8 录制 / F9 运行，快捷键可自定义",
+            "15 天免注册试用与会员授权",
             "NextCore 新引擎",
-            ".kpn 配置与 assets 资源目录"
+            ".kpn 配置与同名 assets 资源目录"
           ],
           "screenshot": "https://keypresser.onepeak.cn/keypresser-next-preview.png",
           "description": "下一代 Windows 自动化工具：统一按键、鼠标、识图行编辑器；录制结果可编辑；顺序 / 独立运行一键切换；NextCore 新引擎。现已开放下载。经典 KeyPresser 专业版（累计 10,000+ 下载、评分 4.8）继续维护。",
@@ -97,26 +102,38 @@
           "@type": "HowTo",
           "@id": "https://keypresser.onepeak.cn/keypresser-next.html#howto",
           "name": "KeyPresserNext 典型使用流程",
-          "description": "从绑窗到跑脚本，三步上手 KeyPresserNext。",
+          "description": "从试用登录、绑窗到录制运行，五步上手 KeyPresserNext。",
           "totalTime": "PT10M",
           "step": [
             {
               "@type": "HowToStep",
               "position": 1,
-              "name": "选择目标窗口",
-              "text": "点「选择窗口」，再点目标程序窗口完成绑定；可置顶、凸显，并测试截图 / 键鼠。"
+              "name": "试用或登录",
+              "text": "新用户可免注册试用 15 天；也可在账号菜单登录同步会员授权。"
             },
             {
               "@type": "HowToStep",
               "position": 2,
-              "name": "录制或手动编排",
-              "text": "用 F8 录制，或添加按键行 / 鼠标行；识图截图、取点、批量导入都支持。"
+              "name": "选择目标窗口",
+              "text": "点「选择窗口」绑定目标；可用凸显、置顶，并用运行前测试确认截图与键鼠。"
             },
             {
               "@type": "HowToStep",
               "position": 3,
+              "name": "录制或手动编排",
+              "text": "F8 录制，或添加按键行 / 鼠标行；支持识图、取点与批量导入。"
+            },
+            {
+              "@type": "HowToStep",
+              "position": 4,
+              "name": "选择运行方式",
+              "text": "顺序运行按列表逐步执行；独立运行让各行按各自间隔并行，可启用长按。"
+            },
+            {
+              "@type": "HowToStep",
+              "position": 5,
               "name": "保存并运行",
-              "text": "保存为 .kpn，配合同名 assets 目录分享。F9 开始，次数 / 间隔 / 速率可调。"
+              "text": "保存为 .kpn（识图资源在同名 assets），F9 开始，次数 / 间隔 / 速率可调。"
             }
           ]
         },
@@ -129,7 +146,7 @@
               "name": "KeyPresserNext 可以下载了吗？",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "可以。KeyPresserNext 已在本页开放下载（https://share.feijipan.com/s/dc5bGh67）。经典 KeyPresser 专业版（累计 10,000+ 下载、评分 4.8、版本 6.3.0）仍可在 https://keypresser.onepeak.cn/#download 下载。"
+                "text": "可以。KeyPresserNext 已在本页开放下载（https://share.feijipan.com/s/dc5bGh67）。经典 KeyPresser 专业版仍可在官网下载区下载。"
               }
             },
             {
@@ -137,7 +154,7 @@
               "name": "KeyPresserNext 适合什么场景？",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "适合需要把按键、鼠标点击与识图组合在同一脚本中编辑的 Windows 自动化场景，尤其希望录制后还能微调间隔、坐标与按下/弹起的用户。核心能力是统一行编辑器 + NextCore 引擎。"
+                "text": "适合需要把按键、鼠标点击与识图组合在同一脚本中编辑的 Windows 自动化场景，尤其希望录制后还能微调间隔、坐标与按下/弹起的用户。"
               }
             },
             {
@@ -145,7 +162,39 @@
               "name": "会替换经典 KeyPresser 吗？",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "不会立刻取代。经典 KeyPresser（6.3.0）继续维护并可下载；KeyPresserNext 是工作流升级版（统一行编辑器、录制可改、顺序/独立切换），两者关系是并存演进。"
+                "text": "不会立刻取代。经典 KeyPresser 继续维护并可下载；KeyPresserNext 是工作流升级版，两者并存演进。"
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "新用户可以试用吗？",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "可以。新安装可免费试用 15 天，无需注册；状态栏会显示试用剩余天数。无可用授权时无法运行或录制。"
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "顺序运行和独立运行有什么区别？",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "顺序运行按列表从上到下轮流执行，可编辑按下/弹起；独立运行让各行按各自间隔并行循环，按键行可勾选长按。"
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "点了开始没反应怎么办？",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "先选窗并绑定、确认有授权、至少一条启用行；按键行须已设按键，识图鼠标行须有截图。也可用运行前测试查看日志。"
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "杀毒软件报毒或文件消失？",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "因含键鼠注入与全局钩子，易被误报。请把安装目录加入信任区，并从隔离区还原 KeyPresserNext.exe / NextCore.dll。"
               }
             }
           ]
@@ -728,6 +777,237 @@
                 font-size: 1.1rem;
             }
         }
+        /* enrich:start */
+        kbd {
+            display: inline-block;
+            padding: 1px 6px;
+            border-radius: 5px;
+            border: 1px solid rgba(255, 255, 255, 0.16);
+            background: rgba(255, 255, 255, 0.06);
+            font-family: Consolas, "Cascadia Mono", "Courier New", monospace;
+            font-size: 0.85em;
+            line-height: 1.4;
+            color: #e8e4ff;
+        }
+        .chip-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            justify-content: center;
+            margin: 0 auto 28px;
+            max-width: 720px;
+        }
+        .chip {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 12px;
+            border-radius: 999px;
+            font-size: 12.5px;
+            font-weight: 600;
+            color: var(--text-secondary);
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid var(--border);
+        }
+        .chip em {
+            font-style: normal;
+            color: var(--accent-bright);
+            font-weight: 800;
+        }
+        .cap-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 18px;
+        }
+        .cap-card {
+            padding: 22px;
+            border-radius: var(--radius);
+            background: rgba(26, 29, 36, 0.72);
+            border: 1px solid var(--border);
+        }
+        .cap-card h3 {
+            font-size: 1.05rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        .cap-card ul {
+            margin: 0;
+            padding-left: 1.1em;
+            color: var(--text-secondary);
+            font-size: 0.92rem;
+            line-height: 1.7;
+        }
+        .cap-card li + li { margin-top: 4px; }
+        .kv-grid {
+            display: grid;
+            gap: 10px;
+            max-width: 860px;
+            margin: 0 auto;
+        }
+        .kv-item {
+            display: grid;
+            grid-template-columns: 140px minmax(0, 1fr);
+            gap: 12px;
+            padding: 12px 16px;
+            border-radius: 12px;
+            background: rgba(26, 29, 36, 0.72);
+            border: 1px solid var(--border);
+            align-items: start;
+        }
+        .kv-item .k {
+            font-weight: 700;
+            font-size: 0.92rem;
+            color: #fff;
+        }
+        .kv-item .v {
+            color: var(--text-secondary);
+            font-size: 0.92rem;
+            line-height: 1.6;
+        }
+        .mode-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 14px;
+            margin-top: 8px;
+        }
+        .mode-card {
+            padding: 16px 16px 14px;
+            border-radius: 12px;
+            background: rgba(26, 29, 36, 0.72);
+            border: 1px solid var(--border);
+        }
+        .mode-card .name {
+            font-weight: 700;
+            font-size: 0.95rem;
+            margin-bottom: 6px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+        .mode-card p {
+            color: var(--text-secondary);
+            font-size: 0.88rem;
+            line-height: 1.55;
+            margin: 0;
+        }
+        .badge {
+            display: inline-block;
+            padding: 2px 8px;
+            border-radius: 999px;
+            font-size: 11px;
+            font-weight: 700;
+            color: #c4b5fd;
+            background: rgba(109, 79, 216, 0.22);
+            border: 1px solid rgba(139, 92, 246, 0.35);
+        }
+        .callout {
+            max-width: 860px;
+            margin: 20px auto 0;
+            padding: 14px 16px;
+            border-radius: 12px;
+            border: 1px solid rgba(139, 92, 246, 0.28);
+            background: rgba(109, 79, 216, 0.1);
+            color: var(--text-secondary);
+            font-size: 0.92rem;
+            line-height: 1.65;
+        }
+        .callout.warn {
+            border-color: rgba(201, 162, 39, 0.35);
+            background: rgba(201, 162, 39, 0.08);
+        }
+        .callout .lbl {
+            display: inline-block;
+            font-weight: 800;
+            color: #c4b5fd;
+            margin-right: 8px;
+            font-size: 12px;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+        }
+        .callout.warn .lbl { color: #e6c86a; }
+        .trial-band {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 18px;
+            align-items: stretch;
+        }
+        .trial-card {
+            padding: 24px;
+            border-radius: var(--radius);
+            background: rgba(26, 29, 36, 0.72);
+            border: 1px solid var(--border);
+        }
+        .trial-card h3 {
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+        }
+        .trial-card p,
+        .trial-card li {
+            color: var(--text-secondary);
+            font-size: 0.94rem;
+            line-height: 1.65;
+        }
+        .trial-card ul {
+            margin: 8px 0 0;
+            padding-left: 1.15em;
+        }
+        .trial-card li + li { margin-top: 6px; }
+        .hotkey-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+            margin-top: 28px;
+        }
+        .hotkey-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 14px;
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid var(--border);
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+        .hotkey-pill strong { color: #fff; font-weight: 700; }
+        .steps-5 {
+            display: grid;
+            grid-template-columns: repeat(5, minmax(0, 1fr));
+            gap: 14px;
+        }
+        .step-rich {
+            text-align: left;
+            padding: 18px 16px;
+            border-radius: var(--radius);
+            background: rgba(26, 29, 36, 0.72);
+            border: 1px solid var(--border);
+        }
+        .step-rich .step-n {
+            margin: 0 0 12px;
+        }
+        .step-rich h3 {
+            font-size: 1rem;
+            margin-bottom: 8px;
+        }
+        .step-rich p {
+            color: var(--text-secondary);
+            font-size: 0.88rem;
+            line-height: 1.6;
+        }
+        .nav-links a[href^="#"] { font-size: 0.88em; }
+        @media (max-width: 980px) {
+            .cap-grid,
+            .mode-grid,
+            .trial-band,
+            .steps-5 { grid-template-columns: 1fr; }
+            .kv-item { grid-template-columns: 1fr; gap: 4px; }
+        }
+        @media (max-width: 800px) {
+            .nav-links a[href^="#"] { display: none; }
+        }
+        /* enrich:end */
     </style>
 </head>
 <body>
@@ -743,7 +1023,12 @@
                 <span>KeyPresserNext</span>
             </a>
             <div class="nav-links">
-                <a href="index.html">返回KeyPresser官网</a>
+                <a href="#features">特性</a>
+                <a href="#workflow">上手</a>
+                <a href="#capabilities">能力</a>
+                <a href="#account">试用</a>
+                <a href="#faq">问答</a>
+                <a href="index.html">返回官网</a>
             </div>
         </div>
     </nav>
@@ -755,8 +1040,8 @@
             </div>
             <h1><span class="accent">KeyPresserNext</span><br>录得下，改得动，跑得稳</h1>
             <p class="hero-lead">
-                KeyPresserNext 现已开放下载：把按键、鼠标、识图收进同一套行编辑器。
-                录制结果可逐行修改，顺序运行与独立并行一键切换，NextCore 新引擎驱动后台键鼠与识图。
+                把按键、鼠标、识图收进同一套行编辑器：<kbd>F8</kbd> 录制可改，<kbd>F9</kbd> 一键开跑，
+                顺序 / 独立随时切换。绑窗、仿真模式与运行前测试开箱即用，新用户可免注册试用 15 天。
             </p>
             <div class="hero-actions">
                 <a class="btn btn-download" href="https://share.feijipan.com/s/dc5bGh67" target="_blank" rel="noopener noreferrer">
@@ -795,12 +1080,22 @@
                 <article class="feature-card">
                     <span class="feature-num">03</span>
                     <h3>顺序跑或独立并行</h3>
-                    <p>顺序运行按列表逐步执行；独立运行让各行按自己的节奏循环。切换时若涉及按下/弹起，会先提示再转换。</p>
+                    <p>顺序运行按列表逐步执行；独立运行让各行按自己的节奏循环。独立模式下还可勾选「长按」。</p>
                 </article>
                 <article class="feature-card">
                     <span class="feature-num">04</span>
+                    <h3>绑窗与运行前测试</h3>
+                    <p>选择窗口、凸显红框、置顶目标；测试截图 / 鼠标 / 键盘，结果写入日志与状态栏，跑之前先确认模式可用。</p>
+                </article>
+                <article class="feature-card">
+                    <span class="feature-num">05</span>
+                    <h3>批量导入与可分享配置</h3>
+                    <p>从文本或文件一次加多行动作；保存为 <code>.kpn</code>，识图资源在同名 <code>.assets</code> 目录，拷贝即可分享。</p>
+                </article>
+                <article class="feature-card">
+                    <span class="feature-num">06</span>
                     <h3>NextCore 新引擎</h3>
-                    <p>基于成熟开源键鼠与识图能力重构的 NextCore，后台发送、绑窗、取点与测试反馈更稳，也更适合后续扩展。</p>
+                    <p>基于成熟开源键鼠与识图能力重构：后台发送、绑窗、取点与测试反馈更稳，也更适合后续扩展。</p>
                 </article>
             </div>
         </div>
@@ -811,24 +1106,132 @@
             <div class="section-head">
                 <p class="section-eyebrow">Workflow</p>
                 <h2>典型使用流程</h2>
-                <p>从绑窗到跑脚本，三步就能上手。</p>
+                <p>对照软件内帮助：从试用登录到开跑，五步就能上手。</p>
             </div>
-            <div class="steps">
-                <div class="step">
+            <div class="steps-5">
+                <div class="step-rich">
                     <div class="step-n">1</div>
-                    <h3>选择目标窗口</h3>
-                    <p>点「选择窗口」，再点目标程序窗口完成绑定；可置顶、凸显，并测试截图 / 键鼠。</p>
+                    <h3>试用或登录</h3>
+                    <p>菜单「账号 → 授权 / 登录…」。新用户可免注册试用 15 天；未登录会直接打开网页完成登录。</p>
                 </div>
-                <div class="step">
+                <div class="step-rich">
                     <div class="step-n">2</div>
-                    <h3>录制或手动编排</h3>
-                    <p>用 F8 录制，或添加按键行 / 鼠标行；识图截图、取点、批量导入都支持。</p>
+                    <h3>选择目标窗口</h3>
+                    <p>点「选择窗口」再点目标程序完成绑定。不确定绑了谁？用「凸显所选窗口」看红框闪烁。</p>
                 </div>
-                <div class="step">
+                <div class="step-rich">
                     <div class="step-n">3</div>
-                    <h3>保存并运行</h3>
-                    <p>保存为 <code>.kpn</code>，配合同名 assets 目录分享。F9 开始，次数 / 间隔 / 速率可调。</p>
+                    <h3>运行前测试</h3>
+                    <p>先测截图 / 鼠标 / 键盘，确认当前仿真模式对目标程序有效，再正式编排动作。</p>
                 </div>
+                <div class="step-rich">
+                    <div class="step-n">4</div>
+                    <h3>录制或手动编排</h3>
+                    <p><kbd>F8</kbd> 录制（在目标窗前台操作），或添加按键行 / 鼠标行；也支持批量导入。</p>
+                </div>
+                <div class="step-rich">
+                    <div class="step-n">5</div>
+                    <h3>保存并运行</h3>
+                    <p>保存为 <code>.kpn</code>。<kbd>F9</kbd> 开始 / 再按停止；次数、间隔、速率可调。</p>
+                </div>
+            </div>
+            <div class="hotkey-row">
+                <div class="hotkey-pill"><kbd>F8</kbd> <strong>录制</strong></div>
+                <div class="hotkey-pill"><kbd>F9</kbd> <strong>开始 / 停止</strong></div>
+                <div class="hotkey-pill"><kbd>Ctrl</kbd>+<kbd>Z</kbd> <strong>撤销</strong></div>
+                <div class="hotkey-pill"><kbd>F1</kbd> <strong>帮助</strong></div>
+                <div class="hotkey-pill">快捷键均可在设置中修改</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="capabilities">
+        <div class="container">
+            <div class="section-head">
+                <p class="section-eyebrow">Capabilities</p>
+                <h2>界面能力一览</h2>
+                <p>主界面分区与用户帮助一致：窗口区 → 工具栏 → 动作列表 → 运行与日志。</p>
+            </div>
+            <div class="chip-row">
+                <span class="chip"><em>1</em> 窗口与仿真</span>
+                <span class="chip"><em>2</em> 动作工具栏</span>
+                <span class="chip"><em>3</em> 动作列表</span>
+                <span class="chip"><em>4</em> 运行与日志</span>
+            </div>
+            <div class="cap-grid">
+                <article class="cap-card">
+                    <h3>窗口与仿真</h3>
+                    <ul>
+                        <li>选择窗口、凸显、置顶</li>
+                        <li>截图 / 鼠标 / 键盘 / 绑定模式可调</li>
+                        <li>运行前测试：截图预览、取点点击、测试按键</li>
+                        <li>运行方式：顺序（默认）或独立并行</li>
+                    </ul>
+                </article>
+                <article class="cap-card">
+                    <h3>动作行编辑</h3>
+                    <ul>
+                        <li>按键行：组合键、按下/弹起、可选识图后再按</li>
+                        <li>鼠标行：点击 / 双击 / 滚轮，坐标取点或识图定位</li>
+                        <li>行间隔支持最小～最大随机等待</li>
+                        <li>左侧勾选决定是否参与运行</li>
+                    </ul>
+                </article>
+                <article class="cap-card">
+                    <h3>运行与文件</h3>
+                    <ul>
+                        <li>次数（0=无限）、额外间隔、速率缩放</li>
+                        <li>日志可折叠，记录绑窗、识图、起停等</li>
+                        <li><code>.kpn</code> + 同名 assets；双击打开 / 多开可选</li>
+                        <li>运行或录制时本窗最小化，右下角提示停止键</li>
+                    </ul>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="modes">
+        <div class="container">
+            <div class="section-head">
+                <p class="section-eyebrow">Modes</p>
+                <h2>仿真模式怎么选</h2>
+                <p>默认即可覆盖大多数情况；无效时再按场景切换，并先做运行前测试。</p>
+            </div>
+            <div class="kv-grid" style="margin-bottom: 22px;">
+                <div class="kv-item">
+                    <div class="k">推荐起步</div>
+                    <div class="v">截图 <code>normal.auto</code> · 键鼠 <code>windows</code> · 绑定 <code>mode 0</code> · 顺序运行</div>
+                </div>
+                <div class="kv-item">
+                    <div class="k">后台无效</div>
+                    <div class="v">键鼠改 <code>dx</code>，或勾选「置顶」并改用 <code>normal</code></div>
+                </div>
+                <div class="kv-item">
+                    <div class="k">识图失败</div>
+                    <div class="v">先测截图；普通窗试 <code>gdi</code>；全屏 / 游戏试 <code>normal.dxgi</code> / <code>dx</code></div>
+                </div>
+                <div class="kv-item">
+                    <div class="k">要并行 / 长按</div>
+                    <div class="v">运行改为「独立运行」，再在按键行勾选「长按」</div>
+                </div>
+            </div>
+            <div class="mode-grid">
+                <div class="mode-card">
+                    <div class="name">截图模式 <span class="badge">推荐 auto</span></div>
+                    <p><code>normal.auto</code> 覆盖大多数情况；另有 DXGI / WGC、GDI、DX、OpenGL 等可选。</p>
+                </div>
+                <div class="mode-card">
+                    <div class="name">键鼠模式 <span class="badge">默认 windows</span></div>
+                    <p><code>windows</code> 常可后台；需要真实前台输入用 <code>normal</code>；DirectX 场景可试 <code>dx</code>。</p>
+                </div>
+                <div class="mode-card">
+                    <div class="name">顺序 vs 独立</div>
+                    <p>顺序：从上到下轮流，可显示按下/弹起。独立：各行并行循环，支持长按。</p>
+                </div>
+            </div>
+            <div class="callout">
+                <span class="lbl">提示</span>
+                换模式后先「运行前测试」，再正式跑。结果写在日志和状态栏。
             </div>
         </div>
     </section>
@@ -865,6 +1268,11 @@
                         <td>顺序 / 独立一键切换</td>
                     </tr>
                     <tr>
+                        <td>窗口与仿真</td>
+                        <td>各工具分别配置</td>
+                        <td>统一绑窗 + 多模式 + 运行前测试</td>
+                    </tr>
+                    <tr>
                         <td>配置格式</td>
                         <td>各模块独立配置</td>
                         <td><code>.kpn</code> + assets</td>
@@ -884,12 +1292,46 @@
         </div>
     </section>
 
+    <section class="section" id="account">
+        <div class="container">
+            <div class="section-head">
+                <p class="section-eyebrow">Account</p>
+                <h2>试用、登录与会员</h2>
+                <p>装好就能试；需要长期使用再登录开通会员。</p>
+            </div>
+            <div class="trial-band">
+                <article class="trial-card">
+                    <h3>15 天免注册试用</h3>
+                    <p>新安装可直接试用，状态栏显示剩余天数。试用或会员授权有效时，才能运行与录制。</p>
+                    <ul>
+                        <li>入口：菜单「账号 → 授权 / 登录…」</li>
+                        <li>未登录时会直接打开浏览器完成登录 / 注册</li>
+                        <li>登录成功后客户端会自动同步授权状态</li>
+                    </ul>
+                </article>
+                <article class="trial-card">
+                    <h3>会员中心</h3>
+                    <p>登录后点「打开会员中心」，在浏览器选套餐支付；支付成功后客户端自动同步。</p>
+                    <ul>
+                        <li>网页可点「返回客户端」唤起软件</li>
+                        <li>永久会员在状态栏有金色徽章</li>
+                        <li>帮助菜单支持检查更新与自动安装</li>
+                    </ul>
+                </article>
+            </div>
+            <div class="callout warn">
+                <span class="lbl">注意</span>
+                软件含键鼠注入与全局钩子，可能被 360 / Defender 误报隔离。请优先把安装目录加入信任区；文件消失时到隔离区还原 <code>KeyPresserNext.exe</code> / <code>NextCore.dll</code>。
+            </div>
+        </div>
+    </section>
+
     <section class="section" id="faq">
         <div class="container">
             <div class="section-head">
                 <p class="section-eyebrow">FAQ</p>
                 <h2>常见问题</h2>
-                <p>便于搜索与 AI 助手准确理解 KeyPresserNext。</p>
+                <p>产品定位与上手排错，便于搜索与 AI 助手准确理解。</p>
             </div>
             <div class="faq-list">
                 <details open>
@@ -903,6 +1345,26 @@
                 <details>
                     <summary>会替换经典 KeyPresser 吗？</summary>
                     <div class="faq-a">不会立刻取代。经典 KeyPresser（6.3.0）继续维护并可下载；KeyPresserNext 是工作流升级版（统一行编辑器、录制可改、顺序/独立切换），两者关系是并存演进。</div>
+                </details>
+                <details>
+                    <summary>新用户可以试用吗？</summary>
+                    <div class="faq-a">可以。新安装可<strong>免费试用 15 天</strong>（无需注册）；状态栏会显示试用剩余天数。开通会员后显示会员状态。无可用授权时无法运行或录制。</div>
+                </details>
+                <details>
+                    <summary>顺序运行和独立运行有什么区别？</summary>
+                    <div class="faq-a"><strong>顺序</strong>：从上到下轮流执行，可编辑按下/弹起，无「长按」。<strong>独立</strong>：各行按各自间隔并行循环，按键行可勾选「长按」。录制成功后会自动切到顺序运行。</div>
+                </details>
+                <details>
+                    <summary>点了开始没反应？</summary>
+                    <div class="faq-a">先选窗并绑定、确认有授权、至少一条启用行；按键行须已设按键，识图鼠标行须有截图。也可用「运行前测试」看日志确认模式是否有效。</div>
+                </details>
+                <details>
+                    <summary>按键 / 点击无效或识图找不到？</summary>
+                    <div class="faq-a">键鼠可改 <code>dx</code> 或 <code>normal</code>，或勾「置顶」。识图先「测试截图」，再换截图模式，模板尽量截特征清晰区域。日志会显示成败。</div>
+                </details>
+                <details>
+                    <summary>杀毒软件报毒或 NextCore.dll 消失？</summary>
+                    <div class="faq-a">多为误报。请从隔离区还原，并把安装目录加入信任 / 排除项。不推荐长期关闭杀毒。</div>
                 </details>
             </div>
         </div>
@@ -931,9 +1393,10 @@
     <footer>
         <div class="container">
             <a href="index.html">返回KeyPresser官网</a>
-            <a href="index.html#download">下载</a>
-            <a href="index.html#help">使用帮助</a>
-            <p style="margin-top: 14px;">© KeyPresserNext 官方网站</p>
+            <a href="https://share.feijipan.com/s/dc5bGh67" target="_blank" rel="noopener noreferrer">下载 Next</a>
+            <a href="index.html#download">下载经典版</a>
+            <a href="#faq">常见问题</a>
+            <p style="margin-top: 14px;">© KeyPresserNext · 软件内按 F1 可打开完整用户帮助</p>
         </div>
     </footer>
 
