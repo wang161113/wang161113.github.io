@@ -337,26 +337,129 @@
         .hero-actions {
             display: flex;
             flex-wrap: wrap;
-            gap: 12px;
+            gap: 14px;
             justify-content: center;
-            margin-bottom: 40px;
+            align-items: center;
+            margin-bottom: 44px;
         }
         .btn {
             display: inline-flex;
             align-items: center;
             justify-content: center;
+            gap: 10px;
             padding: 12px 22px;
             border-radius: 12px;
             font-weight: 700;
             font-size: 0.95rem;
             text-decoration: none;
-            transition: transform 0.2s ease, filter 0.2s ease;
+            transition: transform 0.2s ease, filter 0.2s ease, box-shadow 0.2s ease;
         }
         .btn:hover { transform: translateY(-1px); filter: brightness(1.06); }
         .btn-primary {
             color: #fff;
             background: linear-gradient(135deg, #6d4fd8, #8b5cf6);
             box-shadow: 0 8px 24px rgba(109, 79, 216, 0.35);
+        }
+        .btn-download {
+            position: relative;
+            overflow: hidden;
+            isolation: isolate;
+            min-width: 260px;
+            padding: 20px 44px;
+            border-radius: 999px;
+            font-size: 1.2rem;
+            font-weight: 800;
+            letter-spacing: 0.04em;
+            color: #fff;
+            border: 1px solid rgba(255, 255, 255, 0.22);
+            background:
+                linear-gradient(120deg, #7c5cff 0%, #a78bfa 42%, #6d4fd8 78%, #5b3fd1 100%);
+            background-size: 220% 220%;
+            box-shadow:
+                0 0 0 1px rgba(167, 139, 250, 0.25),
+                0 14px 36px rgba(109, 79, 216, 0.5),
+                0 0 48px rgba(139, 92, 246, 0.35);
+            animation: downloadPulse 2.6s ease-in-out infinite, downloadSheen 5s linear infinite;
+            transition: transform 0.22s ease, box-shadow 0.22s ease, filter 0.22s ease;
+        }
+        .btn-download::before {
+            content: "";
+            position: absolute;
+            inset: -40% -60%;
+            background: linear-gradient(
+                105deg,
+                transparent 35%,
+                rgba(255, 255, 255, 0.38) 50%,
+                transparent 65%
+            );
+            transform: translateX(-30%) rotate(8deg);
+            animation: downloadSweep 3.2s ease-in-out infinite;
+            pointer-events: none;
+            z-index: 0;
+        }
+        .btn-download::after {
+            content: "";
+            position: absolute;
+            inset: 1px;
+            border-radius: inherit;
+            background: linear-gradient(180deg, rgba(255,255,255,0.16), transparent 42%);
+            pointer-events: none;
+            z-index: 0;
+        }
+        .btn-download > * {
+            position: relative;
+            z-index: 1;
+        }
+        .btn-download .dl-icon {
+            width: 1.25em;
+            height: 1.25em;
+            flex-shrink: 0;
+        }
+        .btn-download:hover {
+            transform: translateY(-3px) scale(1.03);
+            filter: brightness(1.08);
+            box-shadow:
+                0 0 0 1px rgba(196, 181, 253, 0.45),
+                0 18px 44px rgba(109, 79, 216, 0.62),
+                0 0 72px rgba(167, 139, 250, 0.5);
+        }
+        .btn-download:active {
+            transform: translateY(-1px) scale(0.99);
+        }
+        .btn-download:focus-visible {
+            outline: 2px solid #c4b5fd;
+            outline-offset: 4px;
+        }
+        @keyframes downloadPulse {
+            0%, 100% {
+                box-shadow:
+                    0 0 0 1px rgba(167, 139, 250, 0.25),
+                    0 14px 36px rgba(109, 79, 216, 0.5),
+                    0 0 40px rgba(139, 92, 246, 0.28);
+            }
+            50% {
+                box-shadow:
+                    0 0 0 1px rgba(196, 181, 253, 0.4),
+                    0 16px 42px rgba(109, 79, 216, 0.58),
+                    0 0 64px rgba(167, 139, 250, 0.48);
+            }
+        }
+        @keyframes downloadSheen {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        @keyframes downloadSweep {
+            0%, 55% { transform: translateX(-40%) rotate(8deg); opacity: 0; }
+            60% { opacity: 1; }
+            78% { transform: translateX(40%) rotate(8deg); opacity: 0.85; }
+            100% { transform: translateX(55%) rotate(8deg); opacity: 0; }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            .btn-download,
+            .btn-download::before {
+                animation: none;
+            }
         }
         .btn-ghost {
             color: var(--text);
@@ -617,6 +720,13 @@
             .compare-table { font-size: 0.85rem; }
             .compare-table th,
             .compare-table td { padding: 10px 12px; }
+            .btn-download {
+                min-width: min(100%, 280px);
+                width: 100%;
+                max-width: 320px;
+                padding: 18px 28px;
+                font-size: 1.1rem;
+            }
         }
     </style>
 </head>
@@ -649,7 +759,13 @@
                 录制结果可逐行修改，顺序运行与独立并行一键切换，NextCore 新引擎驱动后台键鼠与识图。
             </p>
             <div class="hero-actions">
-                <a class="btn btn-primary" href="https://share.feijipan.com/s/dc5bGh67" target="_blank" rel="noopener noreferrer">立即下载</a>
+                <a class="btn btn-download" href="https://share.feijipan.com/s/dc5bGh67" target="_blank" rel="noopener noreferrer">
+                    <svg class="dl-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                        <path d="M12 3v11m0 0l-4.5-4.5M12 14l4.5-4.5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M4 17.5V19a2 2 0 002 2h12a2 2 0 002-2v-1.5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
+                    </svg>
+                    <span>立即下载</span>
+                </a>
             </div>
             <div class="preview-block">
                 <img src="keypresser-next-preview.png" alt="KeyPresserNext 主界面预览" width="652" height="702" loading="eager" onclick="openImageModal(this.src)">
@@ -798,7 +914,13 @@
                 <h2>立即体验 KeyPresserNext</h2>
                 <p>现已开放下载。欢迎进群反馈需求；经典版 KeyPresser 也会继续维护。</p>
                 <div class="hero-actions" style="margin-bottom: 0;">
-                    <a class="btn btn-primary" href="https://share.feijipan.com/s/dc5bGh67" target="_blank" rel="noopener noreferrer">立即下载</a>
+                    <a class="btn btn-download" href="https://share.feijipan.com/s/dc5bGh67" target="_blank" rel="noopener noreferrer">
+                        <svg class="dl-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                            <path d="M12 3v11m0 0l-4.5-4.5M12 14l4.5-4.5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M4 17.5V19a2 2 0 002 2h12a2 2 0 002-2v-1.5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
+                        </svg>
+                        <span>立即下载</span>
+                    </a>
                     <a class="btn btn-primary" href="index.html#download">下载经典版 KeyPresser</a>
                 </div>
                 <div class="qq">QQ 群 901882848</div>
