@@ -71,11 +71,12 @@ h2 { font-size: 1.12rem; line-height: 1.45; font-weight: 800; letter-spacing: -.
 .about-copy p { max-width: 58ch; color: var(--muted); font-size: .94rem; line-height: 1.85; }
 .about-copy .quiet-link { margin-top: 10px; color: var(--accent); }
 .contact { padding-bottom: 30px; }
-.contact-content { display: flex; align-items: flex-start; justify-content: space-between; gap: 20px; padding-top: 27px; }
+.contact-content { display: grid; grid-template-columns: 210px minmax(0, 1fr); grid-template-areas: "qr copy"; align-items: center; gap: 24px; padding-top: 27px; }
+.contact-copy { grid-area: copy; }
 .contact-content h3 { font-size: 1.08rem; font-weight: 800; }
 .contact-content p { margin-top: 5px; color: var(--muted); font-size: .94rem; line-height: 1.85; }
 .contact-content .quiet-link { margin-top: 10px; color: var(--accent); }
-.wechat-qr { display: block; width: 210px; max-width: 100%; height: auto; flex: none; border: 1px solid var(--line); border-radius: 12px; }
+.wechat-qr { grid-area: qr; display: block; width: 210px; max-width: 100%; height: auto; border: 1px solid var(--line); border-radius: 12px; }
 .footer { display: flex; justify-content: space-between; gap: 20px; padding-block: 20px; border-top: 1px solid var(--line); color: var(--subtle); font-size: .76rem; font-weight: 670; }
 
 @media (max-width: 680px) {
@@ -99,7 +100,7 @@ h2 { font-size: 1.12rem; line-height: 1.45; font-weight: 800; letter-spacing: -.
   .about { padding-bottom: 24px; }
   .about-copy { padding-top: 9px; }
   .contact { padding-bottom: 24px; }
-  .contact-content { flex-direction: column; gap: 14px; padding-top: 9px; }
+  .contact-content { grid-template-columns: 1fr; grid-template-areas: "copy" "qr"; gap: 14px; padding-top: 9px; }
 }
 
 @media (max-width: 350px) {
