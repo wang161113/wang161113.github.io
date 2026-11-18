@@ -40,8 +40,6 @@ nav a:hover, .footer a:hover { color: var(--accent); }
 .role { display: flex; align-items: center; gap: 9px; color: var(--accent); font-size: .85rem; font-weight: 750; }
 .role::before { content: ""; width: 17px; height: 1px; background: currentColor; }
 h1 { margin: 6px 0 8px; font-size: clamp(3.7rem, 8vw, 5.65rem); line-height: 1; letter-spacing: -.075em; font-weight: 800; }
-.intro-copy { max-width: 48ch; color: var(--muted); font-size: clamp(1rem, 1.7vw, 1.12rem); line-height: 1.6; }
-:lang(zh-CN) .intro-copy { max-width: none; }
 .explore { display: inline-flex; align-items: center; gap: 8px; margin-top: 14px; padding-block: 4px; border-bottom: 1px solid #ad38256b; color: var(--accent); font-size: .86rem; font-weight: 750; }
 .explore:hover { border-color: currentColor; }
 .avatar { display: block; width: clamp(68px, 9vw, 100px); height: auto; margin-right: 3px; border: 5px solid #fffdf8; border-radius: 25%; box-shadow: 0 0 0 1px #dfdad0, 0 8px 20px #24150e12; }
@@ -94,7 +92,6 @@ h2 { font-size: 1.12rem; line-height: 1.45; font-weight: 800; letter-spacing: -.
   nav { gap: 12px; font-size: .8rem; }
   .github-nav { padding: 5px 7px; }
   .intro { gap: 16px; padding-block: 34px 32px; }
-  .intro-copy { max-width: 32ch; }
   .avatar { align-self: start; margin-top: 14px; }
   .section { grid-template-columns: 1fr; gap: 0; }
   .section-label { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 7px 12px; padding-top: 21px; }
