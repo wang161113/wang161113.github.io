@@ -3,15 +3,15 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#101d24">
-  <meta name="description" content="Finn 的个人主页。探索 Poise 身体记录工具、KeyPresser Windows 桌面自动化工具和更多开源项目。">
+  <meta name="theme-color" content="#080c13">
+  <meta name="description" content="Finn 的个人主页，展示 Poise 身体日记、KeyPresser 按键自动化工具和更多开源项目。">
   <meta property="og:title" content="OnePeak｜Finn 的个人主页">
-  <meta property="og:description" content="独立开发作品与开源项目。">
-  <meta property="og:image" content="https://onepeak.cn/assets/onepeak-ridge.webp">
+  <meta property="og:description" content="桌面工具、跨平台应用和开源项目。">
+  <meta property="og:image" content="https://onepeak.cn/assets/onepeak-terrain.webp">
   <meta property="og:url" content="https://onepeak.cn/">
   <link rel="canonical" href="https://onepeak.cn/">
   <link rel="icon" href="assets/favicon.png" type="image/png">
-  <link rel="stylesheet" href="site.css">
+  <link rel="stylesheet" href="site.css?v=2">
   <title>OnePeak｜Finn 的个人主页</title>
 </head>
 <body>
@@ -28,12 +28,12 @@
   </header>
   <main id="main">
     <section class="hero" aria-labelledby="hero-title">
-      <img class="hero-image" src="assets/onepeak-ridge.webp" alt="" fetchpriority="high">
+      <img class="hero-image" src="assets/onepeak-terrain.webp" alt="" fetchpriority="high">
       <div class="wrap hero-inner">
         <div class="hero-copy">
-          <p class="eyebrow hero-label">独立开发 · 开源作品</p>
-          <h1 id="hero-title">你好，我是<br><span>Finn<span class="period">.</span></span></h1>
-          <p class="intro">我做一些日常用得上的软件，<br class="hero-break">从随手记录身体变化，到自动化重复操作。</p>
+          <p class="hero-label"><span aria-hidden="true"></span>独立开发者</p>
+          <h1 id="hero-title">Finn<span>.</span></h1>
+          <p class="intro">开发桌面工具与跨平台应用。</p>
           <a class="button" href="#projects">查看作品 <span aria-hidden="true">↓</span></a>
         </div>
       </div>
@@ -46,46 +46,51 @@
       </div>
       <div class="project-grid">
         <article class="project">
-          <div class="art poise" aria-hidden="true">
-            <div class="journal">
-              <div class="journal-head"><span>Poise</span><span class="journal-plus">+</span></div>
-              <div class="journal-label">身体日记</div>
-              <div class="journal-days"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
-              <div class="journal-entry"><span></span><span></span></div>
+          <a class="project-link" href="https://github.com/wang161113/Poise" aria-labelledby="poise-title">
+            <div class="art poise" aria-hidden="true">
+              <div class="journal">
+                <div class="journal-head"><span>Poise</span><span>+</span></div>
+                <div class="journal-days"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+                <div class="journal-entry"><i></i><span></span><span></span></div>
+                <div class="journal-entry"><i></i><span></span><span></span></div>
+              </div>
             </div>
-          </div>
-          <div class="project-copy">
-            <p class="eyebrow">Flutter · 本地优先</p>
-            <h3><a href="https://github.com/wang161113/Poise">Poise <span aria-hidden="true">↗</span></a></h3>
-            <p>一个本地优先的身体日记，方便记录日常身体变化，支持 Android、iOS 和 Web。</p>
-          </div>
+            <div class="project-copy">
+              <p class="project-meta">Flutter <span>·</span> Android / iOS / Web</p>
+              <h3 id="poise-title">Poise <span class="project-arrow" aria-hidden="true">↗</span></h3>
+              <p>本地优先的身体日记，方便记录日常身体变化。</p>
+            </div>
+          </a>
         </article>
         <article class="project">
-          <div class="art keys" aria-hidden="true">
-            <div class="keycap key-control">Ctrl</div>
-            <div class="keycap key-shift">Shift</div>
-            <div class="keycap key-k">K</div>
-          </div>
-          <div class="project-copy">
-            <p class="eyebrow">Windows · 桌面自动化</p>
-            <h3><a href="https://keypresser.onepeak.cn/">KeyPresser <span aria-hidden="true">↗</span></a></h3>
-            <p>一款开源的 Windows 按键自动化工具，把重复的键盘操作交给程序。</p>
-          </div>
+          <a class="project-link" href="https://keypresser.onepeak.cn/" aria-labelledby="keypresser-title">
+            <div class="art keys" aria-hidden="true">
+              <div class="sequence">
+                <span class="keycap key-control">Ctrl</span>
+                <span class="sequence-plus">+</span>
+                <span class="keycap key-shift">Shift</span>
+                <span class="sequence-plus">+</span>
+                <span class="keycap key-k">K</span>
+              </div>
+            </div>
+            <div class="project-copy">
+              <p class="project-meta">Windows <span>·</span> 桌面自动化</p>
+              <h3 id="keypresser-title">KeyPresser <span class="project-arrow" aria-hidden="true">↗</span></h3>
+              <p>开源按键自动化工具，把重复的键盘操作交给程序。</p>
+            </div>
+          </a>
         </article>
       </div>
     </section>
 
-    <section class="about" id="about" aria-labelledby="about-title">
-      <div class="wrap about-inner">
-        <h2 id="about-title">关于我</h2>
-        <div>
-          <p>我是 Finn。我关注桌面工具、自动化和跨平台应用，也把自己用得上的一些工具开源。项目源码、版本更新和问题讨论都可以在 GitHub 上找到。</p>
-          <a class="text-link" href="https://github.com/wang161113">访问 Finn 的 GitHub <span aria-hidden="true">↗</span></a>
-        </div>
+    <section class="wrap about" id="about" aria-labelledby="about-title">
+      <h2 id="about-title">关于我</h2>
+      <div>
+        <p>我是 Finn。我喜欢把日常遇到的问题做成简单好用的软件。项目源码、版本更新和问题讨论都可以在 GitHub 上找到。</p>
+        <a class="text-link" href="https://github.com/wang161113">访问我的 GitHub <span aria-hidden="true">↗</span></a>
       </div>
     </section>
   </main>
-
   <footer class="wrap footer">
     <span>OnePeak · Finn</span>
     <a href="#top">返回顶部 <span aria-hidden="true">↑</span></a>
