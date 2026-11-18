@@ -27,6 +27,8 @@ h1, h2, h3, p { margin: 0; }
 .summit::before { content: ""; width: 19px; height: 14px; background: var(--accent); clip-path: polygon(0 88%, 42% 11%, 58% 40%, 70% 21%, 100% 88%, 83% 88%, 69% 56%, 57% 71%, 42% 45%, 17% 88%); }
 nav { display: flex; align-items: center; gap: clamp(19px, 3.2vw, 38px); color: var(--muted); font-size: .88rem; }
 nav a:hover, .footer a:hover { color: var(--accent); }
+.language-link { color: var(--accent); font-weight: 650; white-space: nowrap; }
+.language-link:hover { text-decoration: underline; text-underline-offset: 5px; }
 .github-nav { display: inline-flex; align-items: center; gap: 8px; padding: 9px 13px; border: 1px solid var(--line); border-radius: 8px; color: var(--ink); font-weight: 650; }
 .github-nav span { color: var(--accent); }
 
@@ -102,6 +104,11 @@ h2 { font-size: clamp(1.65rem, 3.2vw, 2.45rem); font-weight: 730; line-height: 1
   .project-copy { padding: 18px 19px 22px; }
   .about { padding: 23px 20px 26px; }
   .footer { margin-top: 35px; }
+}
+
+@media (max-width: 400px) {
+  .topbar-inner { flex-wrap: wrap; gap: 10px; padding-block: 10px; }
+  nav { flex-wrap: wrap; justify-content: flex-end; gap: 10px; margin-left: auto; }
 }
 
 @media (prefers-reduced-motion: reduce) {
