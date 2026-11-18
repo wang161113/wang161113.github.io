@@ -20,6 +20,7 @@
 *, *::before, *::after { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
 body { display: flex; flex-direction: column; min-height: 100vh; margin: 0; background: var(--paper); color: var(--ink); font-family: var(--sans); }
+main { flex: 1; }
 a { color: inherit; text-decoration: none; }
 a:focus-visible { outline: 2px solid var(--accent); outline-offset: 5px; }
 h1, h2, p { margin: 0; }
@@ -59,7 +60,7 @@ h1, h2 { font-size: 1.12rem; line-height: 1.45; font-weight: 800; letter-spacing
 .project-arrow { display: grid; place-items: center; width: 30px; height: 30px; border: 1px solid var(--line); border-radius: 50%; color: var(--accent); font-size: .88rem; transition: border-color .18s ease, background .18s ease; }
 .project-link:hover .project-arrow { border-color: #d4ae9f; background: #faf3e9; }
 
-.footer { flex: 1; margin-top: clamp(44px, 6vw, 80px); background: #e9e8e4; }
+.footer { margin-top: clamp(44px, 6vw, 80px); background: #e9e8e4; }
 .footer-inner { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.45fr) auto; align-items: start; gap: 28px; padding-block: clamp(32px, 4.1vw, 56px); }
 .footer section { scroll-margin-top: 16px; }
 .about-copy { margin-top: 12px; }
