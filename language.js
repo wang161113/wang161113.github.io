@@ -43,7 +43,7 @@
       const response = await fetch("https://api.country.is/", {
         credentials: "omit",
         referrerPolicy: "no-referrer",
-        signal: AbortSignal.timeout(1800),
+        signal: AbortSignal.timeout(3000),
       });
       if (!response.ok) return;
 
