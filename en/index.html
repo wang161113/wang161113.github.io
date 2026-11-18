@@ -3,11 +3,11 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#080c13">
+  <meta name="theme-color" content="#f9f8f4">
   <meta name="description" content="Finn makes desktop tools and cross-platform apps, including Poise and KeyPresser.">
   <meta property="og:title" content="OnePeak | Finn’s personal site">
   <meta property="og:description" content="Desktop tools, cross-platform apps, and open-source projects.">
-  <meta property="og:image" content="https://onepeak.cn/assets/onepeak-terrain.webp">
+  <meta property="og:image" content="https://onepeak.cn/assets/finn-avatar.webp">
   <meta property="og:url" content="https://onepeak.cn/en/">
   <meta property="og:locale" content="en_US">
   <meta property="og:locale:alternate" content="zh_CN">
@@ -16,7 +16,7 @@
   <link rel="alternate" hreflang="en" href="https://onepeak.cn/en/">
   <link rel="alternate" hreflang="x-default" href="https://onepeak.cn/">
   <link rel="icon" href="../assets/favicon.png" type="image/png">
-  <link rel="stylesheet" href="../site.css?v=3">
+  <link rel="stylesheet" href="../site.css?v=4">
   <title>OnePeak | Finn’s personal site</title>
 </head>
 <body>
@@ -32,71 +32,60 @@
       </nav>
     </div>
   </header>
-  <main id="main">
-    <section class="hero" aria-labelledby="hero-title">
-      <img class="hero-image" src="../assets/onepeak-terrain.webp" alt="" fetchpriority="high">
-      <div class="wrap hero-inner">
-        <div class="hero-copy">
-          <p class="hero-label"><span aria-hidden="true"></span>Independent developer</p>
-          <h1 id="hero-title">Finn<span>.</span></h1>
-          <p class="intro">I build desktop tools and cross-platform apps.</p>
-          <a class="button" href="#projects">Explore projects <span aria-hidden="true">↓</span></a>
-        </div>
+
+  <main class="wrap" id="main">
+    <section class="intro" aria-labelledby="intro-title">
+      <div>
+        <p class="role">Independent developer</p>
+        <h1 id="intro-title">Finn</h1>
+        <p class="intro-copy">I build desktop tools and cross-platform apps for everyday problems.</p>
+        <a class="explore" href="#projects">Explore projects <span aria-hidden="true">↓</span></a>
       </div>
+      <img class="avatar" src="../assets/finn-avatar.webp" width="150" height="150" alt="">
     </section>
 
-    <section class="wrap projects" id="projects" aria-labelledby="projects-title">
-      <div class="section-heading">
+    <section class="section projects" id="projects" aria-labelledby="projects-title">
+      <div class="section-label">
         <h2 id="projects-title">Featured projects</h2>
-        <a class="text-link" href="https://github.com/FinnWang-CN?tab=repositories">All open-source projects <span aria-hidden="true">↗</span></a>
+        <a class="quiet-link" href="https://github.com/FinnWang-CN?tab=repositories">All open-source projects <span aria-hidden="true">↗</span></a>
       </div>
-      <div class="project-grid">
+      <div class="project-list">
         <article class="project">
           <a class="project-link" href="https://poise.onepeak.cn/" aria-labelledby="poise-title">
-            <div class="art poise" aria-hidden="true">
-              <div class="journal">
-                <div class="journal-head"><span>Poise</span><span>+</span></div>
-                <div class="journal-days"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
-                <div class="journal-entry"><i></i><span></span><span></span></div>
-                <div class="journal-entry"><i></i><span></span><span></span></div>
-              </div>
-            </div>
+            <span class="project-icon poise"><img src="../assets/poise-icon.webp" width="112" height="112" alt=""></span>
             <div class="project-copy">
-              <p class="project-meta">Flutter <span>·</span> Android / iOS / Web</p>
-              <h3 id="poise-title">Poise <span class="project-arrow" aria-hidden="true">↗</span></h3>
-              <p>A local-first body journal for tracking day-to-day changes.</p>
+              <h3 id="poise-title">Poise</h3>
+              <p>A local-first body journal for tracking changes and seeing trends over time.</p>
+              <span class="platform">Android · iOS · Web</span>
             </div>
+            <span class="project-arrow" aria-hidden="true">↗</span>
           </a>
         </article>
         <article class="project">
           <a class="project-link" href="https://keypresser.onepeak.cn/" aria-labelledby="keypresser-title">
-            <div class="art keys" aria-hidden="true">
-              <div class="sequence">
-                <span class="keycap key-control">Ctrl</span>
-                <span class="sequence-plus">+</span>
-                <span class="keycap key-shift">Shift</span>
-                <span class="sequence-plus">+</span>
-                <span class="keycap key-k">K</span>
-              </div>
-            </div>
+            <span class="project-icon keys"><img src="../assets/keypresser-icon.webp" width="60" height="62" alt=""></span>
             <div class="project-copy">
-              <p class="project-meta">Windows <span>·</span> Desktop automation</p>
-              <h3 id="keypresser-title">KeyPresser <span class="project-arrow" aria-hidden="true">↗</span></h3>
-              <p>An open-source tool for automating repetitive keystrokes on Windows.</p>
+              <h3 id="keypresser-title">KeyPresser</h3>
+              <p>Record and automate repetitive keyboard and mouse actions.</p>
+              <span class="platform">Windows</span>
             </div>
+            <span class="project-arrow" aria-hidden="true">↗</span>
           </a>
         </article>
       </div>
     </section>
 
-    <section class="wrap about" id="about" aria-labelledby="about-title">
-      <h2 id="about-title">About me</h2>
-      <div>
-        <p>I’m Finn. I turn everyday problems into simple, useful software. You can find the source code, releases, and project discussions on GitHub.</p>
-        <a class="text-link" href="https://github.com/FinnWang-CN">Find me on GitHub <span aria-hidden="true">↗</span></a>
+    <section class="section about" id="about" aria-labelledby="about-title">
+      <div class="section-label">
+        <h2 id="about-title">About me</h2>
+      </div>
+      <div class="about-copy">
+        <p>I like turning repetitive tasks into tools and sharing the software I use. You’ll find source code, releases, and project discussions on GitHub.</p>
+        <a class="quiet-link" href="https://github.com/FinnWang-CN">Find me on GitHub <span aria-hidden="true">↗</span></a>
       </div>
     </section>
   </main>
+
   <footer class="wrap footer">
     <span>OnePeak · Finn</span>
     <a href="#top">Back to top <span aria-hidden="true">↑</span></a>
