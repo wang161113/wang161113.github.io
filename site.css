@@ -19,10 +19,10 @@
 
 *, *::before, *::after { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
-body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(--sans); }
+body { display: flex; flex-direction: column; min-height: 100vh; margin: 0; background: var(--paper); color: var(--ink); font-family: var(--sans); }
 a { color: inherit; text-decoration: none; }
 a:focus-visible { outline: 2px solid var(--accent); outline-offset: 5px; }
-h1, h2, h3, p { margin: 0; }
+h1, h2, p { margin: 0; }
 .wrap { width: min(928px, calc(100% - 96px)); margin-inline: auto; }
 .skip { position: fixed; top: 10px; left: 12px; z-index: 2; padding: 10px 15px; background: var(--paper); transform: translateY(-160%); }
 .skip:focus { transform: none; }
@@ -36,17 +36,12 @@ nav a:hover, .footer a:hover { color: var(--accent); }
 .language-link { white-space: nowrap; }
 .github-nav { padding: 6px 10px; border: 1px solid var(--line); border-radius: 6px; color: var(--ink); white-space: nowrap; }
 
-.intro { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: 24px; max-width: 640px; padding-block: 44px 42px; }
-.role { display: flex; align-items: center; gap: 9px; color: var(--accent); font-size: .85rem; font-weight: 750; }
-.role::before { content: ""; width: 17px; height: 1px; background: currentColor; }
-h1 { margin: 6px 0 8px; font-size: clamp(3.7rem, 8vw, 5.65rem); line-height: 1; letter-spacing: -.075em; font-weight: 800; }
-.explore { display: inline-flex; align-items: center; gap: 8px; margin-top: 14px; padding-block: 4px; border-bottom: 1px solid #ad38256b; color: var(--accent); font-size: .86rem; font-weight: 750; }
-.explore:hover { border-color: currentColor; }
-.avatar { display: block; width: clamp(68px, 9vw, 100px); height: auto; margin-right: 3px; border: 5px solid #fffdf8; border-radius: 25%; box-shadow: 0 0 0 1px #dfdad0, 0 8px 20px #24150e12; }
 
-.section { display: grid; grid-template-columns: 185px minmax(0,1fr); gap: 22px; border-top: 1px solid var(--line); scroll-margin-top: 16px; }
+.section { display: grid; grid-template-columns: 185px minmax(0,1fr); gap: 22px; scroll-margin-top: 16px; }
+.projects { padding-top: 24px; }
 .section-label { padding-top: 18px; }
-h2 { font-size: 1.12rem; line-height: 1.45; font-weight: 800; letter-spacing: -.035em; }
+h1, h2 { font-size: 1.12rem; line-height: 1.45; font-weight: 800; letter-spacing: -.035em; }
+#projects-title { font-size: 1.28rem; }
 .quiet-link { display: inline-flex; align-items: center; gap: 5px; color: var(--subtle); font-size: .81rem; font-weight: 710; }
 .section-label .quiet-link { margin-top: 7px; }
 .quiet-link:hover { color: var(--accent); text-decoration: underline; text-underline-offset: 4px; }
@@ -58,13 +53,13 @@ h2 { font-size: 1.12rem; line-height: 1.45; font-weight: 800; letter-spacing: -.
 .project-icon img { display: block; object-fit: contain; width: 100%; height: 100%; }
 .project-icon.keys { background: #edf3f6; border: 1px solid #dce8ee; }
 .project-icon.keys img { width: 67%; height: 67%; }
-.project-copy h3 { font-size: 1.2rem; line-height: 1.25; font-weight: 800; letter-spacing: -.035em; }
+.project-copy h2 { font-size: 1.2rem; line-height: 1.25; font-weight: 800; letter-spacing: -.035em; }
 .project-copy p { margin-top: 4px; color: var(--muted); font-size: .9rem; line-height: 1.65; }
 .platform { display: block; margin-top: 4px; color: var(--subtle); font-size: .73rem; font-weight: 690; }
 .project-arrow { display: grid; place-items: center; width: 30px; height: 30px; border: 1px solid var(--line); border-radius: 50%; color: var(--accent); font-size: .88rem; transition: border-color .18s ease, background .18s ease; }
 .project-link:hover .project-arrow { border-color: #d4ae9f; background: #faf3e9; }
 
-.footer { margin-top: clamp(44px, 6vw, 80px); background: #e9e8e4; }
+.footer { flex: 1; margin-top: clamp(44px, 6vw, 80px); background: #e9e8e4; }
 .footer-inner { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.45fr) auto; align-items: start; gap: 28px; padding-block: clamp(32px, 4.1vw, 56px); }
 .footer section { scroll-margin-top: 16px; }
 .about-copy { margin-top: 12px; }
@@ -91,9 +86,8 @@ h2 { font-size: 1.12rem; line-height: 1.45; font-weight: 800; letter-spacing: -.
   .summit::before { width: 14px; }
   nav { gap: 12px; font-size: .8rem; }
   .github-nav { padding: 5px 7px; }
-  .intro { gap: 16px; padding-block: 34px 32px; }
-  .avatar { align-self: start; margin-top: 14px; }
   .section { grid-template-columns: 1fr; gap: 0; }
+  .projects { padding-top: 12px; }
   .section-label { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 7px 12px; padding-top: 21px; }
   .section-label .quiet-link { margin-top: 0; }
   .projects .section-label { margin-bottom: 5px; }
